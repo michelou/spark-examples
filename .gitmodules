@@ -1,0 +1,3 @@
+[submodule "spark-scala-examples"]
+	path = spark-scala-examples
+	url = https://github.com/spark-examples/spark-scala-examples.git
