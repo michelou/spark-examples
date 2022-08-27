@@ -21,7 +21,7 @@ Command [`build run`](./HelloWorld/build.bat) performs two tasks :
 <b>&gt; <a href="./HelloWorld/build.bat">build</a> -verbose clean run</b>
 Delete directory "target"
 Create a fat jar
-[info] welcome to sbt 1.6.2 (Temurin Java 1.8.0_322)
+[info] welcome to sbt 1.7.1 (Temurin Java 1.8.0_345)
 [...]
 [info] set current project to HelloWorld (in build file:/K:/examples/HelloWorld/)
 [info] compiling 1 Scala source to K:\examples\HelloWorld\target\scala-2.13\classes ...
@@ -56,7 +56,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
