@@ -1,4 +1,4 @@
-# <span id="top">Running Spark on Microsoft Windows</span>
+# <span id="top">Playing with Spark on Windows</span>
 
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
@@ -19,16 +19,16 @@ This project depends on two external software for the **Microsoft Windows** plaf
 - [Git 2.37][git_downloads] ([*release notes*][git_relnotes])
 - [Oracle OpenJDK 8 LTS][oracle_openjdk8] ([*release notes*][oracle_openjdk8_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
-- [Spark 3.2][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
+- [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [`/opt/`][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*August 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*October 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\Git-2.37.3\                         <i>(289 MB)</i>
-C:\opt\scala-2.13.8\                       <i>( 24 MB)</i>
+C:\opt\scala-2.13.9\                       <i>( 24 MB)</i>
 C:\opt\spark-3.3.0-bin-hadoop3\            <i>(320 MB)</i>
 C:\opt\spark-3.3.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
 </pre>
@@ -84,7 +84,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <pre style="font-size:80%;">
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u345b01.zip</a>  <i>( 99 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.37.3-64-bit.7z.exe</a>                <i>( 41 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.8.zip</a>                                <i>( 21 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.9.zip</a>                                <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.3.0-bin-hadoop3.2.tgz</a>                   <i>(285 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.3.0-bin-hadoop3-scala2.13.tgz</a>           <i>(292 MB)</i>
 </pre>
@@ -92,7 +92,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -127,12 +127,12 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [python_examples]: https://github.com/michelou/python-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.8
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.9
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 [spark]: https://spark.apache.org
 [spark_downloads]: https://spark.apache.org/downloads.html
-[spark_relnotes]: https://spark.apache.org/releases/spark-release-3-2-0.html
+[spark_relnotes]: https://spark.apache.org/releases/spark-release-3-3-0.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
