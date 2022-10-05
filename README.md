@@ -16,7 +16,7 @@
 
 This project depends on two external software for the **Microsoft Windows** plaform:
 
-- [Git 2.37][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.38][git_downloads] ([*release notes*][git_relnotes])
 - [Oracle OpenJDK 8 LTS][oracle_openjdk8] ([*release notes*][oracle_openjdk8_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
@@ -27,7 +27,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 For instance our development environment looks as follows (*October 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.37.3\                         <i>(289 MB)</i>
+C:\opt\Git-2.38.0\                         <i>(289 MB)</i>
 C:\opt\scala-2.13.9\                       <i>( 24 MB)</i>
 C:\opt\spark-3.3.0-bin-hadoop3\            <i>(320 MB)</i>
 C:\opt\spark-3.3.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
@@ -83,7 +83,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u345b01.zip</a>  <i>( 99 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.37.3-64-bit.7z.exe</a>                <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.38.0-64-bit.7z.exe</a>                <i>( 41 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.9.zip</a>                                <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.3.0-bin-hadoop3.2.tgz</a>                   <i>(285 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.3.0-bin-hadoop3-scala2.13.tgz</a>           <i>(292 MB)</i>
@@ -105,7 +105,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.37.3.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.38.0.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
