@@ -27,7 +27,7 @@ This project depends on two external software for the **Microsoft Windows** plaf
 For instance our development environment looks as follows (*October 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.38.0\                         <i>(289 MB)</i>
+C:\opt\Git-2.38.0\                         <i>(317 MB)</i>
 C:\opt\scala-2.13.9\                       <i>( 24 MB)</i>
 C:\opt\spark-3.3.0-bin-hadoop3\            <i>(320 MB)</i>
 C:\opt\spark-3.3.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
@@ -41,6 +41,7 @@ This project is organized as follows:
 <pre style="font-size:80%;">
 bin\
 docs\
+examples\{<a href="./examples/README.md">README.md</a>, <a href="./examples/HelloWorld/">HelloWorld</a>, etc.}
 README.md
 <a href="QUICKREF.md">QUICKREF.md</a>
 <a href="RESOURCES.md">RESOURCES.md</a>
@@ -51,6 +52,7 @@ where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
 - directory [**`docs\`**](docs/) contains [Spark] related papers/articles.
+- directory [**`examples`**](examples/) contain [Spark] code examples.
 - file **`README.md`** is the [Markdown][github_markdown] document for this page.
 - file [**`QUICKREF.md`**](QUICKREF.md) gathers Spark hints and tips.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.

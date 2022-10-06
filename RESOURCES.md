@@ -29,6 +29,10 @@
 - [Spark Job Server][project_spark_jobserver].
 - [Sparkplug](https://github.com/springnz/sparkplug) - A framework for creating composable and pluggable data processing pipelines.
 
+## <span id="tools">Tools</span>
+
+- [doric](https://github.com/hablapps/doric) &ndash; Type-safe columns for Spark DataFrames.
+
 ## <span id="videos">Videos</span>
 
 - [Quick introduction to Apache Spark](https://www.youtube.com/watch?v=TgiBvKcGL24) by Melvin L, May 2016 (13 min).
