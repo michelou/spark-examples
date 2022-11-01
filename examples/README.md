@@ -13,7 +13,7 @@
 
 ## <span id="helloworld">HelloWorld</span>
 
-Command [`build run`](./HelloWorld/build.bat) performs two tasks :
+Command [`build.bat run`](./HelloWorld/build.bat) performs two tasks :
 - it creates a fat jar using the sbt script [`build.sbt`](./HelloWorld/build.sbt) from the Scala source file [`HelloWorld.scala`](./HelloWorld/src/main/scala/HelloWorld.scala).
 - it execute the [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html) command to launch the Spark application.
 
@@ -21,7 +21,7 @@ Command [`build run`](./HelloWorld/build.bat) performs two tasks :
 <b>&gt; <a href="./HelloWorld/build.bat">build</a> -verbose clean run</b>
 Delete directory "target"
 Create a fat jar
-[info] welcome to sbt 1.7.1 (Temurin Java 1.8.0_345)
+[info] welcome to sbt 1.7.3 (Temurin Java 1.8.0_345)
 [...]
 [info] set current project to HelloWorld (in build file:/K:/examples/HelloWorld/)
 [info] compiling 1 Scala source to K:\examples\HelloWorld\target\scala-2.13\classes ...
@@ -56,7 +56,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

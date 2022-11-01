@@ -22,18 +22,18 @@ This project depends on two external software for the **Microsoft Windows** plaf
 - [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
-> When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [`/opt/`][linux_opt] directory on Unix).
+> When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*October 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*November 2022*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.38.0\                         <i>(317 MB)</i>
-C:\opt\scala-2.13.9\                       <i>( 24 MB)</i>
-C:\opt\spark-3.3.0-bin-hadoop3\            <i>(320 MB)</i>
-C:\opt\spark-3.3.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
+C:\opt\Git-2.38.1\                         <i>(317 MB)</i>
+C:\opt\scala-2.13.10\                      <i>( 24 MB)</i>
+C:\opt\spark-3.3.1-bin-hadoop3\            <i>(320 MB)</i>
+C:\opt\spark-3.3.1-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
 </pre>
 
-> **:mag_right:** Git for Windows provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
+> **:mag_right:** [Git for Windows](https://git-scm.com/download/win) provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
 
 ## <span id="structure">Directory structure</span>
 
@@ -85,16 +85,16 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u345b01.zip</a>  <i>( 99 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.38.0-64-bit.7z.exe</a>                <i>( 41 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.9.zip</a>                                <i>( 21 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.0-bin-hadoop3.2.tgz</a>                   <i>(285 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.0-bin-hadoop3-scala2.13.tgz</a>           <i>(292 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.38.1-64-bit.7z.exe</a>                <i>( 41 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                               <i>( 21 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3.2.tgz</a>                   <i>(285 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3-scala2.13.tgz</a>           <i>(292 MB)</i>
 </pre>
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -107,7 +107,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.38.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.38.1.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
@@ -129,7 +129,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [python_examples]: https://github.com/michelou/python-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.9
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.10
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 [spark]: https://spark.apache.org
