@@ -24,15 +24,19 @@ if %_HELP%==1 (
 )
 
 set _GIT_PATH=
+set _MAVEN_PATH=
 set _PYTHON3_PATH=
 set _SBT_PATH=
 set _SPARK_PATH=
 
 @rem bellsoft, corretto, dragonwell, openj9, redhat, temurin, zulu
-call :java "temurin" 1.8
+call :java "temurin" 11
 if not %_EXITCODE%==0 goto end
 
 call :git
+if not %_EXITCODE%==0 goto end
+
+call :maven
 if not %_EXITCODE%==0 goto end
 
 call :python3
@@ -283,6 +287,39 @@ if "%__PREFIX%"=="1." ( set _JDK_VERSION=%__JAVAC_VERSION:~2,1%
 )
 goto :eof
 
+@rem output parameters: _MAVEN_HOME, _MAVEN_PATH
+:maven
+set _MAVEN_HOME=
+set _MAVEN_PATH=
+
+set __MVN_CMD=
+for /f %%f in ('where mvn.cmd 2^>NUL') do (
+    set "__MVN_CMD=%%f"
+    @rem we ignore Scoop managed Maven installation
+    if not "!__MVN_CMD:scoop=!"=="!__MVN_CMD!" set __MVN_CMD=
+)
+if defined __MVN_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Maven executable found in PATH 1>&2
+    for %%i in ("%__MVN_CMD%") do set "__MAVEN_BIN_DIR=%%~dpi"
+    for %%f in ("!__MAVEN_BIN_DIR!\.") do set "_MAVEN_HOME=%%~dpf"
+) else if defined MAVEN_HOME (
+    set "_MAVEN_HOME=%MAVEN_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MAVEN_HOME 1>&2
+) else (
+    set _PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!_PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!_PATH!\%%f"
+    if defined _MAVEN_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory !_MAVEN_HOME! 1>&2
+    )
+)
+if not exist "%_MAVEN_HOME%\bin\mvn.cmd" (
+    echo %_ERROR_LABEL% Maven executable not found ^(%_MAVEN_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_MAVEN_PATH=;%_MAVEN_HOME%\bin"
+goto :eof
+
 @rem output parameters: _PYTHON_HOME, _PYTHON3_PATH
 :python3
 set _PYTHON_HOME=
@@ -508,6 +545,11 @@ if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,4,*" %%i in ('"%SCALA_HOME%\bin\scalac.bat" -version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% scalac %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%SCALA_HOME%\bin:scalac.bat"
 )
+where /q "%MAVEN_HOME%\bin:mvn.cmd"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,3,*" %%i in ('"%MAVEN_HOME%\bin\mvn.cmd" -version ^| findstr Apache') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mvn %%k,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%MAVEN_HOME%\bin:mvn.cmd"
+)
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
    for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
@@ -533,6 +575,7 @@ if %__VERBOSE%==1 (
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined HADOOP_HOME echo    "HADOOP_HOME=%HADOOP_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
+    if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     if defined PYTHON_HOME echo    "PYTHON_HOME=%PYTHON_HOME%" 1>&2
     if defined SBT_HOME echo    "SBT_HOME=%SBT_HOME%" 1>&2
     if defined SCALA_HOME echo    "SCALA_HOME=%SCALA_HOME%" 1>&2
@@ -551,13 +594,14 @@ endlocal & (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
         if not defined HADOOP_HOME set "HADOOP_HOME=%_HADOOP_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
+        if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
         if not defined PYSPARK_PYTHON set "PYSPARK_PYTHON=%_PYTHON_HOME%\python.exe"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         if not defined SBT_HOME set "SBT_HOME=%_SBT_HOME%"
         if not defined SCALA_HOME set "SCALA_HOME=%_SCALA_HOME%"
         if not defined SPARK_HOME set "SPARK_HOME=%_SPARK_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%%_PYTHON3_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_PYTHON3_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if %_BASH%==1 (
             @rem see https://conemu.github.io/en/GitForWindows.html

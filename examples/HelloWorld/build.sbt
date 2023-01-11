@@ -17,7 +17,14 @@ useCoursier := false
 val sparkVersion = "3.3.1"
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-core
-libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion //% "provided"
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion //% "provided"
+
+ThisBuild / assemblyMergeStrategy := {
+  case _ => MergeStrategy.first
+  //case x =>
+  //  val oldStrategy = (ThisBuild / assemblyMergeStrategy).value
+  //  oldStrategy(x)
+}

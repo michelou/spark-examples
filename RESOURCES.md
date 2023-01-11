@@ -18,20 +18,27 @@
 
 ## <span id="books">Books</span>
 
+- [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
+- [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
 - [Beginning Apache Spark 3][book_luu] by Hien Luu, 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
 - [Learning Spark][book_damji] (2<sup>nd</sup> Edition) by Jules S. Damji and al, July 2020.<br/><span style="font-size:80%;">(O'Reilly, 978-1-492-05004-9, 399 pages)</span>
 - [Spark in Action][book_perrin] (2<sup>nd</sup> Edition) by Jean-Georges Perrin, May 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9552-2, 576 pages)</span>
 - [Apache Spark Quick Start Guide][book_mehrotra] by Shrey Mehrotra and Akash Grade, January 2019.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7893-4910-8, 154 pages)</span>
 - [Practical Apache Spark][book_chellappan] by Subhashini Chellappan and Bharanitharan Ganesan, 2018.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-3651-2, 280 pages)</span>
 
-## <span id="projects">Projects</span>
+## <span id="projects">Projects</span> [**&#x25B4;**](#top)
 
 - [Spark Job Server][project_spark_jobserver].
 - [Sparkplug](https://github.com/springnz/sparkplug) - A framework for creating composable and pluggable data processing pipelines.
 
 ## <span id="tools">Tools</span>
 
-- [doric](https://github.com/hablapps/doric) &ndash; Type-safe columns for Spark DataFrames.
+- [`doric`](https://github.com/hablapps/doric) &ndash; Type-safe columns for Spark DataFrames.
+- [`sbt-spark-submit`](https://index.scala-lang.org/izhangzhihao/sbt-spark-submit) &ndash; a [sbt plugin](https://www.scala-sbt.org/1.x/docs/Plugins.html) for [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html).
+
+## <span id="tutorials">Tutorials</span>
+
+- [Spring Framework / Spring Boot](https://gayerie.dev/docs/spring/) by David Gayerie.
 
 ## <span id="videos">Videos</span>
 
@@ -44,7 +51,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -56,5 +63,7 @@
 [book_perrin]: https://www.manning.com/books/spark-in-action-second-edition
 [book_luu]: https://link.springer.com/book/10.1007/978-1-4842-7383-8
 [book_mehrotra]: https://www.packtpub.com/product/apache-spark-quick-start-guide/9781789349108
+[book_sacco]: https://link.springer.com/book/10.1007/978-1-4842-8764-4
+[book_turnquist]: https://www.packtpub.com/product/learning-spring-boot-30-third-edition/9781803233307
 [cloudera]: https://www.cloudera.com/
 [project_spark_jobserver]: https://www.gitplanet.com/project/spark-jobserver

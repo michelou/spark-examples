@@ -168,15 +168,15 @@ goto args_loop
 set _STDERR_REDIRECT=2^>NUL
 if %_DEBUG%==1 set _STDERR_REDIRECT=
 
-set _APP_NAME=HelloWorld
+set _APP_NAME=Customers
 set _APP_VERSION=0.1.0
 
 set "_ASSEMBLY_FILE=%_TARGET_DIR%\%_APP_NAME%-assembly-%_APP_VERSION%.jar"
 
 @rem name may be prefixed by one or more package names
-set _CLASS_NAME=HelloWorld
+set _CLASS_NAME=Customers
 @rem name may contain spaces
-set _SPARK_NAME=Hello World
+set _SPARK_NAME=Customers
 
 if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Options    : _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
@@ -257,6 +257,7 @@ if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 set __SCALAC_OPTS=-deprecation -cp "%__CPATH%" -d "%_CLASSES_DIR%"
+@rem if %_DEBUG%==1 set __SCALAC_OPTS=-Ylog-classpath %__SCALAC_OPTS%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" %__SCALAC_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% into directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
@@ -319,7 +320,7 @@ if not exist "%__ASSEMBLY_DIR%" mkdir "%__ASSEMBLY_DIR%"
 pushd "%__ASSEMBLY_DIR%"
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAR_CMD%" xf "%__SCALA_JAR_FILE%" 1>&2
-) else if %_VERBOSE%==1 ( echo Extract class files from "!__SCALA_JAR_FILE:%USERPROFILE%=%%USERPROFILE%%!" 1>&2
+) else if %_VERBOSE%==1 ( echo Extract class files from "!__SCALA_JAR_FILE:%_ROOT_DIR%=!" 1>&2
 )
 call "%_JAR_CMD%" xf "!__SCALA_JAR_FILE!"
 @rem rename Scala LICENSE and NOTICE files
@@ -349,18 +350,27 @@ if not exist "%_ASSEMBLY_FILE%" (
     set _EXITCODE=1
     goto :eof
 )
+@rem Options: --driver-memory 5g --num-executors 40 --executor-memory 1g --executor-cores 2
 @rem https://spark.apache.org/docs/latest/configuration.html#dynamically-loading-spark-properties
-set __SPARK_SUBMIT_OPTS=--name "%_SPARK_NAME%" --class "%_CLASS_NAME%" --master local "%_ASSEMBLY_FILE%"
+@rem Application properties: --conf "spark.local.dir=C:\temp"
+set __SPARK_SUBMIT_OPTS=--name "%_SPARK_NAME%" --class "%_CLASS_NAME%" --master "local" "%_ASSEMBLY_FILE%"
 if %_DEBUG%==1 set __SPARK_SUBMIT_OPTS=--verbose %__SPARK_SUBMIT_OPTS%
 
-if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS% 1>&2
+set __APP_ARGS=
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS% %__APP_ARGS% 1>&2
 ) else if %_VERBOSE%==1 ( echo Execute Spark application "%_SPARK_NAME%" 1>&2
 )
-call "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS%
+call "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS% %__APP_ARGS%
 if not %ERRORLEVEL%==0 (
     echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%"
     set _EXITCODE=1
     goto :eof
+)
+set "__SPARK_LOCAL_DIR=%LOCALAPPDATA%\Temp"
+for /f "delims=" %%d in ('dir /ad /b "%__SPARK_LOCAL_DIR%\spark-*" 2^>NUL') do (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% rmdir /s /q "!__SPARK_LOCAL_DIR:%USERPROFILE%=%%USERPROFILE%%!\%%d" 1^>NUL
+    rmdir /s /q "%__SPARK_LOCAL_DIR%\%%d" 1>NUL
 )
 goto :eof
 

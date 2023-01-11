@@ -3,7 +3,7 @@
 <table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;">
-    <a href="https://spark.apache.org/" rel="external"><img style="border:0;width:120px;" src="https://spark.apache.org/images/spark-logo-trademark.png" alt="Dotty project" /></a>
+    <a href="https://spark.apache.org/" rel="external"><img style="border:0;width:120px;" src="https://spark.apache.org/images/spark-logo-trademark.png" alt="Spark project" /></a>
   </td>
   <td style="border:0;padding:0;vertical-align:text-top;">
     Directory <strong><code>examples\</code></strong> contains <a href="https://spark.apache.org/" rel="external">Spark</a> code examples coming from various websites - mostly from the <a href="https://spark.apache.org/" rel="external">Spark project</a>.
@@ -21,7 +21,7 @@ Command [`build.bat run`](./HelloWorld/build.bat) performs two tasks :
 <b>&gt; <a href="./HelloWorld/build.bat">build</a> -verbose clean run</b>
 Delete directory "target"
 Create a fat jar
-[info] welcome to sbt 1.7.3 (Temurin Java 1.8.0_345)
+[info] welcome to sbt 1.8.0 (Temurin Java 1.8.0_352)
 [...]
 [info] set current project to HelloWorld (in build file:/K:/examples/HelloWorld/)
 [info] compiling 1 Scala source to K:\examples\HelloWorld\target\scala-2.13\classes ...
@@ -56,7 +56,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2022* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
