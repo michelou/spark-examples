@@ -10,16 +10,24 @@
 
 ## <span id="blogs">Blogs</span>
 
+- &#128077; [**waiting**for<b>{code}</b> Blog posts](https://www.waitingforcode.com/apache-spark-sql) :
+  - [Generated method too long to be JIT compiled](https://www.waitingforcode.com/apache-spark-sql/generated-method-too-long-be-jit-compiled/read) by Bartosz Konieczny, November 2022.
+  - [Wildcard path and partitions](https://www.waitingforcode.com/apache-spark-sql/wildcard-path-partitions/read) by Bartosz Konieczny, November 2022.
+  - [What's new in Apache Spark 3.3 - Data Source V2](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3.0-datasource-v2/read) by Bartosz Konieczny, July 2022.
+  - [What's new in Apache Spark 3.3 - new functions](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-new-functions/read) by Bartosz Konieczny, June 2022.
+  - [What's new in Apache Spark 3.3 - joins](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-joins/read) by Bartosz Konieczny, June 2022.
 - [Install Hadoop 3.2.1 on Windows 10 Step by Step Guide][blog_raymond] by Raymond, October 2021.
 - [Build Your Own WinUtils for Spark][blog_meakins] by Nigel Meakins, April 2021.
+- [CERN Database Blog](https://db-blog.web.cern.ch/blog/) :
+  - [Making histograms with Apache Spark and other SQL engines][blog_canali_2022] by Luca Canali, May 2022.
+  - [Apache Spark 3.0 Memory Monitoring Improvements][blog_canali_2020] by Luca Canali, August 2020.
+  - [SparkMeasure, a tool for performance troubleshooting of Apache Spark workloads][blog_canali_2018] by Luca Canali, August 2018.
 - [Apache Spark Blog](https://blogs.perficient.com/tag/apache-spark/) by [Perficient](https://www.perficient.com/)
   - [It’s good that Spark Security is turned off by default](https://blogs.perficient.com/2022/01/11/its-good-that-spark-security-is-turned-off-by-default/) by David Callaghan, January 2022.
   - [Take advantage of windows in your Spark data science pipeline](https://blogs.perficient.com/2020/05/26/take-advantage-of-windows-in-your-spark-data-science-pipeline/) by David Callaghan, May 2020.
 
 ## <span id="books">Books</span>
 
-- [Learning Spring Boot 3.0][book_turnquist] (3<sup>rd</sup> Edition) by Greg Turnquist, December 2022.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-8032-3330-7, 270 pages).</span>
-- [Beginning Spring Data][book_sacco] by Andress Sacco, December 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-8763-7, 417 pages)</span>
 - [Beginning Apache Spark 3][book_luu] by Hien Luu, 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
 - [Learning Spark][book_damji] (2<sup>nd</sup> Edition) by Jules S. Damji and al, July 2020.<br/><span style="font-size:80%;">(O'Reilly, 978-1-492-05004-9, 399 pages)</span>
 - [Spark in Action][book_perrin] (2<sup>nd</sup> Edition) by Jean-Georges Perrin, May 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9552-2, 576 pages)</span>
@@ -56,6 +64,9 @@
 
 <!-- link refs -->
 
+[blog_canali_2022]: https://db-blog.web.cern.ch/node/187
+[blog_canali_2020]: https://db-blog.web.cern.ch/blog/luca-canali/2020-08-spark3-memory-monitoring
+[blog_canali_2018]: https://db-blog.web.cern.ch/blog/luca-canali/2018-08-sparkmeasure-tool-performance-troubleshooting-apache-spark-workloads
 [blog_meakins]: https://pivotalbi.com/build-your-own-winutils-for-spark/
 [blog_raymond]: https://kontext.tech/column/hadoop/377/latest-hadoop-321-installation-on-windows-10-step-by-step-guide
 [book_chellappan]: https://www.apress.com/gp/book/9781484236512
@@ -63,7 +74,5 @@
 [book_perrin]: https://www.manning.com/books/spark-in-action-second-edition
 [book_luu]: https://link.springer.com/book/10.1007/978-1-4842-7383-8
 [book_mehrotra]: https://www.packtpub.com/product/apache-spark-quick-start-guide/9781789349108
-[book_sacco]: https://link.springer.com/book/10.1007/978-1-4842-8764-4
-[book_turnquist]: https://www.packtpub.com/product/learning-spring-boot-30-third-edition/9781803233307
 [cloudera]: https://www.cloudera.com/
 [project_spark_jobserver]: https://www.gitplanet.com/project/spark-jobserver
