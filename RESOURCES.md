@@ -16,6 +16,7 @@
   - [What's new in Apache Spark 3.3 - Data Source V2](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3.0-datasource-v2/read) by Bartosz Konieczny, July 2022.
   - [What's new in Apache Spark 3.3 - new functions](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-new-functions/read) by Bartosz Konieczny, June 2022.
   - [What's new in Apache Spark 3.3 - joins](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-joins/read) by Bartosz Konieczny, June 2022.
+- [Reconciling Spark APIs for Scala](https://www.virtuslab.com/blog/reconciling-spark-apis-for-scala/) by Michal Palka, September 2022.
 - [Install Hadoop 3.2.1 on Windows 10 Step by Step Guide][blog_raymond] by Raymond, October 2021.
 - [Build Your Own WinUtils for Spark][blog_meakins] by Nigel Meakins, April 2021.
 - [CERN Database Blog](https://db-blog.web.cern.ch/blog/) :
@@ -37,7 +38,8 @@
 ## <span id="projects">Projects</span> [**&#x25B4;**](#top)
 
 - [Spark Job Server][project_spark_jobserver].
-- [Sparkplug](https://github.com/springnz/sparkplug) - A framework for creating composable and pluggable data processing pipelines.
+- [Spark-Scala3](https://github.com/vincenzobaz/spark-scala3) &ndash; Compile time encoder derivation for Scala 3.
+- [Sparkplug](https://github.com/springnz/sparkplug) &ndash; A framework for creating composable and pluggable data processing pipelines.
 
 ## <span id="tools">Tools</span>
 
