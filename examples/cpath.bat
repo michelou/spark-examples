@@ -24,6 +24,9 @@ set _LIBS_CPATH=
 
 set __SCALA_BINARY_VERSION=2.13
 
+@rem https://mvnrepository.com/artifact/org.scala-lang/scala3-library
+call :add_jar "org.scala-lang" "scala3-library_3" "3.2.2"
+
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "2.13.10"
 
@@ -64,6 +67,9 @@ call :add_jar "org.typelevel" "frameless-dataset-spark32_%__SCALA_BINARY_VERSION
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-refined
 call :add_jar "org.typelevel" "frameless-refined_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
+
+@rem https://mvnrepository.com/artifact/com.github.pureconfig/pureconfig
+call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.2"
 
 goto end
 

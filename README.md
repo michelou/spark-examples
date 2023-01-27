@@ -9,13 +9,14 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Python][python_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other trending topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Python][python_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spark][spark_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other trending topics we are continuously monitoring.
 
 
 ## <span id="proj_deps">Project dependencies</span>
 
 This project depends on two external software for the **Microsoft Windows** platform:
 
+- [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.39][git_downloads] ([*release notes*][git_relnotes])
 - [Oracle OpenJDK 8 LTS][oracle_openjdk8] ([*release notes*][oracle_openjdk8_relnotes])
 - [sbt 1.8][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
@@ -33,10 +34,11 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*January 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\Git-2.39.0\                         <i>(314 MB)</i>
-C:\opt\jdk-temurin-1.8.0_345-b01\          <i>(185 MB)</i>
-C:\opt\jdk-temurin-11.0.17_8\              <i>(301 MB)</i>
-C:\opt\jdk-temurin-17.0.5_8\               <i>(299 MB)</i>
+C:\opt\apache-maven-3.8.7\                 <i>( 10 MB)</i>
+C:\opt\Git-2.39.1\                         <i>(314 MB)</i>
+C:\opt\jdk-temurin-1.8.0_352-b08\          <i>(185 MB)</i>
+C:\opt\jdk-temurin-11.0.18_10\             <i>(302 MB)</i>
+C:\opt\jdk-temurin-17.0.6_10\              <i>(299 MB)</i>
 C:\opt\sbt-1.8.2\                          <i>(110 MB)</i>
 C:\opt\scala-2.13.10\                      <i>( 24 MB)</i>
 C:\opt\spark-3.3.1-bin-hadoop3\            <i>(320 MB)</i>
@@ -79,6 +81,42 @@ We also define a virtual drive **`K:`** in our working environment in order to r
 In the next section we give a brief description of the batch files present in this project.
 
 
+## <span id="commands">Batch/Bash commands</span>
+
+We distinguish different sets of batch/bash commands:
+
+1. [**`setenv.bat`**](setenv.bat) &ndash; This batch command makes external tools such as [**`sbt.bat`**][sbt_cli] directly available from the command prompt (see section [**Project dependencies**](#proj_deps)).
+
+   <pre style="font-size:80%;">
+   <b>&gt; <a href="setenv.bat">setenv</a> help</b>
+   Usage: setenv { &lt;option&gt; | &lt;subcommand&gt; }
+   &nbsp;
+     Options:
+       -bash       start Git bash shell instead of Windows command prompt
+       -debug      show commands executed by this script
+       -verbose    display environment settings
+   &nbsp;
+     Subcommands:
+       help        display this help message
+   </pre>
+
+## <span id="examples">Usage examples</span> [**&#x25B4;**](#top)
+
+### **`setenv.bat`**
+
+Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`sbt.bat`**][sbt_cli] and [**`git.exe`**][git_cli] directly available from the command prompt.
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="setenv.bat">setenv</a></b>
+Tool versions:
+   java 11.0.18, sbt 1.8.2, scalac 2.13.10,
+   mvn 3.8.7, git 2.39.1.windows.1, diff 3.8, bash 5.2.12(1)-release
+
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> sbt</b>
+C:\opt\sbt-1.8.2\bin\sbt
+C:\opt\sbt-1.8.2\bin\sbt.bat
+</pre>
+
 ## <span id="footnotes">Footnotes</span>
 
 <span id="footnote_01">[1]</span> ***Scala 2.13 Support*** [↩](#anchor_01)
@@ -94,12 +132,15 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u345b01.zip</a>    <i>( 99 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.17_8.zip</a>  <i>(190 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.0-64-bit.7z.exe</a>                  <i>( 41 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                 <i>( 21 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3.2.tgz</a>                     <i>(285 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3-scala2.13.tgz</a>             <i>(292 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.8.7-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
+<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(194 MB)</i>
+<a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(191 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.39.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://github.com/sbt/sbt/releases">sbt-1.8.2.zip</a>                                      <i>( 17 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
 </pre>
 </dd></dl>
 
@@ -112,18 +153,24 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 
 [ada_examples]: https://github.com/michelou/ada-examples
 [akka_examples]: https://github.com/michelou/akka-examples
+[apache_maven]: https://maven.apache.org/download.cgi
+[apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
+[apache_maven_history]: https://maven.apache.org/docs/history.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.8.7/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
 [flix_examples]: https://github.com/michelou/flix-examples
+[git_cli]: https://git-scm.com/docs/git
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.1.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
 [haskell_examples]: https://github.com/michelou/haskell-examples
+[kafka_examples]: https://github.com/michelou/kafka-examples
 [kotlin_examples]: https://github.com/michelou/kotlin-examples
 [linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
 [llvm_examples]: https://github.com/michelou/llvm-examples
@@ -140,11 +187,13 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [oracle_openjdk8_relnotes]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2021-July/014118.html
 [python_examples]: https://github.com/michelou/python-examples
 [rust_examples]: https://github.com/michelou/rust-examples
+[sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.8
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.10
 [scala3_examples]: https://github.com/michelou/dotty-examples
+[spark_examples]: https://github.com/michelou/spark-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 [spark]: https://spark.apache.org
 [spark_downloads]: https://spark.apache.org/downloads.html
