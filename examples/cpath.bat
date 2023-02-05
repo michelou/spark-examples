@@ -116,7 +116,7 @@ if not exist "%__JAR_FILE%" (
         )
     )
 )
-set "_LIBS_CPATH=%_LIBS_CPATH%%__JAR_FILE%;"
+set "_LIBS_CPATH=%_LIBS_CPATH%!__JAR_FILE:%USERPROFILE%=%%USERPROFILE%%!;"
 goto :eof
 
 @rem #########################################################################

@@ -18,10 +18,10 @@ This project depends on two external software for the **Microsoft Windows** plat
 
 - [Apache Maven 3.8][apache_maven] ([requires Java 7][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.39][git_downloads] ([*release notes*][git_relnotes])
-- [Oracle OpenJDK 8 LTS][oracle_openjdk8] ([*release notes*][oracle_openjdk8_relnotes])
 - [sbt 1.8][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
+- [Temurin OpenJDK 8 LTS][temurin_openjdk8] ([*release notes*][temurin_openjdk8_relnotes])
 
 Optionally one may also install the following software:
 
@@ -200,6 +200,8 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [spark]: https://spark.apache.org
 [spark_downloads]: https://spark.apache.org/downloads.html
 [spark_relnotes]: https://spark.apache.org/releases/spark-release-3-3-1.html
+[temurin_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot
+[temurin_openjdk8_relnotes]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2022-January/014522.html
 [temurin_opendjk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-17-bugfixes.html
 [temurin_opendjk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-October/018119.html
 [temurin_opendjk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
