@@ -1,6 +1,6 @@
 # <span id="top">Spark examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;">
     <a href="https://spark.apache.org/" rel="external"><img style="border:0;width:120px;" src="https://spark.apache.org/images/spark-logo-trademark.png" alt="Spark project" /></a>
@@ -11,7 +11,7 @@
   </tr>
 </table>
 
-## <span id="customers">Example `Customers`</span>
+## <span id="customers">`Customers` Example</span>
 
 Command [`build.bat run`](./Customers/build.bat) performs two tasks :
 - it compiles the Scala source file [`Customers.scala`](./Customers/src/main/scala/HelloWorld.scala).
@@ -19,7 +19,7 @@ Command [`build.bat run`](./Customers/build.bat) performs two tasks :
 - it execute the [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html) command to launch the Spark application.
 
 <pre style="font-size:80%;">
-build -verbose clean run
+<b>&gt; <a href="./Customers/build.bat">build</a> -verbose clean run</b>
 Compile 1 Scala source file into directory "target\classes"
 Create assembly file "target\Customers-assembly-0.1.0.jar"
 Extract class files from "C:\Users\michelou\.m2\repository\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar"
@@ -45,7 +45,7 @@ Execute Spark application "Customers"
 [...]
 </pre>
 
-## <span id="helloworld">Example `HelloWorld`</span> [**&#x25B4;**](#top)
+## <span id="helloworld">`HelloWorld` Example</span> [**&#x25B4;**](#top)
 
 Command [`build.bat run`](./HelloWorld/build.bat) performs two tasks :
 - it compiles the Scala source file [`HelloWorld.scala`](./HelloWorld/src/main/scala/HelloWorld.scala).
@@ -84,7 +84,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

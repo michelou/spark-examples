@@ -1,10 +1,10 @@
 # <span id="top">Playing with Spark on Windows</span>
 
-<table style="font-family:Helvetica,Arial;font-size:14px;line-height:1.6;">
+<table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://spark.apache.org/" rel="external"><img src="https://spark.apache.org/images/spark-logo-trademark.png" width="120" alt="Spark project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spark.apache.org/" rel="external">Spark</a> code examples coming from various websites and books.<br/>
-  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a> for experimenting with <a href="https://spark.apache.org/" rel="external">Spark</a> on the <b>Microsoft Windows</b> platform.
+  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a> for experimenting with <a href="https://spark.apache.org/" rel="external">Spark</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -112,7 +112,9 @@ Tool versions:
    java 11.0.18, sbt 1.8.2, scalac 2.13.10,
    mvn 3.8.7, git 2.39.1.windows.1, diff 3.8, bash 5.2.12(1)-release
 
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> sbt</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
+C:\opt\apache-maven-3.8.7\bin\mvn
+C:\opt\apache-maven-3.8.7\bin\mvn.cmd
 C:\opt\sbt-1.8.2\bin\sbt
 C:\opt\sbt-1.8.2\bin\sbt.bat
 </pre>
@@ -146,7 +148,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
