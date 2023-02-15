@@ -35,7 +35,7 @@ For instance our development environment looks as follows (*February 2023*) <sup
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.0\                 <i>( 10 MB)</i>
-C:\opt\Git-2.39.1\                         <i>(314 MB)</i>
+C:\opt\Git-2.39.2\                         <i>(314 MB)</i>
 C:\opt\jdk-temurin-1.8.0_352-b08\          <i>(185 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\             <i>(302 MB)</i>
 C:\opt\jdk-temurin-17.0.6_10\              <i>(299 MB)</i>
@@ -110,7 +110,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    java 11.0.18, sbt 1.8.2, scalac 2.13.10,
-   mvn 3.9.0, git 2.39.1.windows.1, diff 3.8, bash 5.2.12(1)-release
+   mvn 3.9.0, git 2.39.2.windows.1, diff 3.8, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
 C:\opt\apache-maven-3.9.0\bin\mvn
@@ -138,7 +138,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.8.2.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
@@ -167,7 +167,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.2.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
