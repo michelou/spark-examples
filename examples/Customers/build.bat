@@ -192,7 +192,7 @@ goto :eof
 
 :help
 if %_VERBOSE%==1 (
-    set __BEG_P=%_STRONG_FG_CYAN%%_UNDERSCORE%
+    set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
     set __BEG_N=%_NORMAL_FG_YELLOW%
     set __END=%_RESET%
@@ -300,7 +300,7 @@ call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%"
-set "__SCALA_JAR_FILE="
+set __SCALA_JAR_FILE=
 :loop_cpath
 for /f "delims=; tokens=1,*" %%f in ("%__CPATH%") do (
     set "__JAR_FILE=%%f"

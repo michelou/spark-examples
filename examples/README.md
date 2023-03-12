@@ -13,10 +13,10 @@
 
 ## <span id="customers">`Customers` Example</span>
 
-Command [`build.bat run`](./Customers/build.bat) performs two tasks :
+Command [`build.bat run`](./Customers/build.bat) performs several tasks :
 - it compiles the Scala source file [`Customers.scala`](./Customers/src/main/scala/HelloWorld.scala).
 - it creates the fat jar `Customers-assembly-0.1.0.jar` (e.g. adds the Scala 2.13 library).
-- it execute the [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html) command to launch the Spark application.
+- it executes the [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html) command to launch the Spark application.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./Customers/build.bat">build</a> -verbose clean run</b>
@@ -47,10 +47,10 @@ Execute Spark application "Customers"
 
 ## <span id="helloworld">`HelloWorld` Example</span> [**&#x25B4;**](#top)
 
-Command [`build.bat run`](./HelloWorld/build.bat) performs two tasks :
+Command [`build.bat run`](./HelloWorld/build.bat) performs several tasks :
 - it compiles the Scala source file [`HelloWorld.scala`](./HelloWorld/src/main/scala/HelloWorld.scala).
 - it creates the fat jar `HelloWorld-assembly-0.1.0.jar` (e.g. adds the Scala 2.13 library).
-- it execute the [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html) command to launch the Spark application.
+- it executes the [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html) command to launch the Spark application.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="./HelloWorld/build.bat">build</a> -verbose clean run</b>
@@ -84,7 +84,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

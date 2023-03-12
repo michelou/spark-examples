@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://spark.apache.org/" rel="external"><img src="https://spark.apache.org/images/spark-logo-trademark.png" width="120" alt="Spark project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spark.apache.org/" rel="external">Spark</a> code examples coming from various websites and books.<br/>
-  It also includes several <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a> for experimenting with <a href="https://spark.apache.org/" rel="external">Spark</a> on a Windows machine.
+  It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>) for experimenting with <a href="https://spark.apache.org/" rel="external">Spark</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -21,28 +21,28 @@ This project depends on two external software for the **Microsoft Windows** plat
 - [sbt 1.8][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
-- [Temurin OpenJDK 8 LTS][temurin_openjdk8] ([*release notes*][temurin_openjdk8_relnotes])
+- [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
 
 Optionally one may also install the following software:
-
-- [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
+<!--
+- [Temurin OpenJDK 8 LTS][temurin_openjdk8] ([*release notes*][temurin_openjdk8_relnotes])
+-->
 - [Temurin OpenJDK 17 LTS][temurin_opendjk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk17_relnotes], [*bug fixes*][temurin_opendjk17_bugfixes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*February 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*March 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.0\                 <i>( 10 MB)</i>
 C:\opt\Git-2.39.2\                         <i>(314 MB)</i>
-C:\opt\jdk-temurin-1.8.0_352-b08\          <i>(185 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\             <i>(302 MB)</i>
 C:\opt\jdk-temurin-17.0.6_10\              <i>(299 MB)</i>
 C:\opt\sbt-1.8.2\                          <i>(110 MB)</i>
 C:\opt\scala-2.13.10\                      <i>( 24 MB)</i>
-C:\opt\spark-3.3.1-bin-hadoop3\            <i>(320 MB)</i>
-C:\opt\spark-3.3.1-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
+C:\opt\spark-3.3.2-bin-hadoop3\            <i>(320 MB)</i>
+C:\opt\spark-3.3.2-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
 </pre>
 
 > **:mag_right:** [Git for Windows](https://git-scm.com/download/win) provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -109,7 +109,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.18, sbt 1.8.2, scalac 2.13.10,
+   java 11.0.18, sbt 1.8.2, scalac 2.13.10, spark-shell 3.3.2,
    mvn 3.9.0, git 2.39.2.windows.1, diff 3.8, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
@@ -141,14 +141,14 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://git-scm.com/download/win">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.8.2.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.1-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.3.2-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.3.2-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
 </pre>
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -198,7 +198,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [spring_examples]: https://github.com/michelou/spring-examples
 [spark]: https://spark.apache.org
 [spark_downloads]: https://spark.apache.org/downloads.html
-[spark_relnotes]: https://spark.apache.org/releases/spark-release-3-3-1.html
+[spark_relnotes]: https://spark.apache.org/releases/spark-release-3-3-2.html
 [temurin_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot
 [temurin_openjdk8_relnotes]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2022-January/014522.html
 [temurin_opendjk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-17-bugfixes.html

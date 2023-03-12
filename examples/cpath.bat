@@ -25,12 +25,12 @@ set _LIBS_CPATH=
 set __SCALA_BINARY_VERSION=2.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala3-library
-call :add_jar "org.scala-lang" "scala3-library_3" "3.2.2"
+call :add_jar "org.scala-lang" "scala3-library_3" "3.3.0-RC3"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "2.13.10"
 
-set __SPARK_VERSION=3.3.1
+set __SPARK_VERSION=3.3.2
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst
 @rem Note: contains symbol 'type org.apache.spark.sql.Row'
@@ -116,7 +116,7 @@ if not exist "%__JAR_FILE%" (
         )
     )
 )
-set "_LIBS_CPATH=%_LIBS_CPATH%!__JAR_FILE:%USERPROFILE%=%%USERPROFILE%%!;"
+set "_LIBS_CPATH=%_LIBS_CPATH%!__JAR_FILE!;"
 goto :eof
 
 @rem #########################################################################

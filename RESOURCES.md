@@ -8,7 +8,16 @@
   </tr>
 </table>
 
-## <span id="blogs">Blogs</span>
+## <span id="articles">Articles</span>
+
+- [Stateful transformations in Spark Streaming - Part 1][article_ranjan_stateful1] by Ankur Ranjan, February 2023.
+- [Spark Streaming - Part 2][article_ranjan_streaming2] by Ankur Ranjan, January 2023.
+- [Spark Streaming - Part 1][article_ranjan_streaming1] by Ankur Ranjan, January 2023.
+- [Syntactic Sugar in Spark Scala Codebase - Part 1][article_ranjan_scala1] by Ankur Ranjan, September 2022.
+- [Spark Trigger Options][article_daniel] by Sylverter Daniel, March 2019.
+- [How to Shutdown a Spark Streaming Job Gracefully][article_jiang] by Lan Jiang, February 2017.
+
+## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
 - &#128077; [**waiting**for<b>{code}</b> Blog posts](https://www.waitingforcode.com/apache-spark-sql) :
   - [Generated method too long to be JIT compiled](https://www.waitingforcode.com/apache-spark-sql/generated-method-too-long-be-jit-compiled/read) by Bartosz Konieczny, November 2022.
@@ -61,11 +70,17 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/February 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
+[article_daniel]: https://www.linkedin.com/pulse/spark-trigger-options-sylvester-daniel
+[article_jiang]: https://www.linkedin.com/pulse/how-shutdown-spark-streaming-job-gracefully-lan-jiang
+[article_ranjan_scala1]: https://www.linkedin.com/pulse/syntactic-sugar-spark-scala-codebase-part-1-ankur-ranjan
+[article_ranjan_stateful1]: https://www.linkedin.com/pulse/stateful-transformations-spark-streaming-part-1-ankur-ranjan
+[article_ranjan_streaming2]: https://www.linkedin.com/pulse/spark-streaming-session-2-ankur-ranjan/
+[article_ranjan_streaming1]: https://www.linkedin.com/pulse/spark-streaming-part-1-ankur-ranjan
 [blog_canali_2022]: https://db-blog.web.cern.ch/node/187
 [blog_canali_2020]: https://db-blog.web.cern.ch/blog/luca-canali/2020-08-spark3-memory-monitoring
 [blog_canali_2018]: https://db-blog.web.cern.ch/blog/luca-canali/2018-08-sparkmeasure-tool-performance-troubleshooting-apache-spark-workloads

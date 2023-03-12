@@ -200,7 +200,7 @@ goto :eof
 
 :help
 if %_VERBOSE%==1 (
-    set __BEG_P=%_STRONG_FG_CYAN%%_UNDERSCORE%
+    set __BEG_P=%_STRONG_FG_CYAN%
     set __BEG_O=%_STRONG_FG_GREEN%
     set __BEG_N=%_NORMAL_FG_YELLOW%
     set __END=%_RESET%
@@ -544,6 +544,13 @@ where /q "%SCALA_HOME%\bin:scalac.bat"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,4,*" %%i in ('"%SCALA_HOME%\bin\scalac.bat" -version') do set "__VERSIONS_LINE1=%__VERSIONS_LINE1% scalac %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%SCALA_HOME%\bin:scalac.bat"
+)
+where /q "%SPARK_HOME%\bin:spark-shell.cmd"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,*" %%i in ('call "%SPARK_HOME%\bin\spark-shell.cmd" --version 2^>^&1 ^| findstr .*_.*version ^| "%GIT_HOME%\usr\bin\sed.exe" s#^.*version#version#') do (
+        set "__VERSIONS_LINE1=%__VERSIONS_LINE1% spark-shell %%j,"
+    )
+    set __WHERE_ARGS=%__WHERE_ARGS% "%SPARK_HOME%\bin:spark-shell.cmd"
 )
 where /q "%MAVEN_HOME%\bin:mvn.cmd"
 if %ERRORLEVEL%==0 (
