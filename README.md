@@ -17,7 +17,7 @@
 This project depends on two external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8 or newer][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.39][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
 - [sbt 1.8][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
@@ -35,8 +35,8 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*March 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.0\                 <i>( 10 MB)</i>
-C:\opt\Git-2.39.2\                         <i>(314 MB)</i>
+C:\opt\apache-maven-3.9.1\                 <i>( 10 MB)</i>
+C:\opt\Git-2.40.0\                         <i>(314 MB)</i>
 C:\opt\jdk-temurin-11.0.18_10\             <i>(302 MB)</i>
 C:\opt\jdk-temurin-17.0.6_10\              <i>(299 MB)</i>
 C:\opt\sbt-1.8.2\                          <i>(110 MB)</i>
@@ -110,11 +110,11 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    java 11.0.18, sbt 1.8.2, scalac 2.13.10, spark-shell 3.3.2,
-   mvn 3.9.0, git 2.39.2.windows.1, diff 3.8, bash 5.2.12(1)-release
+   mvn 3.9.1, git 2.40.0.windows.1, diff 3.8, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
-C:\opt\apache-maven-3.9.0\bin\mvn
-C:\opt\apache-maven-3.9.0\bin\mvn.cmd
+C:\opt\apache-maven-3.9.1\bin\mvn
+C:\opt\apache-maven-3.9.1\bin\mvn.cmd
 C:\opt\sbt-1.8.2\bin\sbt
 C:\opt\sbt-1.8.2\bin\sbt.bat
 </pre>
@@ -134,11 +134,11 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.0-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.39.2-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.40.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.8.2.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.3.2-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
@@ -158,7 +158,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.0/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
@@ -167,7 +167,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.39.2.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.0.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
