@@ -35,6 +35,8 @@
 - [Apache Spark Blog](https://blogs.perficient.com/tag/apache-spark/) by [Perficient](https://www.perficient.com/)
   - [It’s good that Spark Security is turned off by default](https://blogs.perficient.com/2022/01/11/its-good-that-spark-security-is-turned-off-by-default/) by David Callaghan, January 2022.
   - [Take advantage of windows in your Spark data science pipeline](https://blogs.perficient.com/2020/05/26/take-advantage-of-windows-in-your-spark-data-science-pipeline/) by David Callaghan, May 2020.
+- [Introduction to Apache Spark's Core API (Part I)](https://dzone.com/articles/introduction-to-core-api-of-apache-spark) by Anil Agrawal, December 2018.
+- [How to Install Hadoop on Windows](https://exitcondition.com/install-hadoop-windows/) by Parixit Odedara, August 2018.
 
 ## <span id="books">Books</span>
 
@@ -43,6 +45,10 @@
 - [Spark in Action][book_perrin] (2<sup>nd</sup> Edition) by Jean-Georges Perrin, May 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9552-2, 576 pages)</span>
 - [Apache Spark Quick Start Guide][book_mehrotra] by Shrey Mehrotra and Akash Grade, January 2019.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7893-4910-8, 154 pages)</span>
 - [Practical Apache Spark][book_chellappan] by Subhashini Chellappan and Bharanitharan Ganesan, 2018.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-3651-2, 280 pages)</span>
+
+## <span id="papers">Papers</span>
+
+- [Framing Apache Spark in life sciences](ttps://www.researchgate.net/publication/368415087_Framing_Apache_Spark_in_life_sciences) by Andrea Manconi et al., Feburary 2023.
 
 ## <span id="projects">Projects</span> [**&#x25B4;**](#top)
 
@@ -57,8 +63,13 @@
 
 ## <span id="tutorials">Tutorials</span>
 
-- [Spring Framework / Spring Boot](https://gayerie.dev/docs/spring/) by David Gayerie.
-
+- [Apache Spark Full Course](https://www.youtube.com/watch?v=xDEzSxlsUpU) by Edureka, 2023 (9 hours).
+- Apache Spark Crash Course Mini-series by [Hortonworks]
+  - [Part 1 - Spark Basics][tutorial_hortonworks_1]
+  - [Part 2 - Spark SQL][tutorial_hortonworks_2]
+  - [Part 3 - Spark Streaming][tutorial_hortonworks_3]
+  - [Part 4 - Spark MLlib][tutorial_hortonworks_4]
+  
 ## <span id="videos">Videos</span>
 
 - [Quick introduction to Apache Spark](https://www.youtube.com/watch?v=TgiBvKcGL24) by Melvin L, May 2016 (13 min).
@@ -70,7 +81,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -92,4 +103,9 @@
 [book_luu]: https://link.springer.com/book/10.1007/978-1-4842-7383-8
 [book_mehrotra]: https://www.packtpub.com/product/apache-spark-quick-start-guide/9781789349108
 [cloudera]: https://www.cloudera.com/
+[hortonworks]: https://www.youtube.com/@Hortonworks
 [project_spark_jobserver]: https://www.gitplanet.com/project/spark-jobserver
+[tutorial_hortonworks_1]: https://www.youtube.com/watch?v=4SIZNQ7KZX8 "Part 1 - Spark Basics"
+[tutorial_hortonworks_2]: https://www.youtube.com/watch?v=FcAiK2VtPfA "Part 2 - Spark SQL"
+[tutorial_hortonworks_3]: https://www.youtube.com/watch?v=KyUlfLNAwRM "Part 3 - Spark Streaming"
+[tutorial_hortonworks_4]: https://www.youtube.com/watch?v=C-44fsv5XgE "Part 4 - Spark MLlib"

@@ -17,6 +17,7 @@
 | ML           | Machine Learning               |
 | OLAP         | Online Analytical Processing   |
 | RDD          | [Resilient Distributed Dataset][databricks_rdd] |
+| YARN         | [Yet Another Resource Negotiator][techtarget_yarn] |
 
 ## <span id="properties">Spark Properties</span>
 
@@ -40,10 +41,11 @@ For instance:
 
 ---
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
 [blog_meakins]: https://pivotalbi.com/build-your-own-winutils-for-spark/
 [databricks_rdd]: https://databricks.com/glossary/what-is-rdd
+[techtarget_yarn]: https://www.techtarget.com/searchdatamanagement/definition/Apache-Hadoop-YARN-Yet-Another-Resource-Negotiator

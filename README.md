@@ -9,6 +9,8 @@
   </tr>
 </table>
 
+> **:mag_right:** [Apache Spark][apache_spark] is a distributed data processing engine, whose components work and communicate on a cluster of machines. The Spark Core API provides support for interacting with five programming languages, namely Java, Scala, Python, R, and [SQL][apache_spark_sql].
+
 [Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Python][python_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other trending topics we are continuously monitoring.
 
 
@@ -32,7 +34,7 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*March 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*April 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.1\                 <i>( 10 MB)</i>
@@ -63,8 +65,8 @@ README.md
 where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
-- directory [**`docs\`**](docs/) contains [Spark] related papers/articles.
-- directory [**`examples`**](examples/) contain [Spark] code examples.
+- directory [**`docs\`**](docs/) contains [apache_spark] related papers/articles.
+- directory [**`examples`**](examples/) contain [apache_spark] code examples.
 - file **`README.md`** is the [Markdown][github_markdown] document for this page.
 - file [**`QUICKREF.md`**](QUICKREF.md) gathers Spark hints and tips.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
@@ -83,28 +85,9 @@ In the next section we give a brief description of the batch files present in th
 
 ## <span id="commands">Batch/Bash commands</span>
 
-We distinguish different sets of batch/bash commands:
+### **`setenv.bat`** <sup id="anchor_03">[3](#footnote_03)</sup>
 
-1. [**`setenv.bat`**](setenv.bat) &ndash; This batch command makes external tools such as [**`sbt.bat`**][sbt_cli] directly available from the command prompt (see section [**Project dependencies**](#proj_deps)).
-
-   <pre style="font-size:80%;">
-   <b>&gt; <a href="setenv.bat">setenv</a> help</b>
-   Usage: setenv { &lt;option&gt; | &lt;subcommand&gt; }
-   &nbsp;
-     Options:
-       -bash       start Git bash shell instead of Windows command prompt
-       -debug      show commands executed by this script
-       -verbose    display environment settings
-   &nbsp;
-     Subcommands:
-       help        display this help message
-   </pre>
-
-## <span id="examples">Usage examples</span> [**&#x25B4;**](#top)
-
-### **`setenv.bat`**
-
-Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`sbt.bat`**][sbt_cli] and [**`git.exe`**][git_cli] directly available from the command prompt.
+Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development environment; it makes external tools such as [**`mvn.cmd`**][apache_maven_cli] and [**`sbt.bat`**][sbt_cli] directly available from the command prompt.
 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
@@ -118,6 +101,8 @@ C:\opt\apache-maven-3.9.1\bin\mvn.cmd
 C:\opt\sbt-1.8.2\bin\sbt
 C:\opt\sbt-1.8.2\bin\sbt.bat
 </pre>
+
+<!--=======================================================================-->
 
 ## <span id="footnotes">Footnotes</span>
 
@@ -146,9 +131,30 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </pre>
 </dd></dl>
 
+<span id="footnote_03">[3]</span> **`setenv.bat` *usage*** [↩](#anchor_03)
+
+<dl><dd>
+<a href=./setenv.bat><code><b>setenv.bat</b></code></a> has specific environment variables set that enable us to use command-line developer tools more easily.
+</dd>
+<dd>It is similar to the setup scripts described on the page <a href="https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell" rel="external">"Visual Studio Developer Command Prompt and Developer PowerShell"</a> of the <a href="https://learn.microsoft.com/en-us/visualstudio/windows" rel="external">Visual Studio</a> online documentation.
+</dd>
+<dd>
+For instance we can quickly check that the two scripts <code>Launch-VsDevShell.ps1</code> and <code>VsDevCmd.bat</code> are indeed available in our Visual Studio 2019 installation :
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where" rel="external">where</a> /r "C:\Program Files (x86)\Microsoft Visual Studio" *vsdev*</b>
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Launch-VsDevShell.ps1
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsdevcmd\core\vsdevcmd_end.bat
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsdevcmd\core\vsdevcmd_start.bat
+</pre>
+</dd>
+<dd>
+Concretely, <code>setenv.bat</code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code>VsDevCmd.bat</code> (resp. <code>vcvarall.bat</code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+</dd></dl>
+
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -159,6 +165,8 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
 [apache_maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
+[apache_spark]: https://spark.apache.org
+[apache_spark_sql]: https://spark.apache.org/docs/latest/sql-programming-guide.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
 [dart_examples]: https://github.com/michelou/dart-examples
 [deno_examples]: https://github.com/michelou/deno-examples
@@ -196,7 +204,6 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.10
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [spring_examples]: https://github.com/michelou/spring-examples
-[spark]: https://spark.apache.org
 [spark_downloads]: https://spark.apache.org/downloads.html
 [spark_relnotes]: https://spark.apache.org/releases/spark-release-3-3-2.html
 [temurin_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot
