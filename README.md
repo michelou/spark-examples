@@ -9,7 +9,7 @@
   </tr>
 </table>
 
-> **:mag_right:** [Apache Spark][apache_spark] is a distributed data processing engine, whose components work and communicate on a cluster of machines. The Spark Core API provides support for interacting with five programming languages, namely Java, Scala, Python, R, and [SQL][apache_spark_sql].
+> **&#9755;** Read the document <a href="https://spark.apache.org">"What is Apache Spark™?"</a> from the <a href="https://spark.apache.org" rel="external">Spark</a> documentation to know more about the <a href="https://spark.apache.org" rel="external">Spark</a> ecosystem.
 
 [Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [Dart][dart_examples], [Deno][deno_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Python][python_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other trending topics we are continuously monitoring.
 
@@ -18,11 +18,11 @@
 
 This project depends on two external software for the **Microsoft Windows** platform:
 
-- [Apache Maven 3.9][apache_maven] ([requires Java 8 or newer][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
+- [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
 - [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
 - [sbt 1.8][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
-- [Spark 3.3][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
+- [Spark 3.4][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
 
 Optionally one may also install the following software:
@@ -34,17 +34,17 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*April 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*May 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.1\                 <i>( 10 MB)</i>
-C:\opt\Git-2.40.0\                         <i>(314 MB)</i>
-C:\opt\jdk-temurin-11.0.18_10\             <i>(302 MB)</i>
-C:\opt\jdk-temurin-17.0.6_10\              <i>(299 MB)</i>
+C:\opt\Git-2.40.1\                         <i>(314 MB)</i>
+C:\opt\jdk-temurin-11.0.19_7\              <i>(302 MB)</i>
+C:\opt\jdk-temurin-17.0.7_7\               <i>(299 MB)</i>
 C:\opt\sbt-1.8.2\                          <i>(110 MB)</i>
 C:\opt\scala-2.13.10\                      <i>( 24 MB)</i>
-C:\opt\spark-3.3.2-bin-hadoop3\            <i>(320 MB)</i>
-C:\opt\spark-3.3.2-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
+C:\opt\spark-3.4.0-bin-hadoop3\            <i>(320 MB)</i>
+C:\opt\spark-3.4.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
 </pre>
 
 > **:mag_right:** [Git for Windows](https://git-scm.com/download/win) provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -92,8 +92,8 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.18, sbt 1.8.2, scalac 2.13.10, spark-shell 3.3.2,
-   mvn 3.9.1, git 2.40.0.windows.1, diff 3.8, bash 5.2.12(1)-release
+   java 11.0.19, sbt 1.8.2, scalac 2.13.10, spark-shell 3.4.0,
+   mvn 3.9.1, git 2.40.1.windows.1, diff 3.9, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
 C:\opt\apache-maven-3.9.1\bin\mvn
@@ -121,13 +121,13 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.18_10.zip</a>  <i>(194 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.6_10.zip</a>   <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.40.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(194 MB)</i>
+<a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(191 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.40.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.8.2.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.2-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.3.2-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.4.0-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.4.0-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
 </pre>
 </dd></dl>
 
@@ -149,12 +149,12 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\vsde
 </pre>
 </dd>
 <dd>
-Concretely, <code>setenv.bat</code> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code>VsDevCmd.bat</code> (resp. <code>vcvarall.bat</code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
+Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our GitHub projects which depend on Visual Studio (e.g. <a href="https://github.com/michelou/cpp-examples"><code>michelou/cpp-examples</code></a>) do invoke <code><b>VsDevCmd.bat</b></code> (resp. <code>vcvarall.bat</code> for older Visual Studio versions) to setup the Visual Studio tools on the command prompt. 
 </dd></dl>
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -175,7 +175,7 @@ Concretely, <code>setenv.bat</code> in our GitHub projects which depend on Visua
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.1.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html

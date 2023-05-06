@@ -15,17 +15,25 @@
 - [Spark Streaming - Part 1][article_ranjan_streaming1] by Ankur Ranjan, January 2023.
 - [Syntactic Sugar in Spark Scala Codebase - Part 1][article_ranjan_scala1] by Ankur Ranjan, September 2022.
 - [Spark Trigger Options][article_daniel] by Sylverter Daniel, March 2019.
+- [The Good, Bad and Ugly: Apache Spark for Data Science Work][article_bennett] by Robert Bennett, June 2018.
 - [How to Shutdown a Spark Streaming Job Gracefully][article_jiang] by Lan Jiang, February 2017.
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [`spark-shell`](http://www.mtitek.com/tutorials/bigdata/spark/spark-shell.php) &ndash; Spark Interactive Shell (Scala).
 - &#128077; [**waiting**for<b>{code}</b> Blog posts](https://www.waitingforcode.com/apache-spark-sql) :
+  - [Spark SQL checkpoints](https://www.waitingforcode.com/apache-spark-sql/spark-sql-checkpoints/read), April 2023.
   - [Generated method too long to be JIT compiled](https://www.waitingforcode.com/apache-spark-sql/generated-method-too-long-be-jit-compiled/read) by Bartosz Konieczny, November 2022.
   - [Wildcard path and partitions](https://www.waitingforcode.com/apache-spark-sql/wildcard-path-partitions/read) by Bartosz Konieczny, November 2022.
   - [What's new in Apache Spark 3.3 - Data Source V2](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3.0-datasource-v2/read) by Bartosz Konieczny, July 2022.
   - [What's new in Apache Spark 3.3 - new functions](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-new-functions/read) by Bartosz Konieczny, June 2022.
   - [What's new in Apache Spark 3.3 - joins](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-joins/read) by Bartosz Konieczny, June 2022.
 - [Reconciling Spark APIs for Scala](https://www.virtuslab.com/blog/reconciling-spark-apis-for-scala/) by Michal Palka, September 2022.
+- [MungingData Blog posts](https://mungingdata.com/category/apache-spark/) :
+  - [Convert streaming CSV data to Delta Lake with different latency requirements](https://mungingdata.com/apache-spark/convert-csv-to-delta-lake-latency-trigger/), June 2022.
+  - [Registering Native Spark Functions](https://mungingdata.com/apache-spark/registerfunction-injectfunction/), May 2021.
+  - [Exploring DataFrames with summary and describe](https://mungingdata.com/apache-spark/dataframe-summary-describe/), April 2021.
+  - [Scala Spark vs Python PySpark: Which is better?](https://mungingdata.com/apache-spark/python-pyspark-scala-which-better/), February 2021.
 - [Install Hadoop 3.2.1 on Windows 10 Step by Step Guide][blog_raymond] by Raymond, October 2021.
 - [Build Your Own WinUtils for Spark][blog_meakins] by Nigel Meakins, April 2021.
 - [CERN Database Blog](https://db-blog.web.cern.ch/blog/) :
@@ -40,7 +48,8 @@
 
 ## <span id="books">Books</span>
 
-- [Beginning Apache Spark 3][book_luu] by Hien Luu, 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
+- [Beginning Apache Spark 3][book_luu] by Hien Luu, October 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
+- [Apacke Spark : Invent the Future][book_lee] by Ernesto Lee, June 2021.<br/><span style="font-size:80%;">(ISBN 979-8-5257-0848-8, 482 pages)</span>
 - [Learning Spark][book_damji] (2<sup>nd</sup> Edition) by Jules S. Damji and al, July 2020.<br/><span style="font-size:80%;">(O'Reilly, 978-1-492-05004-9, 399 pages)</span>
 - [Spark in Action][book_perrin] (2<sup>nd</sup> Edition) by Jean-Georges Perrin, May 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9552-2, 576 pages)</span>
 - [Apache Spark Quick Start Guide][book_mehrotra] by Shrey Mehrotra and Akash Grade, January 2019.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7893-4910-8, 154 pages)</span>
@@ -63,13 +72,14 @@
 
 ## <span id="tutorials">Tutorials</span>
 
+- [Learn Apache Spark](https://www.tutorialkart.com/apache-spark-tutorial/) by [TutorialKart](https://www.tutorialkart.com/), 2023.
 - [Apache Spark Full Course](https://www.youtube.com/watch?v=xDEzSxlsUpU) by Edureka, 2023 (9 hours).
 - Apache Spark Crash Course Mini-series by [Hortonworks]
   - [Part 1 - Spark Basics][tutorial_hortonworks_1]
   - [Part 2 - Spark SQL][tutorial_hortonworks_2]
   - [Part 3 - Spark Streaming][tutorial_hortonworks_3]
   - [Part 4 - Spark MLlib][tutorial_hortonworks_4]
-  
+
 ## <span id="videos">Videos</span>
 
 - [Quick introduction to Apache Spark](https://www.youtube.com/watch?v=TgiBvKcGL24) by Melvin L, May 2016 (13 min).
@@ -81,11 +91,12 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/April 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
+[article_bennett]: https://thenewstack.io/the-good-bad-and-ugly-apache-spark-for-data-science-work/
 [article_daniel]: https://www.linkedin.com/pulse/spark-trigger-options-sylvester-daniel
 [article_jiang]: https://www.linkedin.com/pulse/how-shutdown-spark-streaming-job-gracefully-lan-jiang
 [article_ranjan_scala1]: https://www.linkedin.com/pulse/syntactic-sugar-spark-scala-codebase-part-1-ankur-ranjan
@@ -100,6 +111,7 @@
 [book_chellappan]: https://www.apress.com/gp/book/9781484236512
 [book_damji]: https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/
 [book_perrin]: https://www.manning.com/books/spark-in-action-second-edition
+[book_lee]: https://www.amazon.com/dp/B097SNB8T6
 [book_luu]: https://link.springer.com/book/10.1007/978-1-4842-7383-8
 [book_mehrotra]: https://www.packtpub.com/product/apache-spark-quick-start-guide/9781789349108
 [cloudera]: https://www.cloudera.com/

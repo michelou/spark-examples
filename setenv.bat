@@ -25,7 +25,6 @@ if %_HELP%==1 (
 
 set _GIT_PATH=
 set _MAVEN_PATH=
-set _PYTHON3_PATH=
 set _SBT_PATH=
 set _SPARK_PATH=
 
@@ -323,7 +322,7 @@ goto :eof
 @rem output parameters: _PYTHON_HOME, _PYTHON3_PATH
 :python3
 set _PYTHON_HOME=
-set _PYTHON3_PATH=
+@rem set _PYTHON3_PATH=
 
 set __PYTHON_CMD=
 for /f %%f in ('where python.exe 2^>NUL') do (
@@ -350,7 +349,7 @@ if defined __PYTHON_CMD (
         )
     )
 )
-set "_PYTHON3_PATH=;%_PYTHON_HOME%"
+@rem set "_PYTHON3_PATH=;%_PYTHON_HOME%"
 goto :eof
 
 @rem output parameters: _SBT_HOME, _SBT_PATH
@@ -602,13 +601,15 @@ endlocal & (
         if not defined HADOOP_HOME set "HADOOP_HOME=%_HADOOP_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
+        @rem https://spark.apache.org/docs/latest/configuration.html#environment-variables
         if not defined PYSPARK_PYTHON set "PYSPARK_PYTHON=%_PYTHON_HOME%\python.exe"
+        if not defined PYSPARK_DRIVER_PYTHON set "PYSPARK_DRIVER_PYTHON=%_PYTHON_HOME%\python.exe"
         if not defined PYTHON_HOME set "PYTHON_HOME=%_PYTHON_HOME%"
         if not defined SBT_HOME set "SBT_HOME=%_SBT_HOME%"
         if not defined SCALA_HOME set "SCALA_HOME=%_SCALA_HOME%"
         if not defined SPARK_HOME set "SPARK_HOME=%_SPARK_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_PYTHON3_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if %_BASH%==1 (
             @rem see https://conemu.github.io/en/GitForWindows.html
