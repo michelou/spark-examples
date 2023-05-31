@@ -34,10 +34,10 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*May 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*June 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.1\                 <i>( 10 MB)</i>
+C:\opt\apache-maven-3.9.2\                 <i>( 10 MB)</i>
 C:\opt\Git-2.40.1\                         <i>(314 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\              <i>(302 MB)</i>
 C:\opt\jdk-temurin-17.0.7_7\               <i>(299 MB)</i>
@@ -93,11 +93,11 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    java 11.0.19, sbt 1.8.2, scalac 2.13.10, spark-shell 3.4.0,
-   mvn 3.9.1, git 2.40.1.windows.1, diff 3.9, bash 5.2.12(1)-release
+   mvn 3.9.2, git 2.40.1.windows.1, diff 3.9, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
-C:\opt\apache-maven-3.9.1\bin\mvn
-C:\opt\apache-maven-3.9.1\bin\mvn.cmd
+C:\opt\apache-maven-3.9.2\bin\mvn
+C:\opt\apache-maven-3.9.2\bin\mvn.cmd
 C:\opt\sbt-1.8.2\bin\sbt
 C:\opt\sbt-1.8.2\bin\sbt.bat
 </pre>
@@ -119,7 +119,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.1-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.2-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(191 MB)</i>
@@ -154,7 +154,7 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -164,7 +164,7 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.1/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.2/release-notes.html
 [apache_spark]: https://spark.apache.org
 [apache_spark_sql]: https://spark.apache.org/docs/latest/sql-programming-guide.html
 [cpp_examples]: https://github.com/michelou/cpp-examples

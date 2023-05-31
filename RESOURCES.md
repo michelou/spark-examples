@@ -48,6 +48,7 @@
 
 ## <span id="books">Books</span>
 
+- [Modern Data Engineering with Apache Spark][book_haines] by Scott Haines, March 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7451-4, 585 pages)</span>
 - [Beginning Apache Spark 3][book_luu] by Hien Luu, October 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
 - [Apacke Spark : Invent the Future][book_lee] by Ernesto Lee, June 2021.<br/><span style="font-size:80%;">(ISBN 979-8-5257-0848-8, 482 pages)</span>
 - [Learning Spark][book_damji] (2<sup>nd</sup> Edition) by Jules S. Damji and al, July 2020.<br/><span style="font-size:80%;">(O'Reilly, 978-1-492-05004-9, 399 pages)</span>
@@ -91,7 +92,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -110,6 +111,7 @@
 [blog_raymond]: https://kontext.tech/column/hadoop/377/latest-hadoop-321-installation-on-windows-10-step-by-step-guide
 [book_chellappan]: https://www.apress.com/gp/book/9781484236512
 [book_damji]: https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/
+[book_haines]: https://www.barnesandnoble.com/w/modern-data-engineering-with-apache-spark-scott-haines/1140184133
 [book_perrin]: https://www.manning.com/books/spark-in-action-second-edition
 [book_lee]: https://www.amazon.com/dp/B097SNB8T6
 [book_luu]: https://link.springer.com/book/10.1007/978-1-4842-7383-8
