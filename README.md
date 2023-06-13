@@ -19,8 +19,8 @@
 This project depends on two external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.40][git_downloads] ([*release notes*][git_relnotes])
-- [sbt 1.8][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
+- [Git 2.41][git_downloads] ([*release notes*][git_relnotes])
+- [sbt 1.9][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.4][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
 - [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
@@ -38,11 +38,11 @@ For instance our development environment looks as follows (*June 2023*) <sup id=
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.2\                 <i>( 10 MB)</i>
-C:\opt\Git-2.40.1\                         <i>(314 MB)</i>
+C:\opt\Git-2.41.0\                         <i>(358 MB)</i>
 C:\opt\jdk-temurin-11.0.19_7\              <i>(302 MB)</i>
 C:\opt\jdk-temurin-17.0.7_7\               <i>(299 MB)</i>
-C:\opt\sbt-1.8.2\                          <i>(110 MB)</i>
-C:\opt\scala-2.13.10\                      <i>( 24 MB)</i>
+C:\opt\sbt-1.9.0\                          <i>(110 MB)</i>
+C:\opt\scala-2.13.11\                      <i>( 24 MB)</i>
 C:\opt\spark-3.4.0-bin-hadoop3\            <i>(320 MB)</i>
 C:\opt\spark-3.4.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
 </pre>
@@ -92,19 +92,19 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.19, sbt 1.8.2, scalac 2.13.10, spark-shell 3.4.0,
-   mvn 3.9.2, git 2.40.1.windows.1, diff 3.9, bash 5.2.12(1)-release
+   java 11.0.19, sbt 1.9.0, scalac 2.13.11, spark-shell 3.4.0,
+   mvn 3.9.2, git 2.41.0.windows.1, diff 3.9, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
 C:\opt\apache-maven-3.9.2\bin\mvn
 C:\opt\apache-maven-3.9.2\bin\mvn.cmd
-C:\opt\sbt-1.8.2\bin\sbt
-C:\opt\sbt-1.8.2\bin\sbt.bat
+C:\opt\sbt-1.9.0\bin\sbt
+C:\opt\sbt-1.9.0\bin\sbt.bat
 </pre>
 
 <!--=======================================================================-->
 
-## <span id="footnotes">Footnotes</span>
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
 <span id="footnote_01">[1]</span> ***Scala 2.13 Support*** [↩](#anchor_01)
 
@@ -123,9 +123,9 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.40.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
-<a href="https://github.com/sbt/sbt/releases">sbt-1.8.2.zip</a>                                      <i>( 17 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.10.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://github.com/sbt/sbt/releases">sbt-1.9.0.zip</a>                                      <i>( 17 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.4.0-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.4.0-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
 </pre>
@@ -175,7 +175,7 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.40.1.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
@@ -199,9 +199,9 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [rust_examples]: https://github.com/michelou/rust-examples
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.8.2
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.0
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.10
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.11
 [scala3_examples]: https://github.com/michelou/dotty-examples
 [spring_examples]: https://github.com/michelou/spring-examples
 [spark_downloads]: https://spark.apache.org/downloads.html

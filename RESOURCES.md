@@ -58,7 +58,10 @@
 
 ## <span id="papers">Papers</span>
 
-- [Framing Apache Spark in life sciences](ttps://www.researchgate.net/publication/368415087_Framing_Apache_Spark_in_life_sciences) by Andrea Manconi et al., Feburary 2023.
+- [Framing Apache Spark in life sciences](https://www.researchgate.net/publication/368415087_Framing_Apache_Spark_in_life_sciences) by Andrea Manconi et al., Feburary 2023.
+- [Apache Spark: A Unified Engine for Big Data Processing](https://cs.stanford.edu/~matei/#publications) by Matei Zaharia et al., November 2016.<br/><span style="font-size:80%;">(Communications of the ACM, 59(11):56-65)</span>
+- [Big data analytics on Apache Spark](https://link.springer.com/article/10.1007/s41060-016-0027-9) by Salman Salloum et al, October 2016.<br/><span style="font-size:80%;">(IJDSA'16 Proceedings, 1, pages 145–164)</span>
+- [Discretized streams: fault-tolerant streaming computation at scale](https://dl.acm.org/doi/10.1145/2517349.2522737) by Matei Zaharia et al., November 2013.<br/><span style="font-size:80%;">(SOSP '13 Proceedings, pages 423–438)</span>
 
 ## <span id="projects">Projects</span> [**&#x25B4;**](#top)
 
@@ -80,6 +83,7 @@
   - [Part 2 - Spark SQL][tutorial_hortonworks_2]
   - [Part 3 - Spark Streaming][tutorial_hortonworks_3]
   - [Part 4 - Spark MLlib][tutorial_hortonworks_4]
+- [SparkBy{Examples}](https://sparkbyexamples.com/)
 
 ## <span id="videos">Videos</span>
 
