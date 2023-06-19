@@ -48,6 +48,7 @@
 
 ## <span id="books">Books</span>
 
+- [Hands-on Guide on Apache Spark 3][book_garcia] by Alfonso A. Garcia, 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-9379-9, 404 pages)</span>
 - [Modern Data Engineering with Apache Spark][book_haines] by Scott Haines, March 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7451-4, 585 pages)</span>
 - [Beginning Apache Spark 3][book_luu] by Hien Luu, October 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
 - [Apacke Spark : Invent the Future][book_lee] by Ernesto Lee, June 2021.<br/><span style="font-size:80%;">(ISBN 979-8-5257-0848-8, 482 pages)</span>
@@ -115,6 +116,7 @@
 [blog_raymond]: https://kontext.tech/column/hadoop/377/latest-hadoop-321-installation-on-windows-10-step-by-step-guide
 [book_chellappan]: https://www.apress.com/gp/book/9781484236512
 [book_damji]: https://www.oreilly.com/library/view/learning-spark-2nd/9781492050032/
+[book_garcia]: https://www.barnesandnoble.com/w/hands-on-guide-to-apache-spark-3-alfonso-antol-nez-garc-a/1143399121
 [book_haines]: https://www.barnesandnoble.com/w/modern-data-engineering-with-apache-spark-scott-haines/1140184133
 [book_perrin]: https://www.manning.com/books/spark-in-action-second-edition
 [book_lee]: https://www.amazon.com/dp/B097SNB8T6
