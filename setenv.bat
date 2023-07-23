@@ -61,7 +61,6 @@ goto end
 @rem output parameters: _DEBUG_LABEL, _ERROR_LABEL, _WARNING_LABEL
 :env
 set _BASENAME=%~n0
-set _DRIVE_NAME=K
 set "_ROOT_DIR=%~dp0"
 
 call :env_colors
@@ -150,28 +149,28 @@ if "%__ARG:~0,1%"=="-" (
 shift
 goto args_loop
 :args_done
-call :subst "%_ROOT_DIR%"
+call :drive_name "%_ROOT_DIR%"
 if not %_EXITCODE%==0 goto :eof
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _BASH=%_BASH% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _HELP=%_HELP% 1>&2
     echo %_DEBUG_LABEL% Variables  : _DRIVE_NAME=%_DRIVE_NAME% 1>&2
 )
 goto :eof
 
 @rem input parameter: %1: path to be substituted
-@rem output parameter: _DRIVE_NAME
-:subst
+@rem output parameter: _DRIVE_NAME (2 characters: letter + ':')
+:drive_name
 set "__GIVEN_PATH=%~1"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
-set __LETTERS=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
+set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
 for /f %%i in ('wmic logicaldisk get deviceid ^| findstr :') do (
-    set "__LETTERS=!__LETTERS:%%i=!"
+    set "__DRIVE_NAMES=!__DRIVE_NAMES:%%i=!"
 )
-if %_DEBUG%==1 echo %_DEBUG_LABEL% __LETTERS=%__LETTERS% ^(WMIC^) 1>&2
-if not defined __LETTERS (
-    echo %_ERROR_LABEL% No more free drive letter 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(WMIC^) 1>&2
+if not defined __DRIVE_NAMES (
+    echo %_ERROR_LABEL% No more free drive name 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -193,13 +192,13 @@ for /f "tokens=1,2,*" %%f in ('subst') do (
         goto :eof
     )
 )
-for /f "tokens=1,2,*" %%f in ('subst') do (
+for /f "tokens=1,2,*" %%i in ('subst') do (
     set __USED=%%i
-    call :subst_update_letters "!__USED:~0,2!"
+    call :drive_names "!__USED:~0,2!"
 )
-if %_DEBUG%==1 echo %_DEBUG_LABEL% __LETTERS=%__LETTERS% ^(SUBST^) 1>&2
+if %_DEBUG%==1 echo %_DEBUG_LABEL% __DRIVE_NAMES=%__DRIVE_NAMES% ^(SUBST^) 1>&2
 
-set "_DRIVE_NAME=!__LETTERS:~0,2!"
+set "_DRIVE_NAME=!__DRIVE_NAMES:~0,2!"
 if /i "%_DRIVE_NAME%"=="%__GIVEN_PATH:~0,2%" goto :eof
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% subst "%_DRIVE_NAME%" "%__GIVEN_PATH%" 1>&2
@@ -213,9 +212,11 @@ if not %ERRORLEVEL%==0 (
 )
 goto :eof
 
-:subst_update_letters
-set "__USED=%~1"
-set "__LETTERS=!__LETTERS:%__USED%=!"
+@rem input parameter: %1=Used drive name
+@rem output parameter: __DRIVE_NAMES
+:drive_names
+set "__USED_NAME=%~1"
+set "__DRIVE_NAMES=!__DRIVE_NAMES:%__USED_NAME%=!"
 goto :eof
 
 :help
@@ -234,7 +235,7 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-bash%__END%       start Git bash shell instead of Windows command prompt
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
+echo     %__BEG_O%-debug%__END%      display commands executed by this script
 echo     %__BEG_O%-verbose%__END%    display environment settings
 echo.
 echo   %__BEG_P%Subcommands:%__END%
