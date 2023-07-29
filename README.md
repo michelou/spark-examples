@@ -26,22 +26,21 @@ This project depends on two external software for the **Microsoft Windows** plat
 - [Temurin OpenJDK 11 LTS][temurin_opendjk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk11_relnotes], [*bug fixes*][temurin_opendjk11_bugfixes])
 
 Optionally one may also install the following software:
-<!--
-- [Temurin OpenJDK 8 LTS][temurin_openjdk8] ([*release notes*][temurin_openjdk8_relnotes])
--->
+- [Gradle 8.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_opendjk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk17_relnotes], [*bug fixes*][temurin_opendjk17_bugfixes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*July 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*August 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.3\                 <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\                         <i>(358 MB)</i>
-C:\opt\jdk-temurin-11.0.19_7\              <i>(302 MB)</i>
-C:\opt\jdk-temurin-17.0.7_7\               <i>(299 MB)</i>
-C:\opt\sbt-1.9.2\                          <i>(110 MB)</i>
+C:\opt\gradle-8.2.1\                       <i>(135 MB)</i>
+C:\opt\jdk-temurin-11.0.20_8\              <i>(302 MB)</i>
+C:\opt\jdk-temurin-17.0.8_7\               <i>(299 MB)</i>
+C:\opt\sbt-1.9.3\                          <i>(135 MB)</i>
 C:\opt\scala-2.13.11\                      <i>( 24 MB)</i>
 C:\opt\spark-3.4.1-bin-hadoop3\            <i>(320 MB)</i>
 C:\opt\spark-3.4.1-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
@@ -92,14 +91,14 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.19, sbt 1.9.2, scalac 2.13.11, spark-shell 3.4.1,
+   java 11.0.19, sbt 1.9.3, scalac 2.13.11, spark-shell 3.4.1,
    mvn 3.9.3, git 2.41.0.windows.1, diff 3.9, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
 C:\opt\apache-maven-3.9.3\bin\mvn
 C:\opt\apache-maven-3.9.3\bin\mvn.cmd
-C:\opt\sbt-1.9.2\bin\sbt
-C:\opt\sbt-1.9.2\bin\sbt.bat
+C:\opt\sbt-1.9.3\bin\sbt
+C:\opt\sbt-1.9.3\bin\sbt.bat
 </pre>
 
 <!--=======================================================================-->
@@ -120,11 +119,12 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.3-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(118 MB)</i>
 <a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.19_7.zip</a>   <i>(194 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.7_7.zip</a>    <i>(191 MB)</i>
+<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(194 MB)</i>
+<a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
-<a href="https://github.com/sbt/sbt/releases">sbt-1.9.2.zip</a>                                      <i>( 17 MB)</i>
+<a href="https://github.com/sbt/sbt/releases">sbt-1.9.3.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.4.1-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.4.1-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
@@ -154,7 +154,7 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -179,6 +179,10 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
+[gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
+[gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
+[gradle_install]: https://gradle.org/install/
+[gradle_relnotes]: https://docs.gradle.org/8.2/release-notes.html
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kafka_examples]: https://github.com/michelou/kafka-examples
@@ -200,7 +204,7 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [rust_examples]: https://github.com/michelou/rust-examples
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.2
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.9.3
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.11
 [scala3_examples]: https://github.com/michelou/dotty-examples

@@ -10,6 +10,7 @@
 
 ## <span id="articles">Articles</span>
 
+- [Top 80+ Apache Spark Interview Questions and Answers for 2023][article_arora] by Shivam Arora, July 2023.
 - [Stateful transformations in Spark Streaming - Part 1][article_ranjan_stateful1] by Ankur Ranjan, February 2023.
 - [Spark Streaming - Part 2][article_ranjan_streaming2] by Ankur Ranjan, January 2023.
 - [Spark Streaming - Part 1][article_ranjan_streaming1] by Ankur Ranjan, January 2023.
@@ -51,7 +52,7 @@
 - [Hands-on Guide on Apache Spark 3][book_garcia] by Alfonso A. Garcia, 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-9379-9, 404 pages)</span>
 - [Modern Data Engineering with Apache Spark][book_haines] by Scott Haines, March 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7451-4, 585 pages)</span>
 - [Beginning Apache Spark 3][book_luu] by Hien Luu, October 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
-- [Apacke Spark : Invent the Future][book_lee] by Ernesto Lee, June 2021.<br/><span style="font-size:80%;">(ISBN 979-8-5257-0848-8, 482 pages)</span>
+- [Apache Spark : Invent the Future][book_lee] by Ernesto Lee, June 2021.<br/><span style="font-size:80%;">(ISBN 979-8-5257-0848-8, 482 pages)</span>
 - [Learning Spark][book_damji] (2<sup>nd</sup> Edition) by Jules S. Damji and al, July 2020.<br/><span style="font-size:80%;">(O'Reilly, 978-1-492-05004-9, 399 pages)</span>
 - [Spark in Action][book_perrin] (2<sup>nd</sup> Edition) by Jean-Georges Perrin, May 2020.<br/><span style="font-size:80%;">(Manning, ISBN 978-1-6172-9552-2, 576 pages)</span>
 - [Apache Spark Quick Start Guide][book_mehrotra] by Shrey Mehrotra and Akash Grade, January 2019.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-7893-4910-8, 154 pages)</span>
@@ -97,11 +98,12 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
 
+[article_arora]: https://www.simplilearn.com/top-apache-spark-interview-questions-and-answers-article
 [article_bennett]: https://thenewstack.io/the-good-bad-and-ugly-apache-spark-for-data-science-work/
 [article_daniel]: https://www.linkedin.com/pulse/spark-trigger-options-sylvester-daniel
 [article_jiang]: https://www.linkedin.com/pulse/how-shutdown-spark-streaming-job-gracefully-lan-jiang

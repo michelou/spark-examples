@@ -24,6 +24,7 @@ if %_HELP%==1 (
 )
 
 set _GIT_PATH=
+set _GRADLE_PATH=
 set _MAVEN_PATH=
 set _SBT_PATH=
 set _SPARK_PATH=
@@ -121,7 +122,7 @@ goto :eof
 set _BASH=0
 set _HELP=0
 set _VERBOSE=0
-set __N=0
+
 :args_loop
 set "__ARG=%~1"
 if not defined __ARG goto args_done
@@ -144,7 +145,6 @@ if "%__ARG:~0,1%"=="-" (
         set _EXITCODE=1
         goto args_done
     )
-    set /a __N+=1
 )
 shift
 goto args_loop
@@ -306,6 +306,38 @@ set "__PREFIX=%__JAVAC_VERSION:~0,2%"
 if "%__PREFIX%"=="1." ( set _JDK_VERSION=%__JAVAC_VERSION:~2,1%
 ) else ( set _JDK_VERSION=%__PREFIX%
 )
+goto :eof
+
+@rem output parameters: _GRADLE_HOME, _GRADLE_PATH
+:gradle
+set _GRADLE_HOME=
+set _GRADLE_PATH=
+
+set __GRADLE_CMD=
+for /f %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
+if defined __GRADLE_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
+    for %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
+    for %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
+    @rem keep _GRADLE_PATH undefined since executable already in path
+    goto :eof
+) else if defined GRADLE_HOME (
+    set "_GRADLE_HOME=%GRADLE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GRADLE_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    for /f %%f in ('dir /ad /b "!__PATH!\gradle*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+    if not defined _GRADLE_HOME (
+        set "__PATH=%ProgramFiles%"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\gradle*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+    )
+)
+if not exist "%_GRADLE_HOME%\bin\gradle.bat" (
+    echo %_ERROR_LABEL% Executable gradle.bat not found ^(%_GRADLE_HOME%^) 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+set "_GRADLE_PATH=;%_GRADLE_HOME%\bin"
 goto :eof
 
 @rem output parameters: _MAVEN_HOME, _MAVEN_PATH
@@ -486,7 +518,7 @@ if defined _HADOOP_HOME ( set "__BIN_DIR=%_HADOOP_HOME%\bin"
     set _EXITCODE=1
     goto :eof
 )
-set __BIN_URL=https://github.com/cdarlint/winutils/blob/master/hadoop-3.2.2/bin
+set __BIN_URL=https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.5/bin
 for %%i in (libwinutils.lib winutils.exe winutils.pdb) do (
     set "__OUTFILE=%__BIN_DIR%\%%i"
     if not exist "!__OUTFILE!" (
@@ -523,7 +555,7 @@ if defined __GIT_CMD (
     goto :eof
 ) else if defined GIT_HOME (
     set "_GIT_HOME=%GIT_HOME%"
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GIT_HOME 1>&2
 ) else (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
@@ -633,13 +665,14 @@ endlocal & (
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
         set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
+        if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
+            if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
+            cd /d %_DRIVE_NAME%
+        )
         if %_BASH%==1 (
             @rem see https://conemu.github.io/en/GitForWindows.html
             if %_DEBUG%==1 echo %_DEBUG_LABEL% %_GIT_HOME%\usr\bin\bash.exe --login 1>&2
             cmd.exe /c "%_GIT_HOME%\usr\bin\bash.exe --login"
-        ) else if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
-            if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
-            cd /d %_DRIVE_NAME%
         )
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% _EXITCODE=%_EXITCODE% 1>&2

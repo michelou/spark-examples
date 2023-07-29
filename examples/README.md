@@ -25,7 +25,7 @@ Create assembly file "target\Customers-assembly-0.1.0.jar"
 Extract class files from "C:\Users\michelou\.m2\repository\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar"
 Update assembly file "target\Customers-assembly-0.1.0.jar"
 Execute Spark application "Customers"
-23/01/12 20:41:53 INFO SparkContext: Running Spark version 3.4.0
+23/01/12 20:41:53 INFO SparkContext: Running Spark version 3.4.1
 [...]
 23/01/12 20:42:02 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
 23/01/12 20:42:02 INFO FileScanRDD: Reading File path: file:///K:/examples/Customers/customers.json, range: 0-457, partition values: [empty row]
@@ -60,7 +60,7 @@ Create assembly file "target\HelloWorld-assembly-0.1.0.jar"
 Extract class files from "%USERPROFILE%\.m2\repository\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar"
 Update assembly file "target\HelloWorld-assembly-0.1.0.jar"
 Execute Spark application "Hello World"
-23/01/12 20:38:50 INFO SparkContext: Running Spark version 3.4.0
+23/01/12 20:38:50 INFO SparkContext: Running Spark version 3.4.1
 [...]
 22/05/27 17:20:07 INFO Utils: Successfully started service 'SparkUI' on port 4040.
 22/05/27 17:20:07 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://192.168.0.100:4040
@@ -84,7 +84,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

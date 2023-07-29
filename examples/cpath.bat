@@ -25,12 +25,12 @@ set _LIBS_CPATH=
 set __SCALA_BINARY_VERSION=2.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala3-library
-call :add_jar "org.scala-lang" "scala3-library_3" "3.3.0-RC3"
+call :add_jar "org.scala-lang" "scala3-library_3" "3.3.0"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 call :add_jar "org.scala-lang" "scala-library" "2.13.10"
 
-set __SPARK_VERSION=3.3.2
+set __SPARK_VERSION=3.4.1
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst
 @rem Note: contains symbol 'type org.apache.spark.sql.Row'
@@ -54,7 +54,7 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-unsafe
 @rem call :add_jar "org.apache.spark" "spark-unsafe_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
-set __FRAMELESS_VERSION=0.13.0
+set __FRAMELESS_VERSION=0.14.1
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-core
 call :add_jar "org.typelevel" "frameless-core_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
