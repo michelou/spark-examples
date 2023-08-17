@@ -27,6 +27,7 @@ This project depends on two external software for the **Microsoft Windows** plat
 
 Optionally one may also install the following software:
 - [Gradle 8.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Oracle OpenJDK 21 LTS][oracle_openjdk21] ([*release notes*][oracle_openjdk21_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_opendjk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_opendjk17_relnotes], [*bug fixes*][temurin_opendjk17_bugfixes])
 
 > **&#9755;** ***Installation policy***<br/>
@@ -35,9 +36,10 @@ Optionally one may also install the following software:
 For instance our development environment looks as follows (*August 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
-C:\opt\apache-maven-3.9.3\                 <i>( 10 MB)</i>
+C:\opt\apache-maven-3.9.4\                 <i>( 10 MB)</i>
 C:\opt\Git-2.41.0\                         <i>(358 MB)</i>
-C:\opt\gradle-8.2.1\                       <i>(135 MB)</i>
+C:\opt\gradle\                             <i>(135 MB)</i>
+C:\opt\jdk-oracle-21-ea-35\                <i>(320 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\              <i>(302 MB)</i>
 C:\opt\jdk-temurin-17.0.8_7\               <i>(299 MB)</i>
 C:\opt\sbt-1.9.3\                          <i>(135 MB)</i>
@@ -71,7 +73,7 @@ where
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
 - file [**`setenv.bat`**](setenv.bat) is the batch script for setting up our environment.
 
-We also define a virtual drive **`K:`** in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
+We also define a virtual drive &ndash; e.g. drive **`K:`** &ndash; in our working environment in order to reduce/hide the real path of our project directory (see article ["Windows command prompt limitation"][windows_limitation] from Microsoft Support).
 
 > **:mag_right:** We use the Windows external command [**`subst`**][windows_subst] to create virtual drives; for instance:
 >
@@ -91,12 +93,12 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.19, sbt 1.9.3, scalac 2.13.11, spark-shell 3.4.1,
-   mvn 3.9.3, git 2.41.0.windows.1, diff 3.9, bash 5.2.12(1)-release
+   java 11.0.20, sbt 1.9.3, scalac 2.13.11, spark-shell 3.4.1,
+   mvn 3.9.4, git 2.41.0.windows.1, diff 3.9, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
-C:\opt\apache-maven-3.9.3\bin\mvn
-C:\opt\apache-maven-3.9.3\bin\mvn.cmd
+C:\opt\apache-maven-3.9.4\bin\mvn
+C:\opt\apache-maven-3.9.4\bin\mvn.cmd
 C:\opt\sbt-1.9.3\bin\sbt
 C:\opt\sbt-1.9.3\bin\sbt.bat
 </pre>
@@ -118,11 +120,11 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.3-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.4-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://gradle.org/install/">gradle-8.2.1-bin.zip</a>                               <i>(118 MB)</i>
-<a href="https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot">OpenJDK8U-jdk_x64_windows_hotspot_8u352b08.zip</a>     <i>( 99 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(191 MB)</i>
+<a href="https://jdk.java.net/21/">openjdk-21_windows-x64_bin_build_35.zip</a>            <i>(191 MB)</i>
 <a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.9.3.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
@@ -164,7 +166,7 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.3/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.4/release-notes.html
 [apache_spark]: https://spark.apache.org
 [apache_spark_sql]: https://spark.apache.org/docs/latest/sql-programming-guide.html
 [cpp_examples]: https://github.com/michelou/cpp-examples
@@ -198,8 +200,8 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [man1_rmdir]: https://www.linux.org/docs/man1/rmdir.html
 [man1_sed]: https://www.linux.org/docs/man1/sed.html
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
-[oracle_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot
-[oracle_openjdk8_relnotes]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2021-July/014118.html
+[oracle_openjdk21]: https://jdk.java.net/21/
+[oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
 [python_examples]: https://github.com/michelou/python-examples
 [rust_examples]: https://github.com/michelou/rust-examples
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
@@ -213,12 +215,22 @@ Concretely, <a href="./setenv.bat"><code><b>setenv.bat</b></code></a> in our Git
 [spark_relnotes]: https://spark.apache.org/releases/spark-release-3-3-2.html
 [temurin_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot
 [temurin_openjdk8_relnotes]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2022-January/014522.html
+<!--
+11.0.9  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2020-October/004007.html
+11.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2021-October/009368.html
+11.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-July/016017.html
+11.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-October/018119.html
+11.0.18 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-January/020111.html
+11.0.20 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021900.html
+11.0.20 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024064.html
+-->
+[temurin_opendjk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [temurin_opendjk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-17-bugfixes.html
 [temurin_opendjk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2022-October/018119.html
-[temurin_opendjk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
-[temurin_opendjk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
-[temurin_opendjk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
-[temurin_opendjk17_relnotes]: https://github.com/openjdk/jdk/compare/jdk-17%2B20...jdk-17%2B21
+<!--
+17.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021899.html
+17.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024063.html
+-->
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
