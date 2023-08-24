@@ -232,12 +232,12 @@ lib_cpath() {
     local cpath=
     local central_repo=https://repo1.maven.org/maven2
     local jar_file=
-    for f in $(find "$LOCAL_REPO/org/apache/spark/" -name "spark-core*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/org/apache/spark/" -type f -name "spark-core*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
     jar_file=
-    for f in $(find "$LOCAL_REPO/org/apache/spark/" -name "spark-sql*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/org/apache/spark/" -type f -name "spark-sql*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
@@ -288,7 +288,7 @@ decompile() {
         echo "Save generated Java source files to file ${output_file/$ROOT_DIR\//}" 1>&2
     fi
     local java_files=
-    for f in $(find $output_dir/ -name *.java 2>/dev/null); do
+    for f in $(find "$output_dir/" -type f -name "*.java" 2>/dev/null); do
         java_files="$java_files $(mixed_path $f)"
     done
     [[ -n "$java_files" ]] && cat $java_files >> "$output_file"
@@ -322,7 +322,7 @@ decompile() {
 extra_cpath() {
     lib_path="$SCALA_HOME/lib"
     local extra_cpath=
-    for f in $(find $lib_path/ -name *.jar); do
+    for f in $(find "$lib_path/" -type f -name "*.jar"); do
         extra_cpath="$extra_cpath$(mixed_path $f)$PSEP"
     done
     echo $extra_cpath
