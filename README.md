@@ -19,7 +19,7 @@
 This project depends on two external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.41][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.42][git_downloads] ([*release notes*][git_relnotes])
 - [sbt 1.9][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.4][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
@@ -37,7 +37,7 @@ For instance our development environment looks as follows (*August 2023*) <sup i
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven-3.9.4\                 <i>( 10 MB)</i>
-C:\opt\Git-2.41.0\                         <i>(358 MB)</i>
+C:\opt\Git\                                <i>(367 MB)</i>
 C:\opt\gradle\                             <i>(135 MB)</i>
 C:\opt\jdk-oracle-21-ea-35\                <i>(320 MB)</i>
 C:\opt\jdk-temurin-11.0.20_8\              <i>(302 MB)</i>
@@ -84,7 +84,7 @@ We also define a virtual drive &ndash; e.g. drive **`K:`** &ndash; in our workin
 In the next section we give a brief description of the batch files present in this project.
 
 
-## <span id="commands">Batch/Bash commands</span>
+## <span id="commands">Batch/Bash commands</span> [**&#x25B4;**](#top)
 
 ### **`setenv.bat`** <sup id="anchor_03">[3](#footnote_03)</sup>
 
@@ -94,7 +94,7 @@ Command [**`setenv.bat`**](setenv.bat) is executed once to setup our development
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    java 11.0.20, sbt 1.9.3, scalac 2.13.11, spark-shell 3.4.1,
-   mvn 3.9.4, git 2.41.0.windows.1, diff 3.9, bash 5.2.12(1)-release
+   mvn 3.9.4, git 2.42.0.windows.1, diff 3.10, bash 5.2.12(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt</b>
 C:\opt\apache-maven-3.9.4\bin\mvn
@@ -125,7 +125,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.20_8.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.8_7.zip</a>    <i>(191 MB)</i>
 <a href="https://jdk.java.net/21/">openjdk-21_windows-x64_bin_build_35.zip</a>            <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.41.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.42.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.9.3.zip</a>                                      <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.11.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.4.1-bin-hadoop3.2.tgz</a>                      <i>(285 MB)</i>
@@ -178,7 +178,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.41.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.42.0.txt
 [golang_examples]: https://github.com/michelou/golang-examples
 [graalvm_examples]: https://github.com/michelou/graalvm-examples
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
