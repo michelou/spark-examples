@@ -205,15 +205,15 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-timer%__END%      display total elapsed time
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-timer%__END%      print total execution time
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
 echo     %__BEG_O%compile%__END%     generate class files
-echo     %__BEG_O%help%__END%        display this help message
-echo     %__BEG_O%run%__END%         execute the generated program
+echo     %__BEG_O%help%__END%        print this help message
+echo     %__BEG_O%run%__END%         execute the generated program "!_ASSEMBLY_FILE:%_ROOT_DIR%=!"
 goto :eof
 
 :clean
@@ -229,6 +229,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
 )
 rmdir /s /q "%__DIR%"
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -257,6 +258,7 @@ if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 set __SCALAC_OPTS=-deprecation -cp "%__CPATH%" -d "%_CLASSES_DIR%"
+if %_DEBUG%==1 set __SCALAC_OPTS=-Ylog-classpath %__SCALAC_OPTS%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" %__SCALAC_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% into directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
@@ -345,7 +347,7 @@ goto :eof
 
 :run
 if not exist "%_ASSEMBLY_FILE%" (
-    echo %_ERROR_LABEL% Assembly file not found ^("%_ASSEMBLY_FILE%"^) 1<&2
+    echo %_ERROR_LABEL% Assembly file not found ^("%_ASSEMBLY_FILE%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -419,7 +421,7 @@ if %__DATE1% gtr %__DATE2% ( set _NEWER=1
 )
 goto :eof
 
-@rem input parameter: %1=flag to add Dotty libs
+@rem input parameter: %1=flag to add Scala 3 libs
 @rem output parameter: _LIBS_CPATH
 :libs_cpath
 set __ADD_SCALA3_LIBS=%~1

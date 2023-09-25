@@ -11,18 +11,18 @@
 ## <span id="steps">Installation Steps</span>
 
 Spark installation requires two steps on Microsoft Windows :
-1) Download archive file `spark-3.4.1-bin-hadoop3.2-scala2.13.tgz` either from the [Spark download page](https://spark.apache.org/downloads.html) or from the [Spark Distribution Directory](https://downloads.apache.org/spark/).
+1) Download archive file `spark-3.5.0-bin-hadoop3.2-scala2.13.tgz` either from the [Spark download page](https://spark.apache.org/downloads.html) or from the [Spark Distribution Directory](https://downloads.apache.org/spark/).
 2) Download and install binary files from GitHub repository [`cdarlint/winutils`](https://github.com/cdarlint/winutils).
 
 > **:mag_right:** [Spark][apache_spark] and [Hadoop][apache_hadoop] are two separate Apache projects : Spark uses Hadoop’s client libraries for [HDFS] and [YARN].<br/>
 > We give below the actual dependencies between [Spark][apache_spark] and [Hadoop][apache_hadoop] <sup id="anchor_03">[3](#footnote_03)</sup> (as of May 2023): 
 >
->   |        |   |    |    |    |    |    |
->   |:-------|:--|:---|:---|:---|:---|:---|
->   | Hadoop | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |  [3.3.5](https://hadoop.apache.org/release/3.3.5.html) |
->   | Spark  | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.1](https://spark.apache.org/releases/spark-release-3-4-0.html) |  -  |
+>   |        |   |    |    |    |    |    |    |
+>   |:-------|:--|:---|:---|:---|:---|:---|:---|
+>   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |  [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | ? |
+>   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.1](https://spark.apache.org/releases/spark-release-3-4-0.html) |  -  | 3.5.0 |
 
-## <span id="footnotes">Footnotes</span>
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
 
 <span id="footnote_01">[1]</span> **`spark-shell` *session*** [↩](#anchor_01)
@@ -129,7 +129,7 @@ Pi is roughly 3.1410957054785276
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

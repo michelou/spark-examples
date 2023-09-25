@@ -28,6 +28,7 @@ set _GRADLE_PATH=
 set _MAVEN_PATH=
 set _SBT_PATH=
 set _SPARK_PATH=
+set _VSCODE_PATH=
 
 @rem bellsoft, corretto, dragonwell, openj9, redhat, temurin, zulu
 call :java "temurin" 11
@@ -49,6 +50,9 @@ call :scala2
 if not %_EXITCODE%==0 goto end
 
 call :spark
+if not %_EXITCODE%==0 goto end
+
+call :vscode
 if not %_EXITCODE%==0 goto end
 
 call :winutils
@@ -133,7 +137,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -141,7 +145,7 @@ if "%__ARG:~0,1%"=="-" (
     @rem subcommand
     if "%__ARG%"=="help" ( set _HELP=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -162,6 +166,8 @@ goto :eof
 @rem output parameter: _DRIVE_NAME (2 characters: letter + ':')
 :drive_name
 set "__GIVEN_PATH=%~1"
+@rem remove trailing path separator if present
+if "%__GIVEN_PATH:~-1,1%"=="\" set "__GIVEN_PATH=%__GIVEN_PATH:~0,-1%"
 
 @rem https://serverfault.com/questions/62578/how-to-get-a-list-of-drive-letters-on-a-system-through-a-windows-shell-bat-cmd
 set __DRIVE_NAMES=F:G:H:I:J:K:L:M:N:O:P:Q:R:S:T:U:V:W:X:Y:Z:
@@ -178,7 +184,7 @@ for /f "tokens=1,2,*" %%f in ('subst') do (
     set "__SUBST_DRIVE=%%f"
     set "__SUBST_DRIVE=!__SUBST_DRIVE:~0,2!"
     set "__SUBST_PATH=%%h"
-    if "!__SUBST_DRiVE!"=="!__GIVEN_PATH:~0,2!" (
+    if "!__SUBST_DRIVE!"=="!__GIVEN_PATH:~0,2!" (
         set _DRIVE_NAME=!__SUBST_DRIVE:~0,2!
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
         ) else if %_VERBOSE%==1 ( echo Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
@@ -261,10 +267,10 @@ for /f "delims=" %%f in ('where javac.exe 2^>NUL') do (
 if defined __JAVAC_CMD (
     call :jdk_version "%__JAVAC_CMD%"
     if !_JDK_VERSION!==%__VERSION% (
-        for %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
-        for %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpf"
+        for /f "delims=" %%i in ("%__JAVAC_CMD%") do set "__BIN_DIR=%%~dpi"
+        for /f "delims=" %%f in ("%__BIN_DIR%") do set "_JAVA_HOME=%%~dpf"
     ) else (
-        echo %_ERROR_LABEL% Required JDK installation not found ^(%__JDK_NAME%^) 1>&2
+        echo %_ERROR_LABEL% Required JDK installation not found ^("%__JDK_NAME%"^) 1>&2
         set _EXITCODE=1
         goto :eof
     )
@@ -280,11 +286,11 @@ if defined JAVA_HOME (
         for /f "delims=" %%f in ('dir /ad /b "!_PATH!\%__JDK_NAME%*" 2^>NUL') do set "_JAVA_HOME=!_PATH!\%%f"
     )
     if defined _JAVA_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory !_JAVA_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Java SDK installation directory "!_JAVA_HOME!" 1>&2
     )
 )
 if not exist "%_JAVA_HOME%\bin\javac.exe" (
-    echo %_ERROR_LABEL% Executable javac.exe not found ^(%_JAVA_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Executable javac.exe not found ^("%_JAVA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -316,9 +322,9 @@ set _GRADLE_PATH=
 set __GRADLE_CMD=
 for /f "delims=" %%f in ('where gradle.bat 2^>NUL') do set "__GRADLE_CMD=%%f"
 if defined __GRADLE_CMD (
+    for /f "delims=" %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Gradle executable found in PATH 1>&2
-    for %%i in ("%__GRADLE_CMD%") do set "__GRADLE_BIN_DIR=%%~dpi"
-    for %%f in ("!__GRADLE_BIN_DIR!\.") do set "_GRADLE_HOME=%%~dpf"
     @rem keep _GRADLE_PATH undefined since executable already in path
     goto :eof
 ) else if defined GRADLE_HOME (
@@ -326,14 +332,20 @@ if defined __GRADLE_CMD (
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable GRADLE_HOME 1>&2
 ) else (
     set __PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!__PATH!\gradle*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
-    if not defined _GRADLE_HOME (
-        set "__PATH=%ProgramFiles%"
-        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\gradle*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+    if exist "!__PATH!\gradle\" ( set "_GRADLE_HOME=!__PATH!\gradle"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\gradle-*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+        if not defined _GRADLE_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\gradle-*" 2^>NUL') do set "_GRADLE_HOME=!__PATH!\%%f"
+        )
+    )
+    if defined _GRADLE_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Gradle installation directory "!_GRADLE_HOME!" 1>&2
     )
 )
 if not exist "%_GRADLE_HOME%\bin\gradle.bat" (
-    echo %_ERROR_LABEL% Executable gradle.bat not found ^(%_GRADLE_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Gradle executable not found ^("%_GRADLE_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -352,21 +364,30 @@ for /f "delims=" %%f in ('where mvn.cmd 2^>NUL') do (
     if not "!__MVN_CMD:scoop=!"=="!__MVN_CMD!" set __MVN_CMD=
 )
 if defined __MVN_CMD (
+    for /f "delims=" %%i in ("%__MVN_CMD%") do set "__MAVEN_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__MAVEN_BIN_DIR!\.") do set "_MAVEN_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Maven executable found in PATH 1>&2
-    for %%i in ("%__MVN_CMD%") do set "__MAVEN_BIN_DIR=%%~dpi"
-    for %%f in ("!__MAVEN_BIN_DIR!\.") do set "_MAVEN_HOME=%%~dpf"
+    @rem keep _MAVEN_PATH undefined since executable already in path
+    goto :eof
 ) else if defined MAVEN_HOME (
     set "_MAVEN_HOME=%MAVEN_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable MAVEN_HOME 1>&2
 ) else (
     set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!_PATH!\%%f"
+    if exist "!__PATH!\apache-maven\" ( set "_MAVEN_HOME=!__PATH!\apache-maven"
+    ) else (
+        for /f %%f in ('dir /ad /b "!_PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!_PATH!\%%f"
+        if not defined _MAVEN_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!__PATH!\%%f"
+        )
+    )
     if defined _MAVEN_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory !_MAVEN_HOME! 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Maven installation directory "!_MAVEN_HOME!" 1>&2
     )
 )
 if not exist "%_MAVEN_HOME%\bin\mvn.cmd" (
-    echo %_ERROR_LABEL% Maven executable not found ^(%_MAVEN_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Maven executable not found ^("%_MAVEN_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -386,7 +407,7 @@ for /f "delims=" %%f in ('where python.exe 2^>NUL') do (
     if not "!__PYTHON_CMD:scoop=!"=="!__PYTHON_CMD!" set __PYTHON_CMD=
 )
 if defined __PYTHON_CMD (
-    for %%i in ("%__PYTHON_CMD%") do set "_PYTHON_HOME=%%~dpi"
+    for /f "delims=" %%i in ("%__PYTHON_CMD%") do set "_PYTHON_HOME=%%~dpi"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Python 3 executable found in PATH 1>&2
     goto :eof
 ) else if defined PYTHON_HOME (
@@ -402,6 +423,9 @@ if defined __PYTHON_CMD (
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
         )
     )
+    if defined _PYTHON_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Python 3 installation directory "!_PYTHON_HOME!" 1>&2
+    )
 )
 @rem set "_PYTHON3_PATH=;%_PYTHON_HOME%"
 goto :eof
@@ -414,7 +438,9 @@ set _SBT_PATH=
 set __SBT_CMD=
 for /f "delims=" %%f in ('where sbt.bat 2^>NUL') do set "__SBT_CMD=%%f"
 if defined __SBT_CMD (
-    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of sbt executable found in PATH 1>&2
+    for /f "delims=" %%i in ("%__SBT_CMD%") do set "__SBT_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__SBT_BIN_DIR!\.") do set "_SBT_HOME=%%~dpf"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of SBT executable found in PATH 1>&2
     @rem keep _SBT_PATH undefined since executable already in path
     goto :eof
 ) else if defined SBT_HOME (
@@ -430,9 +456,12 @@ if defined __SBT_CMD (
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         )
     )
+    if defined _SBT_HOME (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default SBT installation directory "!_SBT_HOME!" 1>&2
+    )
 )
 if not exist "%_SBT_HOME%\bin\sbt.bat" (
-    echo %_ERROR_LABEL% sbt executable not found ^(%_SBT_HOME%^) 1>&2
+    echo %_ERROR_LABEL% sbt executable not found ^("%_SBT_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -453,19 +482,25 @@ if defined __SCALAC_CMD (
     for %%i in ("%__SCALAC_CMD%") do set "__SCALA_BIN_DIR=%%~dpi"
     for %%f in ("!__SCALA_BIN_DIR!..") do set "_SCALA_HOME=%%f"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Scala 2 executable found in PATH 1>&2
-    goto :eof
 ) else if defined SCALA_HOME (
     set "_SCALA_HOME=%SCALA_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA_HOME 1>&2
 ) else (
     set _PATH=C:\opt
-    for /f %%f in ('dir /ad /b "!_PATH!\scala-2*" 2^>NUL') do set _SCALA_HOME=!_PATH!\%%f
+    if exist "!__PATH!\scala\" ( set "_SCALA_HOME=!__PATH!\scala"
+    ) else (
+        for /f %%f in ('dir /ad /b "!_PATH!\scala-2*" 2^>NUL') do set "_SCALA_HOME=!_PATH!\%%f"
+        if not defined _SCALA_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala-2*" 2^>NUL') do set "_SCALA_HOME=!__PATH!\%%f"
+        )
+    )
     if defined _SCALA_HOME (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala 2 installation directory !_SCALA_HOME!
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% Using default Scala 2 installation directory "!_SCALA_HOME!"
     )
 )
 if not exist "%_SCALA_HOME%\bin\scalac.bat" (
-    echo %_ERROR_LABEL% Scala executable not found ^(%_SCALA_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Scala executable not found ^("%_SCALA_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -479,9 +514,10 @@ set _SPARK_PATH=
 set __SPARK_CMD=
 for /f "delims=" %%f in ('where spark-shell.cmd 2^>NUL') do set "__SPARK_CMD=%%f"
 if defined __SPARK_CMD (
-    for %%i in ("%__SPARK_CMD%") do set "__SPARK_BIN_DIR=%%~dpi"
-    for %%f in ("!__SPARK_BIN_DIR!.") do set "_SPARK_HOME=%%~dpf"
+    for /f "delims=" %%i in ("%__SPARK_CMD%") do set "__SPARK_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__SPARK_BIN_DIR!.") do set "_SPARK_HOME=%%~dpf"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Spark shell executable found in PATH 1>&2
+    @rem keep _SPARK_PATH undefined since executable already in path
     goto :eof
 ) else if defined SPARK_HOME (
     set "_SPARK_HOME=%SPARK_HOME%"
@@ -501,7 +537,7 @@ if defined __SPARK_CMD (
     )
 )
 if not exist "%_SPARK_HOME%\bin\spark-shell.cmd" (
-    echo %_ERROR_LABEL% Spark shell executable not found ^(%_SPARK_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Spark shell executable not found ^("%_SPARK_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -524,11 +560,11 @@ for %%i in (libwinutils.lib winutils.exe winutils.pdb) do (
     if not exist "!__OUTFILE!" (
         set "__URL=%__BIN_URL%\%%i"
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!' 1>&2
-        ) else if %_VERBOSE%==1 ( echo Download file "%%i" 1>&2
+        ) else if %_VERBOSE%==1 ( echo Download file "%%i" to directory "%__BIN_DIR%" 1>&2
         )
         powershell -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!'"
         if not !ERRORLEVEL!==0 (
-            echo %_ERROR_LABEL% Failed to download file "%%i" 1>&2
+            echo %_ERROR_LABEL% Failed to download file "%%i" to directory "%__BIN_DIR%" 1>&2
             set _EXITCODE=1
             goto :eof
         )
@@ -544,11 +580,11 @@ set _GIT_PATH=
 set __GIT_CMD=
 for /f "delims=" %%f in ('where git.exe 2^>NUL') do set "__GIT_CMD=%%f"
 if defined __GIT_CMD (
-    for %%i in ("%__GIT_CMD%") do set "__GIT_BIN_DIR=%%~dpi"
-    for %%f in ("!__GIT_BIN_DIR!.") do set "_GIT_HOME=%%~dpf"
+    for /f "delims=" %%i in ("%__GIT_CMD%") do set "__GIT_BIN_DIR=%%~dpi"
+    for /f "delims=" %%f in ("!__GIT_BIN_DIR!.") do set "_GIT_HOME=%%~dpf"
     @rem Executable git.exe is present both in bin\ and \mingw64\bin\
     if not "!_GIT_HOME:mingw=!"=="!_GIT_HOME!" (
-        for %%f in ("!_GIT_HOME!.") do set "_GIT_HOME=%%~dpf"
+        for /f "delims=" %%f in ("!_GIT_HOME!.") do set "_GIT_HOME=%%~dpf"
     )
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of Git executable found in PATH 1>&2
     @rem keep _GIT_PATH undefined since executable already in path
@@ -560,7 +596,7 @@ if defined __GIT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\Git\" ( set "_GIT_HOME=!__PATH!\Git"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
         if not defined _GIT_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\Git*" 2^>NUL') do set "_GIT_HOME=!__PATH!\%%f"
@@ -571,11 +607,57 @@ if defined __GIT_CMD (
     )
 )
 if not exist "%_GIT_HOME%\bin\git.exe" (
-    echo %_ERROR_LABEL% Git executable not found ^(%_GIT_HOME%^) 1>&2
+    echo %_ERROR_LABEL% Git executable not found ^("%_GIT_HOME%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
 set "_GIT_PATH=;%_GIT_HOME%\bin;%_GIT_HOME%\mingw64\bin;%_GIT_HOME%\usr\bin"
+goto :eof
+
+@rem output parameters: _VSCODE_HOME, _VSCODE_PATH
+:vscode
+set _VSCODE_HOME=
+set _VSCODE_PATH=
+
+set __CODE_CMD=
+for /f "delims=" %%f in ('where code.exe 2^>NUL') do set "__CODE_CMD=%%f"
+if defined __CODE_CMD (
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using path of VSCode executable found in PATH 1>&2
+    @rem keep _VSCODE_PATH undefined since executable already in path
+    goto :eof
+) else if defined VSCODE_HOME (
+    set "_VSCODE_HOME=%VSCODE_HOME%"
+    if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable VSCODE_HOME 1>&2
+) else (
+    set __PATH=C:\opt
+    if exist "!__PATH!\VSCode\" ( set "_VSCODE_HOME=!__PATH!\VSCode"
+    ) else (
+        for /f %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        if not defined _VSCODE_HOME (
+            set "__PATH=%ProgramFiles%"
+            for /f "delims=" %%f in ('dir /ad /b "!__PATH!\VSCode-1*" 2^>NUL') do set "_VSCODE_HOME=!__PATH!\%%f"
+        )
+    )
+)
+if not exist "%_VSCODE_HOME%\code.exe" (
+    echo %_ERROR_LABEL% VSCode executable not found ^("%_VSCODE_HOME%"^) 1>&2
+    if exist "%_VSCODE_HOME%\Code - Insiders.exe" (
+        echo %_WARNING_LABEL% It looks like you've installed an Insider version of VSCode 1>&2
+    )
+    set _EXITCODE=1
+    goto :eof
+)
+set "_VSCODE_PATH=;%_VSCODE_HOME%"
+goto :eof
+
+:clean
+for %%f in ("%~dp0") do set __ROOT_DIR=%%~sf
+for /f %%i in ('dir /ad /b "%__ROOT_DIR%\" 2^>NUL') do (
+    for /f %%j in ('dir /ad /b "%%i\target\scala-*" 2^>NUL') do (
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% rmdir /s /q %__ROOT_DIR%%%i\target\%%j\classes 1^>NUL 2^>^&1 1>&2
+        rmdir /s /q "%__ROOT_DIR%%%i\target\%%j\classes" 1>NUL 2>&1
+    )
+)
 goto :eof
 
 :print_env
@@ -620,10 +702,10 @@ if %ERRORLEVEL%==0 (
    for /f "tokens=1-3,*" %%i in ('"%GIT_HOME%\usr\bin\diff.exe" --version ^| findstr diff') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% diff %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\usr\bin:diff.exe"
 )
-where /q "%GIT_HOME%\bin:bash.exe"
+where /q "%GIT_HOME%\bin:sh.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\bash.exe" --version ^| findstr bash') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% bash %%l"
-    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:bash.exe"
+    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\sh.exe" --version ^| findstr bash') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% sh %%l"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:sh.exe"
 )
 echo Tool versions:
 echo %__VERSIONS_LINE1%
@@ -640,8 +722,14 @@ if %__VERBOSE%==1 (
     if defined SBT_HOME echo    "SBT_HOME=%SBT_HOME%" 1>&2
     if defined SCALA_HOME echo    "SCALA_HOME=%SCALA_HOME%" 1>&2
     if defined SPARK_HOME echo    "SPARK_HOME=%SPARK_HOME%" 1>&2
+    if defined VSCODE_HOME echo    "VSCODE_HOME=%VSCODE_HOME%" 1>&2
+        if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
     echo Path associations: 1>&2
-    for /f "delims=" %%i in ('subst') do echo    %%i 1>&2
+    for /f "delims=" %%i in ('subst') do (
+        set "__LINE=%%i"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
 )
 goto :eof
 
@@ -662,8 +750,9 @@ endlocal & (
         if not defined SBT_HOME set "SBT_HOME=%_SBT_HOME%"
         if not defined SCALA_HOME set "SCALA_HOME=%_SCALA_HOME%"
         if not defined SPARK_HOME set "SPARK_HOME=%_SPARK_HOME%"
+        if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2
