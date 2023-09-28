@@ -29,11 +29,12 @@ Optionally one may also install the following software:
 - [Gradle 8.3][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Oracle OpenJDK 21 LTS][oracle_openjdk21] ([*release notes*][oracle_openjdk21_relnotes], [*Java 21 API*][oracle_openjdk21_api])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes])
+- [Visual Studio Code 1.82][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*September 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*October 2023*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\                       <i>( 10 MB)</i>
@@ -45,7 +46,8 @@ C:\opt\jdk-temurin-17.0.8_7\               <i>(299 MB)</i>
 C:\opt\sbt\                                <i>(135 MB)</i>
 C:\opt\scala-2.13.12\                      <i>( 24 MB)</i>
 C:\opt\spark-3.5.0-bin-hadoop3\            <i>(320 MB)</i>
-C:\opt\spark-3.5.0-bin-hadoop3-scala2.13\  <I>(327 MB)</i>
+C:\opt\spark-3.5.0-bin-hadoop3-scala2.13\  <i>(327 MB)</i>
+C:\opt\VSCode\                             <i>(341 MB)</i>
 </pre>
 
 > **:mag_right:** [Git for Windows](https://git-scm.com/download/win) provides a BASH emulation used to run [**`git`**][git_docs] from the command line (as well as over 250 Unix commands like [**`awk`**][man1_awk], [**`diff`**][man1_diff], [**`file`**][man1_file], [**`grep`**][man1_grep], [**`more`**][man1_more], [**`mv`**][man1_mv], [**`rmdir`**][man1_rmdir], [**`sed`**][man1_sed] and [**`wc`**][man1_wc]).
@@ -66,8 +68,8 @@ README.md
 where
 
 - directory [**`bin\`**](bin/) contains utility batch scripts.
-- directory [**`docs\`**](docs/) contains [apache_spark] related papers/articles.
-- directory [**`examples`**](examples/) contain [apache_spark] code examples.
+- directory [**`docs\`**](docs/) contains [Apache Spark][apache_spark] related papers/articles.
+- directory [**`examples`**](examples/) contain [Apache Spark][apache_spark] code examples.
 - file **`README.md`** is the [Markdown][github_markdown] document for this page.
 - file [**`QUICKREF.md`**](QUICKREF.md) gathers Spark hints and tips.
 - file [**`RESOURCES.md`**](RESOURCES.md) is the [Markdown][github_markdown] document presenting external resources.
@@ -96,7 +98,7 @@ Tool versions:
    java 11.0.20, sbt 1.9.6, scalac 2.13.12, spark-shell 3.5.0,
    mvn 3.9.4, git 2.42.0.windows.1, diff 3.10, bash 5.2.15(1)-release
 
-<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sh sbt</b>
+<b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt sh</b>
 C:\opt\apache-maven\bin\mvn
 C:\opt\apache-maven\bin\mvn.cmd
 C:\opt\Git\bin\sh.exe
@@ -158,7 +160,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -243,6 +245,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-2-bugfixes.html
 [temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024063.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
+[vscode_downloads]: https://code.visualstudio.com/#alt-downloads
+[vscode_relnotes]: https://code.visualstudio.com/updates/
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
 [wix_examples]: https://github.com/michelou/wix-examples
