@@ -10,13 +10,15 @@
 
 ## <span id="abbreviations">Abbreviations</span>
 
-| Abbreviation |                                |
+| Abbreviation | Description                    |
 |:------------:|:-------------------------------|
 | DAG          | Direct Acyclic Graph           |
 | HDFS         | Hadoop Distributed File System |
 | ML           | Machine Learning               |
 | OLAP         | Online Analytical Processing   |
 | RDD          | [Resilient Distributed Dataset][databricks_rdd] |
+| UDF          | User-defined Functions         |
+| UDTF         | User-defined Table Functions   |
 | YARN         | [Yet Another Resource Negotiator][techtarget_yarn] |
 
 ## <span id="properties">Spark Properties</span> [**&#x25B4;**](#top)
@@ -41,7 +43,7 @@ For instance:
 
 ---
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

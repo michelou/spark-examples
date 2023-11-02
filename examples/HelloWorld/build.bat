@@ -145,7 +145,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
    )
@@ -156,7 +156,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="help" ( set _HELP=1
     ) else if "%__ARG%"=="run" ( set _COMPILE=1& set _RUN=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -325,7 +325,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAR_CMD%" xf "%__SCALA_JAR_FILE%" 1>&2
 )
 call "%_JAR_CMD%" xf "!__SCALA_JAR_FILE!"
 @rem rename Scala LICENSE and NOTICE files
-for %%i in ("%__SCALA_JAR_FILE%") do set "__BASENAME=%%~ni"
+for /f "delims=" %%i in ("%__SCALA_JAR_FILE%") do set "__BASENAME=%%~ni"
 for %%j in (LICENSE NOTICE) do (
     if exist "%%j" move "%%j" "%%j_!__BASENAME!" 1>NUL
 )
@@ -360,7 +360,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS%
 )
 call "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%"
+    echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -426,7 +426,7 @@ goto :eof
 :libs_cpath
 set __ADD_SCALA3_LIBS=%~1
 
-for %%f in ("%~dp0\.") do set "__BATCH_FILE=%%~dpfcpath.bat"
+for /f "delims=" %%f in ("%~dp0\.") do set "__BATCH_FILE=%%~dpfcpath.bat"
 if not exist "%__BATCH_FILE%" (
     echo %_ERROR_LABEL% Batch file "%__BATCH_FILE%" not found 1>&2
     set _EXITCODE=1
@@ -442,7 +442,7 @@ if defined __ADD_SCALA3_LIBS (
         set _EXITCODE=1
         goto :eof
     )
-    for %%f in ("%SCALA3_HOME%\lib\*.jar") do (
+    for /f "delims=" %%f in ("%SCALA3_HOME%\lib\*.jar") do (
         set "_LIBS_CPATH=!_LIBS_CPATH!%%f;"
     )
 )

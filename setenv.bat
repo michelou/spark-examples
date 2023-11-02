@@ -31,7 +31,7 @@ set _SPARK_PATH=
 set _VSCODE_PATH=
 
 @rem bellsoft, corretto, dragonwell, openj9, redhat, temurin, zulu
-call :java "temurin" 11
+call :java 11 "temurin"
 if not %_EXITCODE%==0 goto end
 
 call :git
@@ -248,13 +248,13 @@ echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%help%__END%        display this help message
 goto :eof
 
-@rem input parameter: %1=vendor %1^=required version
+@rem input parameter: %1^=required version, %2=vendor 
 @rem output parameter: _JAVA_HOME
 :java
 set _JAVA_HOME=
 
-set __VENDOR=%~1
-set __VERSION=%~2
+set __VERSION=%~1
+set __VENDOR=%~2
 if not defined __VENDOR ( set __JDK_NAME=jdk-%__VERSION%
 ) else ( set __JDK_NAME=jdk-%__VENDOR%-%__VERSION%
 )
@@ -653,7 +653,7 @@ goto :eof
 :clean
 for %%f in ("%~dp0") do set __ROOT_DIR=%%~sf
 for /f %%i in ('dir /ad /b "%__ROOT_DIR%\" 2^>NUL') do (
-    for /f %%j in ('dir /ad /b "%%i\target\scala-*" 2^>NUL') do (
+    for /f "delims=" %%j in ('dir /ad /b "%%i\target\scala-*" 2^>NUL') do (
         if %_DEBUG%==1 echo %_DEBUG_LABEL% rmdir /s /q %__ROOT_DIR%%%i\target\%%j\classes 1^>NUL 2^>^&1 1>&2
         rmdir /s /q "%__ROOT_DIR%%%i\target\%%j\classes" 1>NUL 2>&1
     )

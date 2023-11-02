@@ -54,7 +54,7 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-unsafe
 @rem call :add_jar "org.apache.spark" "spark-unsafe_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
-set __FRAMELESS_VERSION=0.14.1
+set __FRAMELESS_VERSION=0.15.0
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-core
 call :add_jar "org.typelevel" "frameless-core_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"

@@ -21,6 +21,14 @@
 
 ## <span id="blogs">Blogs</span> [**&#x25B4;**](#top)
 
+- [Databricks Blog](https://www.databricks.com/blog/) :
+  - [Introducing Apache Spark™ 3.5](https://www.databricks.com/blog/introducing-apache-sparktm-35) by Yuanjian Li and al., September 2023.
+  - [Spark Connect Available in Apache Spark 3.4](https://www.databricks.com/blog/2023/04/18/spark-connect-available-apache-spark.html) by Allan Folting and al., April 2023.
+  - [Introducing Spark Connect - The Power of Apache Spark, Everywhere](https://www.databricks.com/blog/2022/07/07/introducing-spark-connect-the-power-of-apache-spark-everywhere.html) by Stefania Leone and al., July 2022.
+  - [Introducing Apache Spark™ 3.2](https://www.databricks.com/blog/2021/10/19/introducing-apache-spark-3-2.html) by Gengliang Wang and al., October 2021.
+  - [What’s New in Apache Spark™ 3.1 Release for Structured Streaming](https://www.databricks.com/blog/2021/04/27/whats-new-in-apache-spark-3-1-release-for-structured-streaming.html) by Yuanjian Li and Bo Zhang, April 2021.
+  - [Introducing Apache Spark™ 3.1](https://www.databricks.com/blog/2021/03/02/introducing-apache-spark-3-1.html) by Hyukjin Kwon and al., March 2021.
+  - [Tuning Java Garbage Collection for Apache Spark Applications](https://www.databricks.com/blog/2015/05/28/tuning-java-garbage-collection-for-spark-applications.html) by Daoyuan Wand and Jie Huang, May 2015.
 - [`spark-shell`](http://www.mtitek.com/tutorials/bigdata/spark/spark-shell.php) &ndash; Spark Interactive Shell (Scala).
 - &#128077; [**waiting**for<b>{code}</b> Blog posts](https://www.waitingforcode.com/apache-spark-sql) :
   - [Spark SQL checkpoints](https://www.waitingforcode.com/apache-spark-sql/spark-sql-checkpoints/read), April 2023.
@@ -98,7 +106,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/October 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
