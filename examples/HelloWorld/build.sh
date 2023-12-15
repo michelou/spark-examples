@@ -57,7 +57,7 @@ args() {
         -timer)    TIMER=true ;;
         -verbose)  VERBOSE=true ;;
         -*)
-            error "Unknown option $arg"
+            error "Unknown option \"$arg\""
             EXITCODE=1 && return 0
             ;;
         ## subcommands
@@ -69,7 +69,7 @@ args() {
         lint)      LINT=true ;;
         run)       COMPILE=true && RUN=true ;;
         *)
-            error "Unknown subcommand $arg"
+            error "Unknown subcommand \"$arg\""
             EXITCODE=1 && return 0
             ;;
         esac
@@ -104,16 +104,16 @@ help() {
 Usage: $BASENAME { <option> | <subcommand> }
 
   Options:
-    -debug       display commands executed by this script
-    -timer       display total execution time
-    -verbose     display progress messages
+    -debug       print commands executed by this script
+    -timer       print total execution time
+    -verbose     print progress messages
 
   Subcommands:
     clean        delete generated files
     compile      compile Java/Scala source files
     decompile    decompile generated code with CFR
     doc          generate HTML documentation
-    help         display this help message
+    help         print this help message
     lint         analyze Scala source files with Scalafmt
     run          execute main class \"$MAIN_CLASS\"
 EOS
@@ -193,7 +193,7 @@ create_jar() {
 		echo "Implementation-Vendor: default"
 		echo "Implementation-Vendor-Id: default"
     )> "$manifest_file"
-    local jar_opts="cfm \"$ASSEMBLY_FILE\" \"$MANIFEST_FILE\" -C \"$CLASSES_DIR\" ."
+    local jar_opts="cfm \"$ASSEMBLY_FILE\" \"$manifest_file\" -C \"$CLASSES_DIR\" ."
 
     if $DEBUG; then
         debug "$JAR_CMD $jar_opts"
@@ -238,6 +238,16 @@ lib_cpath() {
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
     jar_file=
     for f in $(find "$LOCAL_REPO/org/apache/spark/" -name "spark-sql*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/logging/log4" -name "log4j-api*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/logging/log4" -name "log4j-core*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
@@ -365,7 +375,7 @@ doc() {
     # for f in $(find $SOURCE_DIR/main/java/ -name *.java 2>/dev/null); do
     #     echo $(mixed_path $f) >> "$sources_file"
     # done
-    for f in $(find "$CLASSES_DIR/" -name *.tasty 2>/dev/null); do
+    for f in $(find "$CLASSES_DIR/" -type f -name "*.tasty" 2>/dev/null); do
         echo $(mixed_path $f) >> "$sources_file"
     done
     local opts_file="$TARGET_DIR/scaladoc_opts.txt"

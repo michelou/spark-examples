@@ -184,6 +184,7 @@ if %_DEBUG%==1 (
     echo %_DEBUG_LABEL% Variables  : "_ASSEMBLY_FILE=%_ASSEMBLY_FILE%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "HADOOP_HOME=%HADOOP_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
+    echo %_DEBUG_LABEL% Variables  : "MAVEN_HOME=%MAVEN_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "SCALA_HOME=%SCALA_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "SPARK_HOME=%SPARK_HOME%" 1>&2
 )

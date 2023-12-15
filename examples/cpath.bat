@@ -28,7 +28,7 @@ set __SCALA_BINARY_VERSION=2.13
 call :add_jar "org.scala-lang" "scala3-library_3" "3.3.0"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
-call :add_jar "org.scala-lang" "scala-library" "2.13.10"
+call :add_jar "org.scala-lang" "scala-library" "2.13.11"
 
 set __SPARK_VERSION=3.4.1
 

@@ -47,7 +47,7 @@
 - [Introduction to Apache Spark's Core API (Part I)](https://dzone.com/articles/introduction-to-core-api-of-apache-spark) by Anil Agrawal, December 2018.
 - [How to Install Hadoop on Windows](https://exitcondition.com/install-hadoop-windows/) by Parixit Odedara, August 2018.
 
-## <span id="books">Books</span>
+## <span id="books">Books</span> [**&#x25B4;**](#top)
 
 - [Hands-on Guide on Apache Spark 3][book_garcia] by Alfonso A. Garcia, 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-9379-9, 404 pages)</span>
 - [Modern Data Engineering with Apache Spark][book_haines] by Scott Haines, March 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7451-4, 585 pages)</span>
@@ -76,7 +76,7 @@
 - [`doric`](https://github.com/hablapps/doric) &ndash; Type-safe columns for Spark DataFrames.
 - [`sbt-spark-submit`](https://index.scala-lang.org/izhangzhihao/sbt-spark-submit) &ndash; a [sbt plugin](https://www.scala-sbt.org/1.x/docs/Plugins.html) for [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html).
 
-## <span id="tutorials">Tutorials</span>
+## <span id="tutorials">Tutorials</span> [**&#x25B4;**](#top)
 
 - [Learn Apache Spark](https://www.tutorialkart.com/apache-spark-tutorial/) by [TutorialKart](https://www.tutorialkart.com/), 2023.
 - [Apache Spark Full Course](https://www.youtube.com/watch?v=xDEzSxlsUpU) by Edureka, 2023 (9 hours).
@@ -98,7 +98,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
