@@ -10,7 +10,7 @@
 
 ## <span id="abbreviations">Abbreviations</span>
 
-| Abbreviation |                                |
+| Abbreviation | Description                    |
 |:------------:|:-------------------------------|
 | AES          | Advanced Encryption Standard   |
 | DAG          | Direct Acyclic Graph           |
@@ -18,9 +18,11 @@
 | ML           | Machine Learning               |
 | OLAP         | Online Analytical Processing   |
 | RDD          | [Resilient Distributed Dataset][databricks_rdd] |
+| UDF          | User-defined Functions         |
+| UDTF         | User-defined Table Functions   |
 | YARN         | [Yet Another Resource Negotiator][techtarget_yarn] |
 
-## <span id="properties">Spark Properties</span>
+## <span id="properties">Spark Properties</span> [**&#x25B4;**](#top)
 
 Spark configuration can be specified in three ways:
 - Using a property file (either option `--properties-file FILE` or file `conf\spark-defaults.conf` as default location).
@@ -42,7 +44,7 @@ For instance:
 
 ---
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

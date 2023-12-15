@@ -25,12 +25,16 @@ set _LIBS_CPATH=
 set __SCALA_BINARY_VERSION=2.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala3-library
-call :add_jar "org.scala-lang" "scala3-library_3" "3.3.0"
+call :add_jar "org.scala-lang" "scala3-library_3" "3.3.1"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
+<<<<<<< HEAD
 call :add_jar "org.scala-lang" "scala-library" "2.13.11"
+=======
+@rem call :add_jar "org.scala-lang" "scala-library" "2.13.10"
+>>>>>>> 5a4617ff8df03d9bc0cd5244ea71032623d7883d
 
-set __SPARK_VERSION=3.4.1
+set __SPARK_VERSION=3.5.0
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst
 @rem Note: contains symbol 'type org.apache.spark.sql.Row'
@@ -54,7 +58,7 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-unsafe
 @rem call :add_jar "org.apache.spark" "spark-unsafe_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
-set __FRAMELESS_VERSION=0.14.1
+set __FRAMELESS_VERSION=0.15.0
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-core
 call :add_jar "org.typelevel" "frameless-core_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
@@ -69,7 +73,7 @@ call :add_jar "org.typelevel" "frameless-dataset-spark32_%__SCALA_BINARY_VERSION
 call :add_jar "org.typelevel" "frameless-refined_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.github.pureconfig/pureconfig
-call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.2"
+call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.4"
 
 goto end
 
@@ -91,7 +95,7 @@ for /f "usebackq delims=" %%f in (`where /r "%__LOCAL_REPO%\%__JAR_PATH%" %__JAR
     set "__JAR_FILE=%%f"
 )
 if not exist "%__JAR_FILE%" (
-    set __JAR_URL=%__CENTRAL_REPO%/%__GROUP_ID:.=/%/%__ARTIFACT_ID%/%__VERSION%/%__JAR_NAME%
+    set "__JAR_URL=%__CENTRAL_REPO%/%__GROUP_ID:.=/%/%__ARTIFACT_ID%/%__VERSION%/%__JAR_NAME%"
     set "__JAR_FILE=%__TEMP_DIR%\%__JAR_NAME%"
     if not exist "!__JAR_FILE!" (
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% powershell -c "Invoke-WebRequest -Uri '!__JAR_URL!' -Outfile '!__JAR_FILE!'" 1>&2

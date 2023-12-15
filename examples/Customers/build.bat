@@ -145,7 +145,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
    )
@@ -156,7 +156,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="help" ( set _HELP=1
     ) else if "%__ARG%"=="run" ( set _COMPILE=1& set _RUN=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -174,7 +174,7 @@ set _APP_VERSION=0.1.0
 set "_ASSEMBLY_FILE=%_TARGET_DIR%\%_APP_NAME%-assembly-%_APP_VERSION%.jar"
 
 @rem name may be prefixed by one or more package names
-set _CLASS_NAME=Customers
+set _CLASS_NAME=%_APP_NAME%
 @rem name may contain spaces
 set _SPARK_NAME=Customers
 
@@ -205,15 +205,15 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-timer%__END%      display total elapsed time
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-timer%__END%      print total execution time
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
 echo     %__BEG_O%compile%__END%     generate class files
-echo     %__BEG_O%help%__END%        display this help message
-echo     %__BEG_O%run%__END%         execute the generated program
+echo     %__BEG_O%help%__END%        print this help message
+echo     %__BEG_O%run%__END%         execute the generated program "!_ASSEMBLY_FILE:%_ROOT_DIR%=!"
 goto :eof
 
 :clean
@@ -229,6 +229,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
 )
 rmdir /s /q "%__DIR%"
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -333,7 +334,7 @@ if exist "META-INF\MANIFEST.MF" rmdir /s /q "META-INF"
 popd
 set __JAR_OPTS=uf "%_ASSEMBLY_FILE%" -C "%__ASSEMBLY_DIR%" .
 
-if %_DEBUG%==1 ( echo "%_JAR_CMD%" %__JAR_OPTS%
+if %_DEBUG%==1 ( echo "%_JAR_CMD%" %__JAR_OPTS% 1>&2
 ) else if %_VERBOSE%==1 ( echo Update assembly file "!_ASSEMBLY_FILE:%_ROOT_DIR%=!" 1>&2
 )
 call "%_JAR_CMD%" %__JAR_OPTS%
@@ -363,7 +364,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS%
 )
 call "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS% %__APP_ARGS%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%"
+    echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -429,7 +430,7 @@ if %__DATE1% gtr %__DATE2% ( set _NEWER=1
 )
 goto :eof
 
-@rem input parameter: %1=flag to add Dotty libs
+@rem input parameter: %1=flag to add Scala 3 libs
 @rem output parameter: _LIBS_CPATH
 :libs_cpath
 set __ADD_SCALA3_LIBS=%~1

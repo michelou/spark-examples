@@ -145,7 +145,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
    )
@@ -156,7 +156,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="help" ( set _HELP=1
     ) else if "%__ARG%"=="run" ( set _COMPILE=1& set _RUN=1
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -206,15 +206,15 @@ if %_VERBOSE%==1 (
 echo Usage: %__BEG_O%%_BASENAME% { ^<option^> ^| ^<subcommand^> }%__END%
 echo.
 echo   %__BEG_P%Options:%__END%
-echo     %__BEG_O%-debug%__END%      show commands executed by this script
-echo     %__BEG_O%-timer%__END%      display total elapsed time
-echo     %__BEG_O%-verbose%__END%    display progress messages
+echo     %__BEG_O%-debug%__END%      print commands executed by this script
+echo     %__BEG_O%-timer%__END%      print total execution time
+echo     %__BEG_O%-verbose%__END%    print progress messages
 echo.
 echo   %__BEG_P%Subcommands:%__END%
 echo     %__BEG_O%clean%__END%       delete generated files
 echo     %__BEG_O%compile%__END%     generate class files
-echo     %__BEG_O%help%__END%        display this help message
-echo     %__BEG_O%run%__END%         execute the generated program
+echo     %__BEG_O%help%__END%        print this help message
+echo     %__BEG_O%run%__END%         execute the generated program "!_ASSEMBLY_FILE:%_ROOT_DIR%=!"
 goto :eof
 
 :clean
@@ -230,6 +230,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% rmdir /s /q "%__DIR%" 1>&2
 )
 rmdir /s /q "%__DIR%"
 if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to delete directory "!__DIR:%_ROOT_DIR%=!" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -258,6 +259,7 @@ if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 set __SCALAC_OPTS=-deprecation -cp "%__CPATH%" -d "%_CLASSES_DIR%"
+if %_DEBUG%==1 set __SCALAC_OPTS=-Ylog-classpath %__SCALAC_OPTS%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" %__SCALAC_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% into directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
@@ -324,7 +326,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAR_CMD%" xf "%__SCALA_JAR_FILE%" 1>&2
 )
 call "%_JAR_CMD%" xf "!__SCALA_JAR_FILE!"
 @rem rename Scala LICENSE and NOTICE files
-for %%i in ("%__SCALA_JAR_FILE%") do set "__BASENAME=%%~ni"
+for /f "delims=" %%i in ("%__SCALA_JAR_FILE%") do set "__BASENAME=%%~ni"
 for %%j in (LICENSE NOTICE) do (
     if exist "%%j" move "%%j" "%%j_!__BASENAME!" 1>NUL
 )
@@ -346,7 +348,7 @@ goto :eof
 
 :run
 if not exist "%_ASSEMBLY_FILE%" (
-    echo %_ERROR_LABEL% Assembly file not found ^("%_ASSEMBLY_FILE%"^) 1<&2
+    echo %_ERROR_LABEL% Assembly file not found ^("%_ASSEMBLY_FILE%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -359,7 +361,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS%
 )
 call "%_SPARK_SUBMIT_CMD%" %__SPARK_SUBMIT_OPTS%
 if not %ERRORLEVEL%==0 (
-    echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%"
+    echo %_ERROR_LABEL% Failed to execute Spark application "%_SPARK_NAME%" 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -420,12 +422,12 @@ if %__DATE1% gtr %__DATE2% ( set _NEWER=1
 )
 goto :eof
 
-@rem input parameter: %1=flag to add Dotty libs
+@rem input parameter: %1=flag to add Scala 3 libs
 @rem output parameter: _LIBS_CPATH
 :libs_cpath
 set __ADD_SCALA3_LIBS=%~1
 
-for %%f in ("%~dp0\.") do set "__BATCH_FILE=%%~dpfcpath.bat"
+for /f "delims=" %%f in ("%~dp0\.") do set "__BATCH_FILE=%%~dpfcpath.bat"
 if not exist "%__BATCH_FILE%" (
     echo %_ERROR_LABEL% Batch file "%__BATCH_FILE%" not found 1>&2
     set _EXITCODE=1
@@ -441,7 +443,7 @@ if defined __ADD_SCALA3_LIBS (
         set _EXITCODE=1
         goto :eof
     )
-    for %%f in ("%SCALA3_HOME%\lib\*.jar") do (
+    for /f "delims=" %%f in ("%SCALA3_HOME%\lib\*.jar") do (
         set "_LIBS_CPATH=!_LIBS_CPATH!%%f;"
     )
 )

@@ -11,18 +11,18 @@
 ## <span id="steps">Installation Steps</span>
 
 Spark installation requires two steps on Microsoft Windows :
-1) Download archive file `spark-3.4.1-bin-hadoop3.2-scala2.13.tgz` either from the [Spark download page](https://spark.apache.org/downloads.html) or from the [Spark Distribution Directory](https://downloads.apache.org/spark/).
+1) Download archive file `spark-3.5.0-bin-hadoop3.2-scala2.13.tgz` either from the [Spark download page](https://spark.apache.org/downloads.html) or from the [Spark Distribution Directory](https://downloads.apache.org/spark/).
 2) Download and install binary files from GitHub repository [`cdarlint/winutils`](https://github.com/cdarlint/winutils).
 
 > **:mag_right:** [Spark][apache_spark] and [Hadoop][apache_hadoop] are two separate Apache projects : Spark uses Hadoop’s client libraries for [HDFS] and [YARN].<br/>
-> We give below the actual dependencies between [Spark][apache_spark] and [Hadoop][apache_hadoop] <sup id="anchor_03">[3](#footnote_03)</sup> (as of May 2023): 
+> We give below the actual dependencies between [Spark][apache_spark] and [Hadoop][apache_hadoop] <sup id="anchor_03">[3](#footnote_03)</sup> (as of October 2023): 
 >
->   |        |   |    |    |    |    |    |
->   |:-------|:--|:---|:---|:---|:---|:---|
->   | Hadoop | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |  [3.3.5](https://hadoop.apache.org/release/3.3.5.html) |
->   | Spark  | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.1](https://spark.apache.org/releases/spark-release-3-4-0.html) |  -  |
+>   |        |   |    |    |    |    |    |    |
+>   |:-------|:--|:---|:---|:---|:---|:---|:---|
+>   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |  [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | ? |
+>   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.5.0](https://spark.apache.org/releases/spark-release-3-4-0.html) |  -  | 3.5.0 |
 
-## <span id="footnotes">Footnotes</span>
+## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
 
 <span id="footnote_01">[1]</span> **`spark-shell` *session*** [↩](#anchor_01)
@@ -30,7 +30,7 @@ Spark installation requires two steps on Microsoft Windows :
 <dl><dd>
 <pre style="font-size:80%;">
 <b>&gt; echo %JAVA_HOME%</b>
-C:\opt\jdk-temurin-11.0.20_8
+C:\opt\jdk-temurin-11.0.21_9
 &nbsp;
 <b>&gt; %SPARK_HOME%\bin\<a href="https://sparkbyexamples.com/spark/spark-shell-usage-with-examples/">spark-shell</a></b>
 Setting default log level to "WARN".
@@ -39,16 +39,16 @@ Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /___/ .__/\_,_/_/ /_/\_\   version 3.4.1
+   /___/ .__/\_,_/_/ /_/\_\   version 3.5.0
       /_/
 
-Using Scala version 2.13.8 (OpenJDK 64-Bit Server VM, Java 11.0.20)
+Using Scala version 2.13.8 (OpenJDK 64-Bit Server VM, Java 11.0.21)
 [...]
 Spark context available as 'sc' (master = local[*], app id = local-1683397418428).
 Spark session available as 'spark'.
 
 scala> print(spark.version)
-3.4.1
+3.5.0
 scala> print(<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/util/VersionInfo.html">org.apache.hadoop.util.VersionInfo</a>.getVersion())
 3.3.4
 scala> :quit
@@ -65,7 +65,7 @@ Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.4.1
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.0
       /_/
 
 Using Python version 3.10.10 (tags/v3.10.10:aad5f6a, Feb  7 2023 17:20:36)
@@ -73,7 +73,7 @@ Spark context Web UI available at http://192.168.0.103:4040
 Spark context available as 'sc' (master = local[*], app id = local-1683399374689).
 SparkSession available as 'spark'.
 >>> print(spark.version)
-3.4.1
+3.5.0
 >>> print(sc._jvm.<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/util/VersionInfo.html">org.apache.hadoop.util.VersionInfo</a>.getVersion())
 3.3.4
 >>> exit()
@@ -86,14 +86,14 @@ SparkSession available as 'spark'.
 <dl><dd>
 <pre style="font-size:80%;">
 <b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1" rel="external">set</a> | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" rel="external">findstr</a> _HOME</b>
-GIT_HOME=C:\opt\Git-2.40.1
-HADOOP_HOME=C:\opt\spark-3.4.1-bin-hadoop3-scala2.13
+GIT_HOME=C:\opt\Git
+HADOOP_HOME=C:\opt\spark-3.5.0-bin-hadoop3-scala2.13
 JAVA_HOME=C:\opt\jdk-temurin-11.0.20_8
-MAVEN_HOME=C:\opt\apache-maven-3.9.4
+MAVEN_HOME=C:\opt\apache-maven
 PYTHON_HOME=C:\opt\Python-3.10.10
-SBT_HOME=C:\opt\sbt-1.9.3
-SCALA_HOME=C:\opt\scala-2.13.11
-SPARK_HOME=C:\opt\spark-3.4.1-bin-hadoop3-scala2.13
+SBT_HOME=C:\opt\sbt
+SCALA_HOME=C:\opt\scala-2.13.12
+SPARK_HOME=C:\opt\spark-3.5.0-bin-hadoop3-scala2.13
 </pre>
 </dd></dl>
 
@@ -103,7 +103,7 @@ SPARK_HOME=C:\opt\spark-3.4.1-bin-hadoop3-scala2.13
 <pre style="font-size:80%;">
 <b>&gt; %HADOOP_HOME%\bin\run-example org.apache.spark.examples.SparkPi</b>
 Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
-22/01/06 15:23:47 INFO SparkContext: Running Spark version 3.4.1
+22/01/06 15:23:47 INFO SparkContext: Running Spark version 3.5.0
 22/01/06 15:23:47 INFO ResourceUtils: ==============================================================
 22/01/06 15:23:47 INFO ResourceUtils: No custom resources configured for spark.driver.
 22/01/06 15:23:47 INFO ResourceUtils: ==============================================================
@@ -129,7 +129,7 @@ Pi is roughly 3.1410957054785276
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/August 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
