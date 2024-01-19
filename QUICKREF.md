@@ -12,6 +12,7 @@
 
 | Abbreviation | Description                    |
 |:------------:|:-------------------------------|
+| AES          | Advanced Encryption Standard   |
 | DAG          | Direct Acyclic Graph           |
 | HDFS         | Hadoop Distributed File System |
 | ML           | Machine Learning               |
