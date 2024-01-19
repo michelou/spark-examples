@@ -19,8 +19,8 @@ Spark installation requires two steps on Microsoft Windows :
 >
 >   |        |   |    |    |    |    |    |    |
 >   |:-------|:--|:---|:---|:---|:---|:---|:---|
->   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |  [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | ? |
->   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.5.0](https://spark.apache.org/releases/spark-release-3-4-0.html) |  -  | 3.5.0 |
+>   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) | [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | [3.3.6](https://hadoop.apache.org/release/3.3.6.html) |
+>   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.2](https://spark.apache.org/releases/spark-release-3-4-2.html)<br/>[3.5.0](https://spark.apache.org/releases/spark-release-3-5-0.html) |  -  | -  |
 
 ## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
@@ -30,7 +30,7 @@ Spark installation requires two steps on Microsoft Windows :
 <dl><dd>
 <pre style="font-size:80%;">
 <b>&gt; echo %JAVA_HOME%</b>
-C:\opt\jdk-temurin-11.0.21_9
+C:\opt\jdk-temurin-17.0.9_9
 &nbsp;
 <b>&gt; %SPARK_HOME%\bin\<a href="https://sparkbyexamples.com/spark/spark-shell-usage-with-examples/">spark-shell</a></b>
 Setting default log level to "WARN".
@@ -129,7 +129,7 @@ Pi is roughly 3.1410957054785276
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

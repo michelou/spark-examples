@@ -39,11 +39,11 @@ For instance:
 | `.setSparkHome("<some path>")`          | `--` | |
 
 <!-- https://sparkbyexamples.com/spark/spark-submit-command/ -->
-> **Note**: `spark-submit` command internally uses [`org.apache.spark.deploy.SparkSubmit`](https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/deploy/SparkSubmit.scala) class with the options and command line arguments you specify.
+> **Note**: The **`spark-submit`** command internally uses [`org.apache.spark.deploy.SparkSubmit`](https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/deploy/SparkSubmit.scala) class with the options and command line arguments you specify.
 
 ---
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/November 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2023* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
