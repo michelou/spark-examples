@@ -29,7 +29,7 @@ Spark configuration can be specified in three ways:
 - Programmatically with setter methods of [`org.apache.spark.SparkConf`](https://spark.apache.org/docs/latest/api/java/org/apache/spark/SparkConf.html).
 - Using dedicated command line options or `-c PROP=VALUE` for arbitrary properties.
 
-For instance:
+For instance (see also article ["Spark submit --num-executors --executor-cores --executor-memory"](https://kontext.tech/article/977/spark-submit-num-executors-executor-cores-executor-memory), March 2022):
 
 | Programmatically                        | Command line option      |   |
 |:----------------------------------------|:-------------------------|:--|
@@ -44,7 +44,7 @@ For instance:
 
 ---
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2023* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

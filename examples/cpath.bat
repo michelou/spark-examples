@@ -25,14 +25,11 @@ set _LIBS_CPATH=
 set __SCALA_BINARY_VERSION=2.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala3-library
-call :add_jar "org.scala-lang" "scala3-library_3" "3.3.1"
+call :add_jar "org.scala-lang" "scala3-library_3" "3.3.2-RC1"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
-<<<<<<< HEAD
-call :add_jar "org.scala-lang" "scala-library" "2.13.11"
-=======
-@rem call :add_jar "org.scala-lang" "scala-library" "2.13.10"
->>>>>>> 5a4617ff8df03d9bc0cd5244ea71032623d7883d
+@rem Scala 3.3.2-RC1 depends on standard library 2.13.10
+call :add_jar "org.scala-lang" "scala-library" "2.13.10"
 
 set __SPARK_VERSION=3.5.0
 
@@ -58,7 +55,7 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-unsafe
 @rem call :add_jar "org.apache.spark" "spark-unsafe_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
-set __FRAMELESS_VERSION=0.15.0
+set __FRAMELESS_VERSION=0.16.0
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-core
 call :add_jar "org.typelevel" "frameless-core_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
@@ -73,7 +70,7 @@ call :add_jar "org.typelevel" "frameless-dataset-spark32_%__SCALA_BINARY_VERSION
 call :add_jar "org.typelevel" "frameless-refined_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.github.pureconfig/pureconfig
-call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.4"
+call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.5"
 
 goto end
 
