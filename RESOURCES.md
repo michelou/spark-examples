@@ -15,6 +15,7 @@
 - [Spark Streaming - Part 2][article_ranjan_streaming2] by Ankur Ranjan, January 2023.
 - [Spark Streaming - Part 1][article_ranjan_streaming1] by Ankur Ranjan, January 2023.
 - [Syntactic Sugar in Spark Scala Codebase - Part 1][article_ranjan_scala1] by Ankur Ranjan, September 2022.
+- [Just Enough Spark! Core Concepts Revisited !!][article_rajak] by Deepak Rajak, June 2020.
 - [Spark Trigger Options][article_daniel] by Sylverter Daniel, March 2019.
 - [The Good, Bad and Ugly: Apache Spark for Data Science Work][article_bennett] by Robert Bennett, June 2018.
 - [How to Shutdown a Spark Streaming Job Gracefully][article_jiang] by Lan Jiang, February 2017.
@@ -81,8 +82,9 @@
 
 ## <span id="tools">Tools</span>
 
-- [`doric`](https://github.com/hablapps/doric) &ndash; Type-safe columns for Spark DataFrames.
+- [`doric`](https://github.com/hablapps/doric) &ndash; Type-safe columns for [Spark] DataFrames.
 - [`sbt-spark-submit`](https://index.scala-lang.org/izhangzhihao/sbt-spark-submit) &ndash; a [sbt plugin](https://www.scala-sbt.org/1.x/docs/Plugins.html) for [`spark-submit`](https://spark.apache.org/docs/latest/submitting-applications.html).
+- [Spark Configuration Optimization](https://sparkconfigoptimizer.com/) &ndash; online [Spark] configuration tool.
 
 ## <span id="tutorials">Tutorials</span> [**&#x25B4;**](#top)
 
@@ -106,7 +108,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -115,6 +117,7 @@
 [article_bennett]: https://thenewstack.io/the-good-bad-and-ugly-apache-spark-for-data-science-work/
 [article_daniel]: https://www.linkedin.com/pulse/spark-trigger-options-sylvester-daniel
 [article_jiang]: https://www.linkedin.com/pulse/how-shutdown-spark-streaming-job-gracefully-lan-jiang
+[article_rajak]: https://www.linkedin.com/pulse/just-enough-spark-core-concepts-revisited-deepak-rajak
 [article_ranjan_scala1]: https://www.linkedin.com/pulse/syntactic-sugar-spark-scala-codebase-part-1-ankur-ranjan
 [article_ranjan_stateful1]: https://www.linkedin.com/pulse/stateful-transformations-spark-streaming-part-1-ankur-ranjan
 [article_ranjan_streaming2]: https://www.linkedin.com/pulse/spark-streaming-session-2-ankur-ranjan/
@@ -135,6 +138,7 @@
 [cloudera]: https://www.cloudera.com/
 [hortonworks]: https://www.youtube.com/@Hortonworks
 [project_spark_jobserver]: https://www.gitplanet.com/project/spark-jobserver
+[spark]: https://spark.apache.org/
 [tutorial_hortonworks_1]: https://www.youtube.com/watch?v=4SIZNQ7KZX8 "Part 1 - Spark Basics"
 [tutorial_hortonworks_2]: https://www.youtube.com/watch?v=FcAiK2VtPfA "Part 2 - Spark SQL"
 [tutorial_hortonworks_3]: https://www.youtube.com/watch?v=KyUlfLNAwRM "Part 3 - Spark Streaming"

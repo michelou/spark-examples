@@ -37,6 +37,9 @@ if not %_EXITCODE%==0 goto end
 call :git
 if not %_EXITCODE%==0 goto end
 
+call :gradle
+if not %_EXITCODE%==0 goto end
+
 call :maven
 if not %_EXITCODE%==0 goto end
 
@@ -664,6 +667,7 @@ goto :eof
 set __VERBOSE=%1
 set "__VERSIONS_LINE1=  "
 set "__VERSIONS_LINE2=  "
+set "__VERSIONS_LINE3=  "
 set __WHERE_ARGS=
 where /q "%JAVA_HOME%\bin:java.exe"
 if %ERRORLEVEL%==0 (
@@ -687,6 +691,11 @@ if %ERRORLEVEL%==0 (
     )
     set __WHERE_ARGS=%__WHERE_ARGS% "%SPARK_HOME%\bin:spark-shell.cmd"
 )
+where /q "%GRADLE_HOME%\bin:gradle.bat"
+if %ERRORLEVEL%==0 (
+    for /f "tokens=1,2,*" %%i in ('call "%GRADLE_HOME%\bin\gradle.bat" -version ^| findstr Gradle') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% gradle %%j,"
+    set __WHERE_ARGS=%__WHERE_ARGS% "%GRADLE_HOME%\bin:gradle.bat"
+)
 where /q "%MAVEN_HOME%\bin:mvn.cmd"
 if %ERRORLEVEL%==0 (
     for /f "tokens=1,2,3,*" %%i in ('call "%MAVEN_HOME%\bin\mvn.cmd" -version ^| findstr Apache') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% mvn %%k,"
@@ -694,27 +703,29 @@ if %ERRORLEVEL%==0 (
 )
 where /q "%GIT_HOME%\bin:git.exe"
 if %ERRORLEVEL%==0 (
-   for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% git %%k,"
+   for /f "tokens=1,2,*" %%i in ('"%GIT_HOME%\bin\git.exe" --version') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% git %%k,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:git.exe"
 )
 where /q "%GIT_HOME%\usr\bin:diff.exe"
 if %ERRORLEVEL%==0 (
-   for /f "tokens=1-3,*" %%i in ('"%GIT_HOME%\usr\bin\diff.exe" --version ^| findstr diff') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% diff %%l,"
+   for /f "tokens=1-3,*" %%i in ('"%GIT_HOME%\usr\bin\diff.exe" --version ^| findstr diff') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% diff %%l,"
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\usr\bin:diff.exe"
 )
 where /q "%GIT_HOME%\bin:sh.exe"
 if %ERRORLEVEL%==0 (
-    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\sh.exe" --version ^| findstr bash') do set "__VERSIONS_LINE2=%__VERSIONS_LINE2% sh %%l"
+    for /f "tokens=1-3,4,*" %%i in ('"%GIT_HOME%\bin\sh.exe" --version ^| findstr bash') do set "__VERSIONS_LINE3=%__VERSIONS_LINE3% sh %%l"
     set __WHERE_ARGS=%__WHERE_ARGS% "%GIT_HOME%\bin:sh.exe"
 )
 echo Tool versions:
 echo %__VERSIONS_LINE1%
 echo %__VERSIONS_LINE2%
+echo %__VERSIONS_LINE3%
 if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
     for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
     echo Environment variables: 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
+    if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2
     if defined HADOOP_HOME echo    "HADOOP_HOME=%HADOOP_HOME%" 1>&2
     if defined JAVA_HOME echo    "JAVA_HOME=%JAVA_HOME%" 1>&2
     if defined MAVEN_HOME echo    "MAVEN_HOME=%MAVEN_HOME%" 1>&2
@@ -740,6 +751,7 @@ goto :eof
 endlocal & (
     if %_EXITCODE%==0 (
         if not defined GIT_HOME set "GIT_HOME=%_GIT_HOME%"
+        if not defined GRADLE_HOME set "GRADLE_HOME=%_GRADLE_HOME%"
         if not defined HADOOP_HOME set "HADOOP_HOME=%_HADOOP_HOME%"
         if not defined JAVA_HOME set "JAVA_HOME=%_JAVA_HOME%"
         if not defined MAVEN_HOME set "MAVEN_HOME=%_MAVEN_HOME%"
@@ -752,7 +764,7 @@ endlocal & (
         if not defined SPARK_HOME set "SPARK_HOME=%_SPARK_HOME%"
         if not defined VSCODE_HOME set "VSCODE_HOME=%VSCODE_HOME%"
         @rem We prepend %_GIT_HOME%\bin to hide C:\Windows\System32\bash.exe
-        set "PATH=%_GIT_HOME%\bin;%PATH%%_MAVEN_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
+        set "PATH=%_GIT_HOME%\bin;%PATH%%_GRADLE_PATH%%_MAVEN_PATH%%_SPARK_PATH%%_SBT_PATH%%_GIT_PATH%%_VSCODE_PATH%;%~dp0bin"
         call :print_env %_VERBOSE%
         if not "%CD:~0,2%"=="%_DRIVE_NAME%" (
             if %_DEBUG%==1 echo %_DEBUG_LABEL% cd /d %_DRIVE_NAME% 1>&2

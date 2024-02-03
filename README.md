@@ -4,7 +4,7 @@
   <tr>
   <td style="border:0;padding:0 10px 0 0;min-width:120px;"><a href="https://spark.apache.org/" rel="external"><img src="https://spark.apache.org/images/spark-logo-trademark.png" width="120" alt="Spark project"/></a></td>
   <td style="border:0;padding:0;vertical-align:text-top;">This repository gathers <a href="https://spark.apache.org/" rel="external">Spark</a> code examples coming from various websites and books.<br/>
-  It also includes several build scripts (<a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>) for experimenting with <a href="https://spark.apache.org/" rel="external">Spark</a> on a Windows machine.
+  It also includes several build scripts (<a href="https://cloudblogs.microsoft.com/opensource/2023/02/21/introducing-bash-for-beginners/">Bash scripts</a>, <a href="https://en.wikibooks.org/wiki/Windows_Batch_Scripting" rel="external">batch files</a>, <a href="https://makefiletutorial.com/" rel="external">Make scripts</a>) for experimenting with <a href="https://spark.apache.org/" rel="external">Spark</a> on a Windows machine.
   </td>
   </tr>
 </table>
@@ -26,20 +26,20 @@ This project depends on two external software for the **Microsoft Windows** plat
 - [Temurin OpenJDK 11 LTS][temurin_openjdk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
 
 Optionally one may also install the following software:
-- [Gradle 8.5][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.6][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes], [*Java 17 API*][oracle_openjdk17_api])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*Java 21 API*][oracle_openjdk21_api])
-- [Visual Studio Code 1.85][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.86][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*January 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*February 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\                       <i>( 10 MB)</i>
 C:\opt\Git\                                <i>(367 MB)</i>
-C:\opt\gradle\                             <i>(135 MB)</i>
+C:\opt\gradle\                             <i>(140 MB)</i>
 C:\opt\jdk-temurin-11.0.22_7\              <i>(303 MB)</i>
 C:\opt\jdk-temurin-17.0.10_7\              <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.2_13\              <i>(326 MB)</i>
@@ -96,7 +96,8 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    java 11.0.22, sbt 1.9.8, scalac 2.13.12, spark-shell 3.5.0,
-   mvn 3.9.6, git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
+   gradle 8.6, mvn 3.9.6,
+   git 2.43.0.windows.1, diff 3.10, bash 5.2.21(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt sh</b>
 C:\opt\apache-maven\bin\mvn
@@ -125,7 +126,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.5-bin.zip</a>                                 <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.6-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.22_7.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7.zip</a>   <i>(191 MB)</i>
 <a href="https://adoptium.net/fr/temurin/releases/?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.2_13.zip</a>   <i>(191 MB)</i>
@@ -160,7 +161,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/February 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -188,7 +189,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.5/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.6/release-notes.html
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
 [haskell_examples]: https://github.com/michelou/haskell-examples
 [kafka_examples]: https://github.com/michelou/kafka-examples
