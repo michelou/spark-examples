@@ -58,6 +58,7 @@
 
 ## <span id="books">Books</span> [**&#x25B4;**](#top)
 
+- [Data Engineering with Scala and Spark][book_tome] by Eric Tome, Rupam Bhattacharjee and David Radford, January 2024.<br/><span style="font-size:80%;">(Packt, ISBN 978-1-80461-258-3, 300 pages)</span>
 - [Hands-on Guide on Apache Spark 3][book_garcia] by Alfonso A. Garcia, 2023.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-9379-9, 404 pages)</span>
 - [Modern Data Engineering with Apache Spark][book_haines] by Scott Haines, March 2022.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7451-4, 585 pages)</span>
 - [Beginning Apache Spark 3][book_luu] by Hien Luu, October 2021.<br/><span style="font-size:80%;">(Apress, ISBN 978-1-4842-7382-1, 438 pages)</span>
@@ -135,6 +136,7 @@
 [book_lee]: https://www.amazon.com/dp/B097SNB8T6
 [book_luu]: https://link.springer.com/book/10.1007/978-1-4842-7383-8
 [book_mehrotra]: https://www.packtpub.com/product/apache-spark-quick-start-guide/9781789349108
+[book_tome]: https://www.packtpub.com/en-it/product/data-engineering-with-scala-and-spark-9781804612583
 [cloudera]: https://www.cloudera.com/
 [hortonworks]: https://www.youtube.com/@Hortonworks
 [project_spark_jobserver]: https://www.gitplanet.com/project/spark-jobserver
