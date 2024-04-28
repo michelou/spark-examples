@@ -13,6 +13,25 @@
 
 ## <span id="customers">`Customers` Example</span>
 
+Project `Customers`is organized as follows :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="">tree</a> /f /a . | <a href="">findstr</a> /v /b [A-Z]</b>
+|   <a href="./Customers/00download.txt">00download.txt</a>
+|   <a href="./Customers/baby_names.json">baby_names.json</a>
+|   <a href="./Customers/build.bat">build.bat</a>
+|   <a href="./Customers/build.sh">build.sh</a>
+|   <a href="./Customers/customers.json">customers.json</a>
+|   <a href="./Customers/library.properties">library.properties</a>
+|   <a href="./Customers/Makefile">Makefile</a>
+|   <a href="./Customers/NOTICE">NOTICE</a>
+|   <a href="./Customers/pom.xml">pom.xml</a>
+\---src
+    \---main
+        \---scala
+                <a href="./Customers/src/main/scala/Customers.scala">Customers.scala</a>
+</pre>
+
 Command [`build.bat run`](./Customers/build.bat) performs several tasks :
 - it compiles the Scala source file [`Customers.scala`](./Customers/src/main/scala/HelloWorld.scala).
 - it creates the fat jar `Customers-assembly-0.1.0.jar` (e.g. adds the Scala 2.13 library).
@@ -84,7 +103,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/March 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

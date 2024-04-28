@@ -25,11 +25,11 @@ set _LIBS_CPATH=
 set __SCALA_BINARY_VERSION=2.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala3-library
-call :add_jar "org.scala-lang" "scala3-library_3" "3.3.2-RC1"
+@rem call :add_jar "org.scala-lang" "scala3-library_3" "3.3.3"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
-@rem Scala 3.3.2-RC1 depends on standard library 2.13.10
-call :add_jar "org.scala-lang" "scala-library" "2.13.10"
+@rem Spark 3.5.1 depends on Scala standard library 2.13.8
+call :add_jar "org.scala-lang" "scala-library" "2.13.8"
 
 set __SPARK_VERSION=3.5.0
 
@@ -47,13 +47,13 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 @call :add_jar "org.apache.spark" "spark-sql_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-streaming
-@rem call :add_jar "org.apache.spark" "spark-streaming_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+call :add_jar "org.apache.spark" "spark-streaming_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-tags
-@rem call :add_jar "org.apache.spark" "spark-tags_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+call :add_jar "org.apache.spark" "spark-tags_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-unsafe
-@rem call :add_jar "org.apache.spark" "spark-unsafe_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+call :add_jar "org.apache.spark" "spark-unsafe_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 set __FRAMELESS_VERSION=0.16.0
 
@@ -64,13 +64,13 @@ call :add_jar "org.typelevel" "frameless-core_%__SCALA_BINARY_VERSION%" "%__FRAM
 call :add_jar "org.typelevel" "frameless-dataset_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-dataset-spark32
-call :add_jar "org.typelevel" "frameless-dataset-spark32_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
+@rem call :add_jar "org.typelevel" "frameless-dataset-spark32_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.typelevel/frameless-refined
 call :add_jar "org.typelevel" "frameless-refined_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.github.pureconfig/pureconfig
-call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.5"
+call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.6"
 
 goto end
 
