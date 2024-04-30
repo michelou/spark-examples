@@ -43,7 +43,7 @@ C:\opt\Git\                                <i>(367 MB)</i>
 C:\opt\gradle\                             <i>(140 MB)</i>
 C:\opt\jdk-temurin-11.0.23_9\              <i>(303 MB)</i>
 C:\opt\jdk-temurin-17.0.11_9\              <i>(301 MB)</i>
-C:\opt\jdk-temurin-21.0.3_9\              <i>(326 MB)</i>
+C:\opt\jdk-temurin-21.0.3_9\               <i>(326 MB)</i>
 C:\opt\msys64\                             <i>(2.8 GB)</i>
 C:\opt\sbt\                                <i>(135 MB)</i>
 C:\opt\scala-2.13.13\                      <i>( 24 MB)</i>
