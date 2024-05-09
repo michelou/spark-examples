@@ -1,4 +1,4 @@
-# <span id="top">Spark Quick Reference</span> <span style="size:30%;"><a href="README.md">↩</a></span>
+# <span id="top">Spark Quick Reference</span> <span style="font-size:90%;">[↩](README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -31,7 +31,7 @@ Spark configuration can be specified in three ways:
 
 For instance (see also article ["Spark submit --num-executors --executor-cores --executor-memory"](https://kontext.tech/article/977/spark-submit-num-executors-executor-cores-executor-memory), March 2022):
 
-| Programmatically                        | Command line option      |   |
+| Programmatically                        | Command&nbsp;line option |   |
 |:----------------------------------------|:-------------------------|:--|
 | `.set("spark.executor.cores", "8")`     | `--executor-cores 8`     |   |
 | `.set("spark.executor.memory", "128m")` | `--executor-memory 128m` |   |

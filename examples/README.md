@@ -1,4 +1,4 @@
-# <span id="top">Spark examples</span> <span style="size:30%;"><a href="../README.md">⬆</a></span>
+# <span id="top">Spark examples</span> <span style="font-size:90%;">[⬆](../README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -13,10 +13,10 @@
 
 ## <span id="customers">`Customers` Example</span>
 
-Project `Customers`is organized as follows :
+This example has the following directory structure :
 
 <pre style="font-size:80%;">
-<b>&gt; <a href="">tree</a> /f /a . | <a href="">findstr</a> /v /b [A-Z]</b>
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /f /a . | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
 |   <a href="./Customers/00download.txt">00download.txt</a>
 |   <a href="./Customers/baby_names.json">baby_names.json</a>
 |   <a href="./Customers/build.bat">build.bat</a>
@@ -65,6 +65,24 @@ Execute Spark application "Customers"
 </pre>
 
 ## <span id="helloworld">`HelloWorld` Example</span> [**&#x25B4;**](#top)
+
+This example has the following directory structure :
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree</a> /f /a | <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr">findstr</a> /v /b [A-Z]</b>
+|   <a href="./HelloWorld/00download.txt">00download.txt</a>
+|   <a href="./HelloWorld/build.bat">build.bat</a>
+|   <a href="./HelloWorld/build.sbt">build.sbt</a>
+|   <a href="./HelloWorld/build.sh">build.sh</a>
+|   <a href="./HelloWorld/Makefile">Makefile</a>
++---project
+|       <a href="./HelloWorld/project/build.properties">build.properties</a>
+|       <a href="./HelloWorld/project/plugins.sbt">plugins.sbt</a>
+\---src
+    \---main
+        \---scala
+                <a href="./HelloWorld/src/main/scala/HelloWorld.scala">HelloWorld.scala</a>
+</pre>
 
 Command [`build.bat run`](./HelloWorld/build.bat) performs several tasks :
 - it compiles the Scala source file [`HelloWorld.scala`](./HelloWorld/src/main/scala/HelloWorld.scala).

@@ -1,4 +1,4 @@
-# <span id="top">Spark Resources</span> <span style="size:30%;"><a href="README.md">↩</a></span>
+# <span id="top">Spark Resources</span> <span style="font-size:90%;">[↩](README.md#top)</span>
 
 <table style="font-family:Helvetica,Arial;line-height:1.6;">
   <tr>
@@ -47,6 +47,7 @@
 - [Install Hadoop 3.2.1 on Windows 10 Step by Step Guide][blog_raymond] by Raymond, October 2021.
 - [Build Your Own WinUtils for Spark][blog_meakins] by Nigel Meakins, April 2021.
 - [CERN Database Blog](https://db-blog.web.cern.ch/blog/) :
+  - [Performance Comparison of 5 JDKs on Apache Spark][blog_canali_2023] by Luca Canali, November 2023.
   - [Making histograms with Apache Spark and other SQL engines][blog_canali_2022] by Luca Canali, May 2022.
   - [Apache Spark 3.0 Memory Monitoring Improvements][blog_canali_2020] by Luca Canali, August 2020.
   - [SparkMeasure, a tool for performance troubleshooting of Apache Spark workloads][blog_canali_2018] by Luca Canali, August 2018.
@@ -123,6 +124,7 @@
 [article_ranjan_stateful1]: https://www.linkedin.com/pulse/stateful-transformations-spark-streaming-part-1-ankur-ranjan
 [article_ranjan_streaming2]: https://www.linkedin.com/pulse/spark-streaming-session-2-ankur-ranjan/
 [article_ranjan_streaming1]: https://www.linkedin.com/pulse/spark-streaming-part-1-ankur-ranjan
+[blog_canali_2023]: https://db-blog.web.cern.ch/node/192
 [blog_canali_2022]: https://db-blog.web.cern.ch/node/187
 [blog_canali_2020]: https://db-blog.web.cern.ch/blog/luca-canali/2020-08-spark3-memory-monitoring
 [blog_canali_2018]: https://db-blog.web.cern.ch/blog/luca-canali/2018-08-sparkmeasure-tool-performance-troubleshooting-apache-spark-workloads
