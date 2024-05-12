@@ -31,7 +31,7 @@ set __SCALA_BINARY_VERSION=2.13
 @rem Spark 3.5.1 depends on Scala standard library 2.13.8
 call :add_jar "org.scala-lang" "scala-library" "2.13.8"
 
-set __SPARK_VERSION=3.5.0
+set __SPARK_VERSION=3.5.1
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst
 @rem Note: contains symbol 'type org.apache.spark.sql.Row'
@@ -44,7 +44,7 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 @rem call :add_jar "org.apache.spark" "spark-launcher_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-@call :add_jar "org.apache.spark" "spark-sql_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+call :add_jar "org.apache.spark" "spark-sql_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-streaming
 call :add_jar "org.apache.spark" "spark-streaming_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
