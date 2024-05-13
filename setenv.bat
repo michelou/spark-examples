@@ -770,7 +770,11 @@ echo %__VERSIONS_LINE2%
 echo %__VERSIONS_LINE3%
 if %__VERBOSE%==1 (
     echo Tool paths: 1>&2
-    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do echo    %%p 1>&2
+    for /f "tokens=*" %%p in ('where %__WHERE_ARGS%') do (
+        set "__LINE=%%p"
+        setlocal enabledelayedexpansion
+        echo    !__LINE:%USERPROFILE%=%%USERPROFILE%%! 1>&2
+    )
     echo Environment variables: 1>&2
     if defined GIT_HOME echo    "GIT_HOME=%GIT_HOME%" 1>&2
     if defined GRADLE_HOME echo    "GRADLE_HOME=%GRADLE_HOME%" 1>&2

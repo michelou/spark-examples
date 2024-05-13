@@ -174,8 +174,8 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 <!-- link refs -->
 
-[ada_examples]: https://github.com/michelou/ada-examples
-[akka_examples]: https://github.com/michelou/akka-examples
+[ada_examples]: https://github.com/michelou/ada-examples#top
+[akka_examples]: https://github.com/michelou/akka-examples#top
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
@@ -185,30 +185,30 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [cobol_examples]: https://github.com/michelou/cobol-examples
 [conemu_downloads]: https://github.com/Maximus5/ConEmu/releases
 [conemu_relnotes]: https://conemu.github.io/blog/2023/07/24/Build-230724.html
-[cpp_examples]: https://github.com/michelou/cpp-examples
-[dart_examples]: https://github.com/michelou/dart-examples
-[deno_examples]: https://github.com/michelou/deno-examples
-[docker_examples]: https://github.com/michelou/docker-examples
-[erlang_examples]: https://github.com/michelou/erlang-examples
-[flix_examples]: https://github.com/michelou/flix-examples
+[cpp_examples]: https://github.com/michelou/cpp-examples#top
+[dart_examples]: https://github.com/michelou/dart-examples#top
+[deno_examples]: https://github.com/michelou/deno-examples#top
+[docker_examples]: https://github.com/michelou/docker-examples#top
+[erlang_examples]: https://github.com/michelou/erlang-examples#top
+[flix_examples]: https://github.com/michelou/flix-examples#top
 [git_cli]: https://git-scm.com/docs/git
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
 [git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.0.txt
-[golang_examples]: https://github.com/michelou/golang-examples
-[graalvm_examples]: https://github.com/michelou/graalvm-examples
+[golang_examples]: https://github.com/michelou/golang-examples#top
+[graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
 [gradle_relnotes]: https://docs.gradle.org/8.7/release-notes.html
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
-[haskell_examples]: https://github.com/michelou/haskell-examples
-[kafka_examples]: https://github.com/michelou/kafka-examples
-[kotlin_examples]: https://github.com/michelou/kotlin-examples
+[haskell_examples]: https://github.com/michelou/haskell-examples#top
+[kafka_examples]: https://github.com/michelou/kafka-examples#top
+[kotlin_examples]: https://github.com/michelou/kotlin-examples#top
 [linux_opt]: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/opt.html
-[llvm_examples]: https://github.com/michelou/llvm-examples
-[m2_examples]: https://github.com/michelou/m2-examples
+[llvm_examples]: https://github.com/michelou/llvm-examples#top
+[m2_examples]: https://github.com/michelou/m2-examples#top
 [man1_awk]: https://www.linux.org/docs/man1/awk.html
 [man1_diff]: https://www.linux.org/docs/man1/diff.html
 [man1_file]: https://www.linux.org/docs/man1/file.html
@@ -220,21 +220,21 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [msys2_changelog]: https://github.com/msys2/setup-msys2/blob/main/CHANGELOG.md
 [msys2_downloads]: http://repo.msys2.org/distrib/x86_64/
-[nodejs_examples]: https://github.com/michelou/nodejs-examples
+[nodejs_examples]: https://github.com/michelou/nodejs-examples#top
 [oracle_openjdk17_api]: https://docs.oracle.com/en/java/javase/17/docs/api/
 [oracle_openjdk21]: https://jdk.java.net/21/
 [oracle_openjdk21_api]: https://docs.oracle.com/en/java/javase/21/docs/api/
 [oracle_openjdk21_relnotes]: https://jdk.java.net/21/release-notes
-[python_examples]: https://github.com/michelou/python-examples
-[rust_examples]: https://github.com/michelou/rust-examples
+[python_examples]: https://github.com/michelou/python-examples#top
+[rust_examples]: https://github.com/michelou/rust-examples#top
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.0
 [scala_releases]: https://www.scala-lang.org/files/archive/
 [scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.14
-[scala3_examples]: https://github.com/michelou/dotty-examples
+[scala3_examples]: https://github.com/michelou/dotty-examples#top
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
-[spring_examples]: https://github.com/michelou/spring-examples
+[spring_examples]: https://github.com/michelou/spring-examples#top
 [spark_downloads]: https://spark.apache.org/downloads.html
 <!--
 3.3.2 -> https://spark.apache.org/releases/spark-release-3-3-2.html
