@@ -427,7 +427,7 @@ if defined __PYTHON_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\python\" ( set "_PYTHON_HOME=!__PATH!\python"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
         if not defined _PYTHON_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\python-3*" 2^>NUL') do set "_PYTHON_HOME=!__PATH!\%%f"
@@ -461,7 +461,7 @@ if defined __MAKE_CMD (
     for /f "delims=" %%f in ('dir /ad /b "!__PATH!\msys*" 2^>NUL') do set "_MSYS_HOME=!__PATH!\%%f"
     if not defined _MSYS_HOME (
         set __PATH=C:\opt
-        for /f %%f in ('dir /ad /b "!__PATH!\msys*" 2^>NUL') do set "_MSYS_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\msys*" 2^>NUL') do set "_MSYS_HOME=!__PATH!\%%f"
     )
 )
 if not exist "%_MSYS_HOME%\usr\bin\make.exe" (
@@ -494,7 +494,7 @@ if defined __SBT_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\sbt\" ( set "_SBT_HOME=!__PATH!\sbt"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
         if not defined _SBT_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\sbt-1*" 2^>NUL') do set "_SBT_HOME=!__PATH!\%%f"
@@ -570,7 +570,7 @@ if defined __SPARK_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\spark\" ( set "_SPARK_HOME=!__PATH!\spark"
     ) else (
-        for /f %%f in ('dir /ad /b "!__PATH!\spark-3*" 2^>NUL') do set "_SPARK_HOME=!__PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spark-3*" 2^>NUL') do set "_SPARK_HOME=!__PATH!\%%f"
         if not defined _SPARK_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\spark-3*" 2^>NUL') do set "_SPARK_HOME=!__PATH!\%%f"

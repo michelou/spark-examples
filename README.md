@@ -102,7 +102,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 Tool versions:
    java 11.0.23, sbt 1.10.0, scalac 2.13.14, spark-shell 3.5.1,
    gradle 8.7, mvn 3.9.6, make 4.4.1,
-   git 2.45.0, diff 3.10, bash 5.2.26(1)-release
+   git 2.45.1, diff 3.10, bash 5.2.26(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt sh</b>
 C:\opt\apache-maven\bin\mvn
@@ -137,7 +137,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.23_9.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(191 MB)</i>
 <a href="https://adoptium.net/fr/temurin/releases/?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.3_9.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.45.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.45.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.10.0.zip</a>                                     <i>( 17 MB)</i>
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.5.1-bin-hadoop3.tgz</a>                        <i>(285 MB)</i>
@@ -195,7 +195,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.0.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.1.txt
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
@@ -281,10 +281,10 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
 [temurin_openjdk21_bugfixes]: https://www.oracle.com/java/technologies/javase/21-0-3-relnotes.html
 [temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032196.html
-[trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples
+[trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top
 [vscode_downloads]: https://code.visualstudio.com/#alt-downloads
 [vscode_relnotes]: https://code.visualstudio.com/updates/
 [windows_limitation]: https://support.microsoft.com/en-gb/help/830473/command-prompt-cmd-exe-command-line-string-limitation
 [windows_subst]: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/subst
-[wix_examples]: https://github.com/michelou/wix-examples
+[wix_examples]: https://github.com/michelou/wix-examples#top
 [zip_archive]: https://www.howtogeek.com/178146/
