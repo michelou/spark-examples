@@ -9,10 +9,9 @@
   </tr>
 </table>
 
-> **&#9755;** Read the document <a href="https://spark.apache.org">"What is Apache Spark™?"</a> from the <a href="https://spark.apache.org" rel="external">Spark</a> documentation to know more about the <a href="https://spark.apache.org" rel="external">Spark</a> ecosystem.
-
 [Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Golang][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [TruffleSqueak][trufflesqueak_examples] and [WiX Toolset][wix_examples] are other topics we are continuously monitoring.
 
+> **&#9755;** Read the document <a href="https://spark.apache.org">"What is Apache Spark™?"</a> from the <a href="https://spark.apache.org" rel="external">Spark</a> documentation to know more about the <a href="https://spark.apache.org" rel="external">Spark</a> ecosystem.
 
 ## <span id="proj_deps">Project dependencies</span>
 
@@ -29,7 +28,7 @@ This project depends on two external software for the **Microsoft Windows** plat
 Optionally one may also install the following software:
 
 - [ConEmu][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [Gradle 8.7][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 8.8][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes], [*Java 17 API*][oracle_openjdk17_api])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*Java 21 API*][oracle_openjdk21_api])
 - [Visual Studio Code 1.89][vscode_downloads] ([*release notes*][vscode_relnotes])
@@ -37,7 +36,7 @@ Optionally one may also install the following software:
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*May 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*June 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\                       <i>( 10 MB)</i>
@@ -101,7 +100,7 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
    java 11.0.23, sbt 1.10.0, scalac 2.13.14, spark-shell 3.5.1,
-   gradle 8.7, mvn 3.9.6, make 4.4.1,
+   gradle 8.8, mvn 3.9.7, make 4.4.1,
    git 2.45.1, diff 3.10, bash 5.2.26(1)-release
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt sh</b>
@@ -130,9 +129,9 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 </dd>
 <dd>
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.6-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.7-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.7-bin.zip</a>                                 <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.8-bin.zip</a>                                 <i>(118 MB)</i>
 <a href="http://repo.msys2.org/distrib/x86_64/">msys2-x86_64-20240113.exe</a>                          <i>( 86 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.23_9.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.11_9.zip</a>   <i>(191 MB)</i>
@@ -169,7 +168,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/May 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -179,7 +178,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.6/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.7/release-notes.html
 [apache_spark]: https://spark.apache.org
 [apache_spark_sql]: https://spark.apache.org/docs/latest/sql-programming-guide.html
 [cobol_examples]: https://github.com/michelou/cobol-examples
@@ -201,7 +200,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.7/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.8/release-notes.html
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
 [kafka_examples]: https://github.com/michelou/kafka-examples#top
