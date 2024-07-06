@@ -261,7 +261,7 @@ if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
 set __SCALAC_OPTS=-deprecation -cp "%__CPATH%" -d "%_CLASSES_DIR%"
-if %_DEBUG%==1 set __SCALAC_OPTS=-Ylog-classpath %__SCALAC_OPTS%
+@rem if %_DEBUG%==1 set __SCALAC_OPTS=-Ylog-classpath %__SCALAC_OPTS%
 
 if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_SCALAC_CMD%" %__SCALAC_OPTS% %__SOURCE_FILES% 1>&2
 ) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% into directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2

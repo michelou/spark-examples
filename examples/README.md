@@ -78,9 +78,9 @@ This example has the following directory structure :
 +---project
 |       <a href="./HelloWorld/project/build.properties">build.properties</a>
 |       <a href="./HelloWorld/project/plugins.sbt">plugins.sbt</a>
-\---src
-    \---main
-        \---scala
+\---<b>src</b>
+    \---<b>main</b>
+        \---<b>scala</b>
                 <a href="./HelloWorld/src/main/scala/HelloWorld.scala">HelloWorld.scala</a>
 </pre>
 
@@ -121,7 +121,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/June 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

@@ -327,7 +327,7 @@ if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAR_CMD%" xf "%__SCALA_JAR_FILE%" 1>&2
 )
 call "%_JAR_CMD%" xf "!__SCALA_JAR_FILE!"
 @rem rename Scala LICENSE and NOTICE files
-for %%i in ("%__SCALA_JAR_FILE%") do set "__BASENAME=%%~ni"
+for /f "delims=" %%i in ("%__SCALA_JAR_FILE%") do set "__BASENAME=%%~ni"
 for %%j in (LICENSE NOTICE) do (
     if exist "%%j" move "%%j" "%%j_!__BASENAME!" 1>NUL
 )

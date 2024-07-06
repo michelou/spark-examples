@@ -28,14 +28,17 @@ set __SCALA_BINARY_VERSION=2.13
 @rem call :add_jar "org.scala-lang" "scala3-library_3" "3.3.3"
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
-@rem Spark 3.5.1 depends on Scala standard library 2.13.8
-call :add_jar "org.scala-lang" "scala-library" "2.13.8"
+@rem Spark 3.5.1 depends on Scala standard library 2.13.8+
+call :add_jar "org.scala-lang" "scala-library" "2.13.14"
 
 set __SPARK_VERSION=3.5.1
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst
 @rem Note: contains symbol 'type org.apache.spark.sql.Row'
-call :add_jar "org.apache.spark" "spark-catalyst_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+@rem call :add_jar "org.apache.spark" "spark-catalyst_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.apache.spark/spark-common-utils
+call :add_jar "org.apache.spark" "spark-common-utils_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-core
 call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
@@ -47,7 +50,7 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 call :add_jar "org.apache.spark" "spark-sql_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-streaming
-call :add_jar "org.apache.spark" "spark-streaming_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+@rem call :add_jar "org.apache.spark" "spark-streaming_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-tags
 call :add_jar "org.apache.spark" "spark-tags_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
@@ -70,7 +73,7 @@ call :add_jar "org.typelevel" "frameless-dataset_%__SCALA_BINARY_VERSION%" "%__F
 call :add_jar "org.typelevel" "frameless-refined_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.github.pureconfig/pureconfig
-call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.6"
+call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.7"
 
 goto end
 

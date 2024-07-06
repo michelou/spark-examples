@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2023 Stéphane Micheloud
+# Copyright (c) 2018-2024 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -232,22 +232,86 @@ lib_cpath() {
     local cpath=
     local central_repo=https://repo1.maven.org/maven2
     local jar_file=
-    for f in $(find "$LOCAL_REPO/org/apache/spark/" -name "spark-core*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/org/apache/spark/" -type f -name "spark-common-utils*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/spark/" -type f -name "spark-core*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    ## dependency of commons-lang3
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/slf4j/" -type f -name "slf4j-api*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/slf4j/" -type f -name "slf4j-simple*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    ## dependency of hadoop-client
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/commons/" -type f -name "commons-configuration2*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/commons/" -type f -name "commons-lang3*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    ## dependency of spark-network-common
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/hadoop/" -type f -name "hadoop-auth*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/hadoop/" -type f -name "hadoop-client*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/hadoop/" -type f -name "hadoop-common*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/hadoop/" -type f -name "hadoop-hdfs*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/hadoop/" -type f -name "hadoop-mapreduce-client*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    ## needed for class org.sparkproject.guava.cache.CacheLoader
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/spark/" -type f -name "spark-network-common*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
     jar_file=
-    for f in $(find "$LOCAL_REPO/org/apache/spark/" -name "spark-sql*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/org/apache/spark/" -type f -name "spark-sql*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
     jar_file=
-    for f in $(find "$LOCAL_REPO/org/apache/logging/log4" -name "log4j-api*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/org/apache/logging/log4j" -type f -name "log4j-api*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
     jar_file=
-    for f in $(find "$LOCAL_REPO/org/apache/logging/log4" -name "log4j-core*.jar" 2>/dev/null); do
+    for f in $(find "$LOCAL_REPO/org/apache/logging/log4j" -type f -name "log4j-core*.jar" 2>/dev/null); do
+        jar_file="$(mixed_path $f)"
+    done
+    [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
+    local jar_file=
+    for f in $(find "$LOCAL_REPO/org/apache/hadoop-util/" -type f -name "hadoop-util*.jar" 2>/dev/null); do
         jar_file="$(mixed_path $f)"
     done
     [[ -n $jar_file ]] && cpath="$cpath$jar_file$PSEP"
@@ -436,11 +500,11 @@ EXITCODE=0
 
 ROOT_DIR="$(getHome)"
 
-SOURCE_DIR=$ROOT_DIR/src
-MAIN_SOURCE_DIR=$SOURCE_DIR/main/scala
-TARGET_DIR=$ROOT_DIR/target
-TARGET_DOCS_DIR=$TARGET_DIR/docs
-CLASSES_DIR=$TARGET_DIR/classes
+SOURCE_DIR="$ROOT_DIR/src"
+MAIN_SOURCE_DIR="$SOURCE_DIR/main/scala"
+TARGET_DIR="$ROOT_DIR/target"
+TARGET_DOCS_DIR="$TARGET_DIR/docs"
+CLASSES_DIR="$TARGET_DIR/classes"
 
 CLEAN=false
 COMPILE=false

@@ -2,7 +2,7 @@ name := "HelloWorld"
 
 version := "0.1.0"
 
-scalaVersion := "2.13.12"
+scalaVersion := "2.13.14"
 
 scalacOptions ++= Seq(
   "-encoding",
@@ -14,7 +14,7 @@ useCoursier := false
 
 // Dependencies with "provided" scope are only available during compilation
 // and testing, and are not available at runtime or for packaging
-val sparkVersion = "3.5.0"
+val sparkVersion = "3.5.1"
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-core
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion //% "provided"
