@@ -30,6 +30,7 @@
   - [What’s New in Apache Spark™ 3.1 Release for Structured Streaming](https://www.databricks.com/blog/2021/04/27/whats-new-in-apache-spark-3-1-release-for-structured-streaming.html) by Yuanjian Li and Bo Zhang, April 2021.
   - [Introducing Apache Spark™ 3.1](https://www.databricks.com/blog/2021/03/02/introducing-apache-spark-3-1.html) by Hyukjin Kwon and al., March 2021.
   - [Tuning Java Garbage Collection for Apache Spark Applications](https://www.databricks.com/blog/2015/05/28/tuning-java-garbage-collection-for-spark-applications.html) by Daoyuan Wand and Jie Huang, May 2015.
+- [Rust Macros: Practical Examples and Best Practices](https://earthly.dev/blog/rust-macros/), by Aniket Bhattacharyea, July 2023.
 - [`spark-shell`](http://www.mtitek.com/tutorials/bigdata/spark/spark-shell.php) &ndash; Spark Interactive Shell (Scala).
 - &#128077; [**waiting**for<b>{code}</b> Blog posts](https://www.waitingforcode.com/apache-spark-sql) :
   - [Spark SQL checkpoints](https://www.waitingforcode.com/apache-spark-sql/spark-sql-checkpoints/read), April 2023.
@@ -110,7 +111,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/July 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/August 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

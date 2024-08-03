@@ -79,6 +79,12 @@ call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
+
+@rem use newer PowerShell version if available
+where /q pwsh.exe
+if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
+) else ( set _PWSH_CMD=powershell.exe
+)
 goto :eof
 
 :env_colors
@@ -606,7 +612,7 @@ for %%i in (libwinutils.lib winutils.exe winutils.pdb) do (
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!' 1>&2
         ) else if %_VERBOSE%==1 ( echo Download file "%%i" to directory "%__BIN_DIR%" 1>&2
         )
-        powershell -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!'"
+        call "%_PWSH_CMD%" -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!'"
         if not !ERRORLEVEL!==0 (
             echo %_ERROR_LABEL% Failed to download file "%%i" to directory "%__BIN_DIR%" 1>&2
             set _EXITCODE=1
