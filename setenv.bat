@@ -391,7 +391,7 @@ if defined __MVN_CMD (
     set __PATH=C:\opt
     if exist "!__PATH!\apache-maven\" ( set "_MAVEN_HOME=!__PATH!\apache-maven"
     ) else (
-        for /f "delims=" %%f in ('dir /ad /b "!_PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!_PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\apache-maven-*" 2^>NUL') do set "_MAVEN_HOME=!__PATH!\%%f"
         if not defined _MAVEN_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\apache-maven*" 2^>NUL') do set "_MAVEN_HOME=!__PATH!\%%f"
@@ -536,10 +536,10 @@ if defined __SCALAC_CMD (
     set "_SCALA_HOME=%SCALA_HOME%"
     if %_DEBUG%==1 echo %_DEBUG_LABEL% Using environment variable SCALA_HOME 1>&2
 ) else (
-    set _PATH=C:\opt
+    set __PATH=C:\opt
     if exist "!__PATH!\scala\" ( set "_SCALA_HOME=!__PATH!\scala"
     ) else (
-        for /f "delims=" %%f in ('dir /ad /b "!_PATH!\scala-2*" 2^>NUL') do set "_SCALA_HOME=!_PATH!\%%f"
+        for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala-2*" 2^>NUL') do set "_SCALA_HOME=!__PATH!\%%f"
         if not defined _SCALA_HOME (
             set "__PATH=%ProgramFiles%"
             for /f "delims=" %%f in ('dir /ad /b "!__PATH!\scala-2*" 2^>NUL') do set "_SCALA_HOME=!__PATH!\%%f"
@@ -701,10 +701,10 @@ set "_VSCODE_PATH=;%_VSCODE_HOME%"
 goto :eof
 
 :clean
-for %%f in ("%~dp0") do set __ROOT_DIR=%%~sf
+for /f "delims=" %%f in ("%~dp0") do set "__ROOT_DIR=%%~sf"
 for /f "delims=" %%i in ('dir /ad /b "%__ROOT_DIR%\" 2^>NUL') do (
     for /f "delims=" %%j in ('dir /ad /b "%%i\target\scala-*" 2^>NUL') do (
-        if %_DEBUG%==1 echo %_DEBUG_LABEL% rmdir /s /q %__ROOT_DIR%%%i\target\%%j\classes 1^>NUL 2^>^&1 1>&2
+        if %_DEBUG%==1 echo %_DEBUG_LABEL% rmdir /s /q "%__ROOT_DIR%%%i\target\%%j\classes" 1^>NUL 2^>^&1 1>&2
         rmdir /s /q "%__ROOT_DIR%%%i\target\%%j\classes" 1>NUL 2>&1
     )
 )

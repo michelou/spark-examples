@@ -17,10 +17,10 @@ Spark installation requires two steps on Microsoft Windows :
 > **:mag_right:** [Spark][apache_spark] and [Hadoop][apache_hadoop] are two separate Apache projects : Spark uses Hadoop’s client libraries for [HDFS] and [YARN].<br/>
 > We give below the actual dependencies between [Spark][apache_spark] and [Hadoop][apache_hadoop] <sup id="anchor_03">[3](#footnote_03)</sup> (as of October 2023): 
 >
->   |        |   |    |    |    |    |    |    |
->   |:-------|:--|:---|:---|:---|:---|:---|:---|
->   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) | [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | [3.3.6](https://hadoop.apache.org/release/3.3.6.html) |
->   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.2](https://spark.apache.org/releases/spark-release-3-4-2.html)<br/>[3.5.0](https://spark.apache.org/releases/spark-release-3-5-0.html)<br/>[3.5.1](https://spark.apache.org/releases/spark-release-3-5-1.html) |  -  | -  |
+>   |        |   |    |    |    |    |    |    |    |
+>   |:-------|:--|:---|:---|:---|:---|:---|:---|:---|
+>   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) | [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | [3.3.6](https://hadoop.apache.org/release/3.3.6.html) | [3.4.0](https://hadoop.apache.org/release/3.4.0.html) |
+>   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.2](https://spark.apache.org/releases/spark-release-3-4-2.html)<br/>[3.5.0](https://spark.apache.org/releases/spark-release-3-5-0.html)<br/>[3.5.1](https://spark.apache.org/releases/spark-release-3-5-1.html) |  -  | -  | - |
 
 ## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
 
@@ -30,7 +30,7 @@ Spark installation requires two steps on Microsoft Windows :
 <dl><dd>
 <pre style="font-size:80%;">
 <b>&gt; echo %JAVA_HOME%</b>
-C:\opt\jdk-temurin-11.0.23_9
+C:\opt\jdk-temurin-11.0.24_8
 &nbsp;
 <b>&gt; %SPARK_HOME%\bin\<a href="https://sparkbyexamples.com/spark/spark-shell-usage-with-examples/">spark-shell</a></b>
 Setting default log level to "WARN".
@@ -42,7 +42,7 @@ Welcome to
    /___/ .__/\_,_/_/ /_/\_\   version 3.5.1
       /_/
 
-Using Scala version 2.13.8 (OpenJDK 64-Bit Server VM, Java 11.0.23)
+Using Scala version 2.13.8 (OpenJDK 64-Bit Server VM, Java 11.0.24)
 [...]
 Spark context available as 'sc' (master = local[*], app id = local-1683397418428).
 Spark session available as 'spark'.

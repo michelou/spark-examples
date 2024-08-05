@@ -34,7 +34,7 @@ Optionally one may also install the following software:
 - [Gradle 8.9][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes], [*Java 17 API*][oracle_openjdk17_api])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*Java 21 API*][oracle_openjdk21_api])
-- [Visual Studio Code 1.91][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.92][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
@@ -61,7 +61,8 @@ C:\opt\VSCode\                             <i>(352 MB)</i>
 
 ## <span id="structure">Directory structure</span> [**&#x25B4;**](#top)
 
-This project is organized as follows:
+This project has the following directory structure :
+
 <pre style="font-size:80%;">
 bin\
 docs\
@@ -144,7 +145,7 @@ In our case we downloaded the following installation files (<a href="#proj_deps"
 <a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.5.1-bin-hadoop3.tgz</a>                        <i>(285 MB)</i>
 <a href="https://spark.apache.org/downloads.html">spark-3.5.1-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.91.1.zip</a>                        <i>(131 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.92.0.zip</a>                        <i>(131 MB)</i>
 </pre>
 </dd></dl>
 
