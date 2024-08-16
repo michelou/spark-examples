@@ -199,7 +199,8 @@ for /f "tokens=1,2,*" %%f in ('subst') do (
     set "__SUBST_DRIVE=%%f"
     set "__SUBST_DRIVE=!__SUBST_DRIVE:~0,2!"
     set "__SUBST_PATH=%%h"
-    if "!__SUBST_DRIVE!"=="!__GIVEN_PATH:~0,2!" (
+    @rem Windows local file systems are not case sensitive (by default)
+    if /i "!__SUBST_DRIVE!"=="!__GIVEN_PATH:~0,2!" (
         set _DRIVE_NAME=!__SUBST_DRIVE:~0,2!
         if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
         ) else if %_VERBOSE%==1 ( echo Select drive !_DRIVE_NAME! for which a substitution already exists 1>&2
@@ -605,7 +606,7 @@ if defined _HADOOP_HOME ( set "__BIN_DIR=%_HADOOP_HOME%\bin"
     goto :eof
 )
 set __BIN_URL=https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.5/bin
-for %%i in (libwinutils.lib winutils.exe winutils.pdb) do (
+for %%i in (hadoop.dll hadoop.lib hadoop.pdb libwinutils.lib winutils.exe winutils.pdb) do (
     set "__OUTFILE=%__BIN_DIR%\%%i"
     if not exist "!__OUTFILE!" (
         set "__URL=%__BIN_URL%\%%i"

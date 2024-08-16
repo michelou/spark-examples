@@ -14,7 +14,7 @@ useCoursier := false
 
 // Dependencies with "provided" scope are only available during compilation
 // and testing, and are not available at runtime or for packaging
-val sparkVersion = "3.5.1"
+val sparkVersion = "3.5.2"
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-core
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion //% "provided"

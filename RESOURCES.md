@@ -52,7 +52,9 @@
   - [Making histograms with Apache Spark and other SQL engines][blog_canali_2022] by Luca Canali, May 2022.
   - [Apache Spark 3.0 Memory Monitoring Improvements][blog_canali_2020] by Luca Canali, August 2020.
   - [SparkMeasure, a tool for performance troubleshooting of Apache Spark workloads][blog_canali_2018] by Luca Canali, August 2018.
-- [Apache Spark Blog](https://blogs.perficient.com/tag/apache-spark/) by [Perficient](https://www.perficient.com/)
+- [Apache Spark Blog](https://www.perficient.com/search#q=apache%20spark/) by [Perficient](https://www.perficient.com/)
+  - [Spark DataFrame: Writing into Files](https://blogs.perficient.com/2024/03/06/spark-dataframe-writing-into-files/) by G.R. Baskaran, March 2024.
+  - [Spark: Parser Modes](https://blogs.perficient.com/2024/01/31/spark-parser-modes/) by G.R. Baskaran, January 2024.
   - [It’s good that Spark Security is turned off by default](https://blogs.perficient.com/2022/01/11/its-good-that-spark-security-is-turned-off-by-default/) by David Callaghan, January 2022.
   - [Take advantage of windows in your Spark data science pipeline](https://blogs.perficient.com/2020/05/26/take-advantage-of-windows-in-your-spark-data-science-pipeline/) by David Callaghan, May 2020.
 - [Introduction to Apache Spark's Core API (Part I)](https://dzone.com/articles/introduction-to-core-api-of-apache-spark) by Anil Agrawal, December 2018.

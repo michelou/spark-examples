@@ -50,7 +50,7 @@ endif
 SCALA_BINARY_VERSION = 2.13
 
 ## https://mvnrepository.com/artifact/org.apache.spark/spark-core
-SPARK_VERSION = 3.5.1
+SPARK_VERSION = 3.5.2
 ## https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
 LOG4J_VERSION = 2.23.1
 ## https://mvnrepository.com/artifact/org.typelevel/frameless-core
