@@ -53,7 +53,7 @@ goto end
 @rem                    _JAR_CMD, _JAVA_HOME, _SCALA_HOME
 :env
 set _BASENAME=%~n0
-for %%f in ("%~dp0..") do set "_ROOT_DIR=%%~dpf"
+for /f "delims=" %%f in ("%~dp0..") do set "_ROOT_DIR=%%~dpf"
 
 call :env_colors
 set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
@@ -158,7 +158,7 @@ if "%__ARG:~0,1%"=="-" (
     ) else if "%__ARG%"=="-maven" ( set _MAVEN=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
-        echo %_ERROR_LABEL% Unknown option %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown option "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -166,7 +166,7 @@ if "%__ARG:~0,1%"=="-" (
     if not defined _CLASS_NAME ( set _CLASS_NAME=%__ARG%
     ) else if not defined _METH_NAME ( set _METH_NAME=%__ARG%
     ) else (
-        echo %_ERROR_LABEL% Unknown subcommand %__ARG% 1>&2
+        echo %_ERROR_LABEL% Unknown subcommand "%__ARG%" 1>&2
         set _EXITCODE=1
         goto args_done
     )
@@ -200,11 +200,11 @@ echo Usage: %__BEG_O%%_BASENAME% { ^<option^> } ^<class_name^> [ ^<meth_name^> ]
 echo.
 echo   %__BEG_P%Options:%__END%
 echo     %__BEG_O%-artifact%__END%        include %__BEG_O%~\.ivy2%__END% and %__BEG_O%~\.m2%__END% directories
-echo     %__BEG_O%-debug%__END%           show commands executed by this script
-echo     %__BEG_O%-help%__END%            display this help message
+echo     %__BEG_O%-debug%__END%           print commands executed by this script
+echo     %__BEG_O%-help%__END%            print this help message
 echo     %__BEG_O%-ivy%__END%             include %__BEG_O%~\.ivy%__END% directory
 echo     %__BEG_O%-maven%__END%           include %__BEG_O%~\.m2%__END% directory
-echo     %__BEG_O%-verbose%__END%         display download progress
+echo     %__BEG_O%-verbose%__END%         print download progress
 echo.
 echo   %__BEG_P%Arguments:%__END%
 echo     %__BEG_O%^<class_name^>%__END%     class name
@@ -226,7 +226,7 @@ for /f %%i in ('dir %__DIR_OPTS% "%__LIB_DIR%\*.jar" 2^>NUL') do (
     )
     for %%f in (!__JAR_FILE!) do set _JAR_FILENAME=%%~nxf
     if %_DEBUG%==1 ( echo %_DEBUG_LABEL% %_JAR_CMD% -tvf "!__JAR_FILE!" ^| findstr ".*%_CLASS_NAME%.*\.class$" 1>&2
-    ) else if %_VERBOSE%==1 ( echo Search for class name %_CLASS_NAME% in archive !__JAR_FILE! 1>&2
+    ) else if %_VERBOSE%==1 ( echo Search for class name %_CLASS_NAME% in archive "!__JAR_FILE!" 1>&2
     )
     for /f "delims=" %%f in ('call "%_PWSH_CMD%" -c "%_JAR_CMD% -tvf "!__JAR_FILE!" | Where {$_.endsWith('class') -And $_.split('/.')[-2].contains('%_CLASS_NAME%')}"') do (
         for %%x in (%%f) do set __LAST=%%x
