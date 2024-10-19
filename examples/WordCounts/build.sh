@@ -511,12 +511,12 @@ PROJECT_NAME="$(basename $ROOT_DIR)"
 PROJECT_URL="github.com/$USER/spark-examples"
 PROJECT_VERSION="1.0-SNAPSHOT"
 
-APP_NAME="Customers"
+APP_NAME="WordCounts"
 APP_VERSION="0.1.0"
 
 ASSEMBLY_FILE="$TARGET_DIR/$APP_NAME-assembly-$APP_VERSION.jar"
 
-CLASS_NAME="Customers"
+CLASS_NAME="WordCounts"
 
 args "$@"
 [[ $EXITCODE -eq 0 ]] || cleanup 1

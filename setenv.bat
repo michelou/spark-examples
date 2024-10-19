@@ -80,6 +80,8 @@ set _DEBUG_LABEL=%_NORMAL_BG_CYAN%[%_BASENAME%]%_RESET%
 set _ERROR_LABEL=%_STRONG_FG_RED%Error%_RESET%:
 set _WARNING_LABEL=%_STRONG_FG_YELLOW%Warning%_RESET%:
 
+set _UNZIP_CMD=unzip.exe
+
 @rem use newer PowerShell version if available
 where /q pwsh.exe
 if %ERRORLEVEL%==0 ( set _PWSH_CMD=pwsh.exe
@@ -605,20 +607,43 @@ if defined _HADOOP_HOME ( set "__BIN_DIR=%_HADOOP_HOME%\bin"
     set _EXITCODE=1
     goto :eof
 )
-set __BIN_URL=https://github.com/cdarlint/winutils/blob/master/hadoop-3.3.5/bin
-for %%i in (hadoop.dll hadoop.lib hadoop.pdb libwinutils.lib winutils.exe winutils.pdb) do (
-    set "__OUTFILE=%__BIN_DIR%\%%i"
-    if not exist "!__OUTFILE!" (
-        set "__URL=%__BIN_URL%\%%i"
-        if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!' 1>&2
-        ) else if %_VERBOSE%==1 ( echo Download file "%%i" to directory "%__BIN_DIR%" 1>&2
-        )
-        call "%_PWSH_CMD%" -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__URL!' -Outfile '!__OUTFILE!'"
-        if not !ERRORLEVEL!==0 (
-            echo %_ERROR_LABEL% Failed to download file "%%i" to directory "%__BIN_DIR%" 1>&2
-            set _EXITCODE=1
-            goto :eof
-        )
+if not exist "%__BIN_DIR%\winutils.exe" (
+    set __ZIP_URL=https://github.com/cdarlint/winutils/archive/refs/heads/master.zip
+    set "__ZIP_FILE=%TEMP%\winutils-master.zip"
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% Invoke-WebRequest -Uri '!__ZIP_URL!' -Outfile '!__ZIP_FILE!' 1>&2
+    ) else if %_VERBOSE%==1 ( echo Download Zip file to directory "%__BIN_DIR%" 1>&2
+    )
+    call "%_PWSH_CMD%" -c "$progressPreference='silentlyContinue';Invoke-WebRequest -Uri '!__ZIP_URL!' -Outfile '!__ZIP_FILE!'"
+    if not !ERRORLEVEL!==0 (
+        echo %_ERROR_LABEL% Failed to download file "%%i" to directory "%%TEMP%" 1>&2
+        set _EXITCODE=1
+        goto :eof
+    )
+    set __UNZIP_OPTS=-o -q -d "%TEMP%"
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_UNZIP_CMD%" !__UNZIP_OPTS! "!__ZIP_FILE!" 1>&2
+    ) else if %_VERBOSE%==1 ( echo Uncompress Zip file to directory "%%TEMP%%" 1>&2
+    )
+    call "%_UNZIP_CMD%" !__UNZIP_OPTS! "!__ZIP_FILE!"
+    if not !ERRORLEVEL!==0 (
+        echo %_ERROR_LABEL% Failed to uncompress Zip file 1>&2
+        set _EXITCODE=1
+        goto :eof
+    )
+    set __WINUTILS_BIN_DIR=
+    for /f "delims=" %%i in ('dir /ad /s /b "%TEMP%\winutils-master\hadoop-*"') do set "__WINUTILS_BIN_DIR=%%i\bin"
+    if not exist "!__WINUTILS_BIN_DIR!" (
+        echo %_ERROR_LABEL% Temporary directory not found 1>&2
+        set _EXITCODE=1
+        goto :eof
+    )
+    if %_DEBUG%==1 ( echo %_DEBUG_LABEL% xcopy /y "!__WINUTILS_BIN_DIR!\*" "%__BIN_DIR%" 1>&2
+    ) else if %_VERBOSE%==1 ( echo Copy files from "%%TEMP%%\!__WINUTILS_BIN_DIR:%TEMP%=!" to directory "%__BIN_DIR%" 1>&2
+    )
+    xcopy /q /y "!__WINUTILS_BIN_DIR!\*" "%__BIN_DIR%" 1>NUL
+    if not !ERRORLEVEL!==0 (
+        echo %_ERROR_LABEL% Failed to copy files to directory "%__BIN_DIR%" 1>&2
+        set _EXITCODE=1
+        goto :eof
     )
 )
 goto :eof

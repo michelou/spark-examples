@@ -21,7 +21,7 @@
 This project depends on two external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.46][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.47][git_downloads] ([*release notes*][git_relnotes])
 - [MSYS2 2024][msys2_downloads] ([*changelog*][msys2_changelog])
 - [sbt 1.10][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
@@ -34,12 +34,12 @@ Optionally one may also install the following software:
 - [Gradle 8.10][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes], [*Java 17 API*][oracle_openjdk17_api])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*Java 21 API*][oracle_openjdk21_api])
-- [Visual Studio Code 1.92][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.94][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*September 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*October 2024*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\                       <i>( 10 MB)</i>
@@ -51,9 +51,9 @@ C:\opt\jdk-temurin-17.0.12_7\              <i>(301 MB)</i>
 C:\opt\jdk-temurin-21.0.4_7\               <i>(326 MB)</i>
 C:\opt\msys64\                             <i>(2.8 GB)</i>
 C:\opt\sbt\                                <i>(135 MB)</i>
-C:\opt\scala-2.13.14\                      <i>( 24 MB)</i>
-C:\opt\spark-3.5.2-bin-hadoop3\            <i>(423 MB)</i>
-C:\opt\spark-3.5.2-bin-hadoop3-scala2.13\  <i>(432 MB)</i>
+C:\opt\scala-2.13.15\                      <i>( 24 MB)</i>
+C:\opt\spark-3.5.3-bin-hadoop3\            <i>(423 MB)</i>
+C:\opt\spark-3.5.3-bin-hadoop3-scala2.13\  <i>(432 MB)</i>
 C:\opt\VSCode\                             <i>(352 MB)</i>
 </pre>
 
@@ -103,9 +103,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.24, sbt 1.10.1, scalac 2.13.14, spark-shell 3.5.2,
-   gradle 8.10, mvn 3.9.9, make 4.4.1,
-   git 2.46.0, diff 3.10, bash 5.2.26(1)
+   java 11.0.24, sbt 1.10.2, scalac 2.13.15, spark-shell 3.5.3,
+   gradle 8.10.2, mvn 3.9.9, make 4.4.1,
+   git 2.47.0, diff 3.10, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt sh</b>
 C:\opt\apache-maven\bin\mvn
@@ -130,22 +130,36 @@ Spark 3.2.0 and newer add support for Scala 2.13 (see <a href="https://issues.ap
 
 <dl><dd>
 In our case we downloaded the following installation files (<a href="#proj_deps">see section 1</a>):
-</dd>
-<dd>
 <pre style="font-size:80%;">
 <a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.10-bin.zip</a>                                <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-8.10.2-bin.zip</a>                              <i>(118 MB)</i>
 <a href="http://repo.msys2.org/distrib/x86_64/">msys2-x86_64-20240727.exe</a>                          <i>( 86 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.24_7.zip</a>   <i>(194 MB)</i>
 <a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.12_7.zip</a>   <i>(191 MB)</i>
 <a href="https://adoptium.net/fr/temurin/releases/?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.4_7.zip</a>    <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.46.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
-<a href="https://github.com/sbt/sbt/releases">sbt-1.10.1.zip</a>                                     <i>( 17 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.14.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.5.2-bin-hadoop3.tgz</a>                        <i>(285 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.5.2-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.92.1.zip</a>                        <i>(131 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.47.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://github.com/sbt/sbt/releases">sbt-1.10.2.zip</a>                                     <i>( 17 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.15.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.5.3-bin-hadoop3.tgz</a>                        <i>(285 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.5.3-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.94.2.zip</a>                        <i>(131 MB)</i>
+<a href="https://github.com/cdarlint/winutils/tree/master">winutils-master.zip</a>                                <i>( 24 MB</i>)
+</pre>
+<b>Note:</b> If not yet done our batch file <a href="./setenv.bat"><code>setenv.bat</code></a> also install the <a href="https://github.com/cdarlint/winutils#winutils" rel="external">winutils tools</a> for Windows to avoid the "<code>no native library</code>" and "<code>access0</code>" error.
+
+<pre style="font-size:80%;">
+<b>&gt; <a href="./setenv.bat">setenv</a> -verbose</b>
+Assign drive J: to path "%USERPROFILE%\workspace-perso\spark-examples"
+Download Zip file to directory "%TEMP%"
+Uncompress Zip file to directory "%TEMP%"
+Copy files from "%TEMP%\winutils-master\hadoop-3.3.6\bin" to directory "C:\opt\spark-3.5.3-bin-hadoop3-scala2.13\bin"
+Tool versions:
+   java 11.0.24, sbt 1.10.2, scalac 2.13.8, spark-shell 3.5.3,
+   gradle 8.10.2, mvn 3.9.9, make 4.4.1,
+   git 2.47.0, diff 3.10, sh 5.2.37(1)
+Tool paths:
+   [...]
 </pre>
 </dd></dl>
 
@@ -172,7 +186,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/September 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/October 2024* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -204,7 +218,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.10/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/8.10.2/release-notes.html
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
 [kafka_examples]: https://github.com/michelou/kafka-examples#top
@@ -234,7 +248,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [sbt_downloads]: https://github.com/sbt/sbt/releases
 [sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.1
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.14
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.15
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [spring_examples]: https://github.com/michelou/spring-examples#top
@@ -247,6 +261,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 3.5.0 -> https://spark.apache.org/releases/spark-release-3-5-0.html
 3.5.1 -> https://spark.apache.org/releases/spark-release-3-5-1.html
 3.5.2 -> https://spark.apache.org/releases/spark-release-3-5-2.html
+3.5.3 -> https://spark.apache.org/releases/spark-release-3-5-3.html
 -->
 [spark_relnotes]: https://spark.apache.org/releases/spark-release-3-5-1.html
 [temurin_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot

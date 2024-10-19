@@ -49,10 +49,12 @@ endif
 
 SCALA_BINARY_VERSION = 2.13
 
+## https://mvnrepository.com/artifact/org.scala-lang/scala-library
+SCALA_VERSION = 2.13.15
 ## https://mvnrepository.com/artifact/org.apache.spark/spark-core
-SPARK_VERSION = 3.5.2
+SPARK_VERSION = 3.5.3
 ## https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
-LOG4J_VERSION = 2.23.1
+LOG4J_VERSION = 2.24.1
 ## https://mvnrepository.com/artifact/org.typelevel/frameless-core
 FRAMELESS_VERSION = 0.16.0
 
@@ -76,7 +78,7 @@ deps:
 ifeq (,$(wildcard $(SCALA_LIB_JAR)))
 	$(eval GROUP_ID := org.scala-lang)
 	$(eval ARTIFACT_ID := scala-library)
-	$(eval VERSION := 2.13.14)
+	$(eval VERSION := $(SCALA_VERSION))
 	$(eval JAR_FILE := $(TMP)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(eval URL := $(REMOTE_REPO)/$(subst .,/,$(GROUP_ID))/$(ARTIFACT_ID)/$(VERSION)/$(ARTIFACT_ID)-$(VERSION).jar)
 	$(WGET) $(WGET_OPTS) $(URL) || $(error Failed to download $(ARTIFACT_ID)-$(VERSION).jar)
