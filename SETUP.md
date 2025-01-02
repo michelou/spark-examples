@@ -30,7 +30,7 @@ Spark installation requires two steps on Microsoft Windows :
 <dl><dd>
 <pre style="font-size:80%;">
 <b>&gt; echo %JAVA_HOME%</b>
-C:\opt\jdk-temurin-11.0.24_8
+C:\opt\jdk-temurin-11.0.25_9
 &nbsp;
 <b>&gt; %SPARK_HOME%\bin\<a href="https://sparkbyexamples.com/spark/spark-shell-usage-with-examples/">spark-shell</a></b>
 Setting default log level to "WARN".
@@ -39,16 +39,16 @@ Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /___/ .__/\_,_/_/ /_/\_\   version 3.5.1
+   /___/ .__/\_,_/_/ /_/\_\   version 3.5.4
       /_/
-
-Using Scala version 2.13.8 (OpenJDK 64-Bit Server VM, Java 11.0.24)
+&nbsp;
+Using Scala version 2.13.8 (OpenJDK 64-Bit Server VM, Java 11.0.25)
 [...]
 Spark context available as 'sc' (master = local[*], app id = local-1683397418428).
 Spark session available as 'spark'.
-
+&nbsp;
 scala> print(spark.version)
-3.5.1
+3.5.4
 scala> print(<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/util/VersionInfo.html">org.apache.hadoop.util.VersionInfo</a>.getVersion())
 3.3.4
 scala> :quit
@@ -129,7 +129,7 @@ Pi is roughly 3.1410957054785276
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/December 2024* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
