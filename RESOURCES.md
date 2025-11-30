@@ -33,6 +33,7 @@
 - [Rust Macros: Practical Examples and Best Practices](https://earthly.dev/blog/rust-macros/), by Aniket Bhattacharyea, July 2023.
 - [`spark-shell`](http://www.mtitek.com/tutorials/bigdata/spark/spark-shell.php) &ndash; Spark Interactive Shell (Scala).
 - &#128077; [**waiting**for<b>{code}</b> Blog posts](https://www.waitingforcode.com/apache-spark-sql) :
+  - [Outer operations in Apache Spark](https://www.waitingforcode.com/apache-spark-sql/outer-operations-apache-spark-why-consider-nulls-nullpointerexception/read) by Bartosz Konieczny, November 2025.
   - [Spark SQL checkpoints](https://www.waitingforcode.com/apache-spark-sql/spark-sql-checkpoints/read), April 2023.
   - [Generated method too long to be JIT compiled](https://www.waitingforcode.com/apache-spark-sql/generated-method-too-long-be-jit-compiled/read) by Bartosz Konieczny, November 2022.
   - [Wildcard path and partitions](https://www.waitingforcode.com/apache-spark-sql/wildcard-path-partitions/read) by Bartosz Konieczny, November 2022.
@@ -40,7 +41,7 @@
   - [What's new in Apache Spark 3.3 - new functions](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-new-functions/read) by Bartosz Konieczny, June 2022.
   - [What's new in Apache Spark 3.3 - joins](https://www.waitingforcode.com/apache-spark-sql/what-new-apache-spark-3.3-joins/read) by Bartosz Konieczny, June 2022.
 - [Reconciling Spark APIs for Scala](https://www.virtuslab.com/blog/reconciling-spark-apis-for-scala/) by Michal Palka, September 2022.
-- [MungingData Blog posts](https://mungingdata.com/category/apache-spark/) :
+- [MungingData Blog posts](https://www.mungingdata.com/apache-spark/sparksession/) :
   - [Convert streaming CSV data to Delta Lake with different latency requirements](https://mungingdata.com/apache-spark/convert-csv-to-delta-lake-latency-trigger/), June 2022.
   - [Registering Native Spark Functions](https://mungingdata.com/apache-spark/registerfunction-injectfunction/), May 2021.
   - [Exploring DataFrames with summary and describe](https://mungingdata.com/apache-spark/dataframe-summary-describe/), April 2021.
@@ -83,6 +84,7 @@
 
 - [Spark Job Server][project_spark_jobserver].
 - [Spark-Scala3](https://github.com/vincenzobaz/spark-scala3) &ndash; Compile time encoder derivation for Scala 3.
+- [sparkMeasure](https://github.com/LucaCanali/sparkMeasure) &ndash; A tool designed for efficient analysis and troubleshooting of Apache Spark jobs.
 - [Sparkplug](https://github.com/springnz/sparkplug) &ndash; A framework for creating composable and pluggable data processing pipelines.
 
 ## <span id="tools">Tools</span>
@@ -113,7 +115,7 @@
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

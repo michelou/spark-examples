@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018-2024 Stéphane Micheloud
+# Copyright (c) 2018-2025 Stéphane Micheloud
 #
 # Licensed under the MIT License.
 #
@@ -446,7 +446,7 @@ DECOMPILE=0
 DOC=0
 HELP=0
 LINT=0
-MAIN_CLASS=Customers
+MAIN_CLASS=WordCounts
 MAIN_ARGS=1
 RUN=0
 SCALA_VERSION=3

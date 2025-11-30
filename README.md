@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
+[Ada][ada_examples], [Akka][akka_examples], [C++][cpp_examples], [COBOL][cobol_examples], [Dafny][dafny_examples], [Dart][dart_examples], [Deno][deno_examples], [Docker][docker_examples], [Erlang][erlang_examples], [Flix][flix_examples], [Go][golang_examples], [GraalVM][graalvm_examples], [Haskell][haskell_examples], [Kafka][kafka_examples], [Kotlin][kotlin_examples], [LLVM][llvm_examples], [Modula-2][m2_examples], [MySQL][mysql_examples], [Node.js][nodejs_examples], [Rust][rust_examples], [Scala 3][scala3_examples], [Spring][spring_examples], [Standard ML][sml_examples], [TruffleSqueak][trufflesqueak_examples], [WiX Toolset][wix_examples] and [Zig][zig_examples] are other topics we are continuously monitoring.
 
 > **&#9755;** Read the document <a href="https://spark.apache.org">"What is Apache Spark™?"</a> from the <a href="https://spark.apache.org" rel="external">Spark</a> documentation to know more about the <a href="https://spark.apache.org" rel="external">Spark</a> ecosystem.
 
@@ -21,39 +21,39 @@
 This project depends on two external software for the **Microsoft Windows** platform:
 
 - [Apache Maven 3.9][apache_maven] ([requires Java 8+][apache_maven_history])  ([*release notes*][apache_maven_relnotes])
-- [Git 2.47][git_downloads] ([*release notes*][git_relnotes])
+- [Git 2.52][git_downloads] ([*release notes*][git_relnotes])
 - [MSYS2 2024][msys2_downloads] ([*changelog*][msys2_changelog])
 - [sbt 1.10][sbt_downloads] (requires Java 8) ([*release notes*][sbt_relnotes])
 - [Scala 2.13][scala_releases] (requires Java 8) ([*release notes*][scala_relnotes])
 - [Spark 3.5][spark_downloads] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][spark_relnotes])
-- [Temurin OpenJDK 11 LTS][temurin_openjdk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes])
+- [Temurin OpenJDK 11 LTS][temurin_openjdk11] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk11_relnotes], [*bug fixes*][temurin_openjdk11_bugfixes], [*Java 11 API*][oracle_openjdk11_api])
 
 Optionally one may also install the following software:
 
 - [ConEmu 2023][conemu_downloads] ([*release notes*][conemu_relnotes])
-- [Gradle 8.12][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
+- [Gradle 9.2][gradle_install] <sup id="anchor_01">[1](#footnote_01)</sup> ([requires Java 8+][gradle_compatibility]) ([*release notes*][gradle_relnotes])
 - [Temurin OpenJDK 17 LTS][temurin_openjdk17] <sup id="anchor_01">[1](#footnote_01)</sup> ([*release notes*][temurin_openjdk17_relnotes], [*bug fixes*][temurin_openjdk17_bugfixes], [*Java 17 API*][oracle_openjdk17_api])
 - [Temurin OpenJDK 21 LTS][temurin_openjdk21] ([*release notes*][temurin_openjdk21_relnotes], [*Java 21 API*][oracle_openjdk21_api])
-- [Visual Studio Code 1.96][vscode_downloads] ([*release notes*][vscode_relnotes])
+- [Visual Studio Code 1.106][vscode_downloads] ([*release notes*][vscode_relnotes])
 
 > **&#9755;** ***Installation policy***<br/>
 > When possible we install software from a [Zip archive][zip_archive] rather than via a Windows installer. In our case we defined **`C:\opt\`** as the installation directory for optional software tools (*similar to* the [**`/opt/`**][linux_opt] directory on Unix).
 
-For instance our development environment looks as follows (*January 2025*) <sup id="anchor_02">[2](#footnote_02)</sup>:
+For instance our development environment looks as follows (*December 2025*) <sup id="anchor_02">[2](#footnote_02)</sup>:
 
 <pre style="font-size:80%;">
 C:\opt\apache-maven\                       <i>( 10 MB)</i>
 C:\opt\ConEmu\                             <i>( 26 MB)</i>
 C:\opt\Git\                                <i>(391 MB)</i>
 C:\opt\gradle\                             <i>(140 MB)</i>
-C:\opt\jdk-temurin-11.0.25_9\              <i>(306 MB)</i>
-C:\opt\jdk-temurin-17.0.13_11\             <i>(304 MB)</i>
-C:\opt\jdk-temurin-21.0.5_11\              <i>(329 MB)</i>
+C:\opt\jdk-temurin-11.0.29_7\              <i>(306 MB)</i>
+C:\opt\jdk-temurin-17.0.17_10\             <i>(304 MB)</i>
+C:\opt\jdk-temurin-21.0.9_10\              <i>(329 MB)</i>
 C:\opt\msys64\                             <i>(2.8 GB)</i>
 C:\opt\sbt\                                <i>(135 MB)</i>
-C:\opt\scala-2.13.15\                      <i>( 24 MB)</i>
-C:\opt\spark-3.5.4-bin-hadoop3\            <i>(423 MB)</i>
-C:\opt\spark-3.5.4-bin-hadoop3-scala2.13\  <i>(432 MB)</i>
+C:\opt\scala-2.13.18\                      <i>( 24 MB)</i>
+C:\opt\spark-3.5.7-bin-hadoop3\            <i>(423 MB)</i>
+C:\opt\spark-3.5.7-bin-hadoop3-scala2.13\  <i>(432 MB)</i>
 C:\opt\VSCode\                             <i>(381 MB)</i>
 </pre>
 
@@ -103,9 +103,9 @@ We execute command [**`setenv.bat`**](setenv.bat) once to setup our development 
 <pre style="font-size:80%;">
 <b>&gt; <a href="setenv.bat">setenv</a></b>
 Tool versions:
-   java 11.0.25, sbt 1.10.7, scalac 2.13.15, spark-shell 3.5.4,
-   gradle 8.12, mvn 3.9.9, make 4.4.1,
-   git 2.47.1, diff 3.10, bash 5.2.37(1)
+   java 11.0.26, sbt 1.10.7, scalac 2.13.18, spark-shell 3.5.7,
+   gradle 9.2.1, mvn 3.9.11, make 4.4.1,
+   git 2.52.0, diff 3.12, bash 5.2.37(1)
 
 <b>&gt; <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/where_1" rel="external">where</a> mvn sbt sh</b>
 C:\opt\apache-maven\bin\mvn
@@ -131,19 +131,19 @@ Spark 3.2.0 and newer add support for Scala 2.13 (see <a href="https://issues.ap
 <dl><dd>
 In our case we downloaded the following installation files (<a href="#proj_deps">see section 1</a>):
 <pre style="font-size:80%;">
-<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.9-bin.zip</a>                         <i>( 10 MB)</i>
+<a href="https://maven.apache.org/download.cgi">apache-maven-3.9.11-bin.zip</a>                        <i>( 10 MB)</i>
 <a href="https://github.com/Maximus5/ConEmu/releases/tag/v23.07.24" rel="external">ConEmuPack.230724.7z</a>                               <i>(  5 MB)</i>
-<a href="https://gradle.org/install/">gradle-8.12-bin.zip</a>                                <i>(118 MB)</i>
+<a href="https://gradle.org/install/">gradle-9.2.1-bin.zip</a>                               <i>(118 MB)</i>
 <a href="http://repo.msys2.org/distrib/x86_64/">msys2-x86_64-20240727.exe</a>                          <i>( 86 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk11">OpenJDK11U-jdk_x64_windows_hotspot_11.0.25_9.zip</a>   <i>(194 MB)</i>
-<a href="https://adoptium.net/?variant=openjdk17">OpenJDK17U-jdk_x64_windows_hotspot_17.0.13_11.zip</a>  <i>(191 MB)</i>
-<a href="https://adoptium.net/fr/temurin/releases/?variant=openjdk21&jvmVariant=hotspot">OpenJDK21U-jdk_x64_windows_hotspot_21.0.5_11.zip</a>   <i>(191 MB)</i>
-<a href="https://git-scm.com/download/win">PortableGit-2.47.1-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
+<a href="https://adoptium.net/fr/temurin/releases?version=11&os=windows&arch=x64">OpenJDK11U-jdk_x64_windows_hotspot_11.0.29_7.zip</a>   <i>(194 MB)</i>
+<a href="https://adoptium.net/fr/temurin/releases?version=17&os=windows&arch=x64">OpenJDK17U-jdk_x64_windows_hotspot_17.0.17_10.zip</a>  <i>(191 MB)</i>
+<a href="https://adoptium.net/fr/temurin/releases?version=21&os=windows&arch=x64">OpenJDK21U-jdk_x64_windows_hotspot_21.0.9_10.zip</a>   <i>(191 MB)</i>
+<a href="https://git-scm.com/download/win">PortableGit-2.52.0-64-bit.7z.exe</a>                   <i>( 41 MB)</i>
 <a href="https://github.com/sbt/sbt/releases">sbt-1.10.7.zip</a>                                     <i>( 17 MB)</i>
-<a href="https://www.scala-lang.org/files/archive/">scala-2.13.15.zip</a>                                  <i>( 21 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.5.4-bin-hadoop3.tgz</a>                        <i>(285 MB)</i>
-<a href="https://spark.apache.org/downloads.html">spark-3.5.4-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
-<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.96.2.zip</a>                        <i>(131 MB)</i>
+<a href="https://www.scala-lang.org/files/archive/">scala-2.13.18.zip</a>                                  <i>( 21 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.5.7-bin-hadoop3.tgz</a>                        <i>(285 MB)</i>
+<a href="https://spark.apache.org/downloads.html">spark-3.5.7-bin-hadoop3-scala2.13.tgz</a>              <i>(292 MB)</i>
+<a href="https://code.visualstudio.com/Download#" rel="external">VSCode-win32-x64-1.106.3.zip</a>                       <i>(131 MB)</i>
 <a href="https://github.com/cdarlint/winutils/tree/master">winutils-master.zip</a>                                <i>( 24 MB</i>)
 </pre>
 <b>Note:</b> If not yet done our batch file <a href="./setenv.bat"><code>setenv.bat</code></a> also install the <a href="https://github.com/cdarlint/winutils#winutils" rel="external">winutils tools</a> for Windows to avoid the "<code>no native library</code>" and "<code>access0</code>" error.
@@ -155,9 +155,9 @@ Download Zip file to directory "%TEMP%"
 Uncompress Zip file to directory "%TEMP%"
 Copy files from "%TEMP%\winutils-master\hadoop-3.3.6\bin" to directory "C:\opt\spark-3.5.4-bin-hadoop3-scala2.13\bin"
 Tool versions:
-   java 11.0.25, sbt 1.10.7, scalac 2.13.8, spark-shell 3.5.4,
-   gradle 8.12, mvn 3.9.9, make 4.4.1,
-   git 2.47.1, diff 3.10, sh 5.2.37(1)
+   java 11.0.26, sbt 1.10.7, scalac 2.13.18, spark-shell 3.5.4,
+   gradle 8.12.1, mvn 3.9.9, make 4.4.1,
+   git 2.52.0, diff 3.12, sh 5.2.37(1)
 Tool paths:
    [...]
 </pre>
@@ -186,7 +186,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
@@ -196,7 +196,7 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [apache_maven]: https://maven.apache.org/download.cgi
 [apache_maven_cli]: https://maven.apache.org/ref/current/maven-embedder/cli.html
 [apache_maven_history]: https://maven.apache.org/docs/history.html
-[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.9/release-notes.html
+[apache_maven_relnotes]: https://maven.apache.org/docs/3.9.11/release-notes.html
 [apache_spark]: https://spark.apache.org
 [apache_spark_sql]: https://spark.apache.org/docs/latest/sql-programming-guide.html
 [cobol_examples]: https://github.com/michelou/cobol-examples
@@ -213,13 +213,13 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [git_docs]: https://git-scm.com/docs/git
 [git_downloads]: https://git-scm.com/download/win
 [github_markdown]: https://github.github.com/gfm/
-[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.45.2.txt
+[git_relnotes]: https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.52.0.adoc
 [golang_examples]: https://github.com/michelou/golang-examples#top
 [graalvm_examples]: https://github.com/michelou/graalvm-examples#top
 [gradle_cli]: https://docs.gradle.org/current/userguide/command_line_interface.html
 [gradle_compatibility]: https://docs.gradle.org/current/release-notes.html#upgrade-instructions
 [gradle_install]: https://gradle.org/install/
-[gradle_relnotes]: https://docs.gradle.org/8.12/release-notes.html
+[gradle_relnotes]: https://docs.gradle.org/9.2.1/release-notes.html
 [hadoop_downloads]: https://hadoop.apache.org/releases.html
 [haskell_examples]: https://github.com/michelou/haskell-examples#top
 [kafka_examples]: https://github.com/michelou/kafka-examples#top
@@ -238,7 +238,9 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [man1_wc]: https://www.linux.org/docs/man1/wc.html
 [msys2_changelog]: https://github.com/msys2/setup-msys2/blob/main/CHANGELOG.md
 [msys2_downloads]: http://repo.msys2.org/distrib/x86_64/
+[mysql_examples]: https://github.com/michelou/mysql-examples#top
 [nodejs_examples]: https://github.com/michelou/nodejs-examples#top
+[oracle_openjdk11_api]: https://docs.oracle.com/en/java/javase/11/docs/api/
 [oracle_openjdk17_api]: https://docs.oracle.com/en/java/javase/17/docs/api/
 [oracle_openjdk21]: https://jdk.java.net/21/
 [oracle_openjdk21_api]: https://docs.oracle.com/en/java/javase/21/docs/api/
@@ -247,9 +249,9 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 [rust_examples]: https://github.com/michelou/rust-examples#top
 [sbt_cli]: https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html
 [sbt_downloads]: https://github.com/sbt/sbt/releases
-[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.1
+[sbt_relnotes]: https://github.com/sbt/sbt/releases/tag/v1.10.7
 [scala_releases]: https://www.scala-lang.org/files/archive/
-[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.15
+[scala_relnotes]: https://github.com/scala/scala/releases/tag/v2.13.18
 [scala3_examples]: https://github.com/michelou/dotty-examples#top
 [sh_cli]: https://man7.org/linux/man-pages/man1/sh.1p.html
 [sml_examples]: https://github.com/michelou/sml-examples#top
@@ -265,8 +267,11 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 3.5.2 -> https://spark.apache.org/releases/spark-release-3-5-2.html
 3.5.3 -> https://spark.apache.org/releases/spark-release-3-5-3.html
 3.5.4 -> https://spark.apache.org/releases/spark-release-3-5-4.html
+3.5.5 -> https://spark.apache.org/releases/spark-release-3-5-5.html
+3.5.6 -> https://spark.apache.org/releases/spark-release-3-5-6.html
+3.5.7 -> https://spark.apache.org/releases/spark-release-3-5-7.html
 -->
-[spark_relnotes]: https://spark.apache.org/releases/spark-release-3-5-3.html
+[spark_relnotes]: https://spark.apache.org/releases/spark-release-3-5-7.html
 [temurin_openjdk8]: https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot
 [temurin_openjdk8_relnotes]: https://mail.openjdk.java.net/pipermail/jdk8u-dev/2022-January/014522.html
 <!--
@@ -282,10 +287,14 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 11.0.23 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032198.html
 11.0.24 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035797.html
 11.0.25 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038512.html
+11.0.26 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040826.html
+11.0.27 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043306.html
+11.0.28 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045612.html
+11.0.29 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049111.html
 -->
 [temurin_openjdk11]: https://adoptium.net/releases.html?variant=openjdk11&jvmVariant=hotspot
 [temurin_openjdk11_bugfixes]: https://www.oracle.com/java/technologies/javase/11-0-23-relnotes.html
-[temurin_openjdk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032198.html
+[temurin_openjdk11_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049111.html
 <!--
 17.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-April/021899.html
 17.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-July/024063.html
@@ -294,10 +303,14 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 17.0.11 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032197.html
 17.0.12 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035798.html
 17.0.13 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038867.html
+17.0.14 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040827.html
+17.0.15 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043307.html
+17.0.16 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045614.html
+17.0.17 -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
 -->
 [temurin_openjdk17]: https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot
-[temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-11-relnotes.html
-[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032197.html
+[temurin_openjdk17_bugfixes]: https://www.oracle.com/java/technologies/javase/17-0-17-relnotes.html
+[temurin_openjdk17_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049112.html
 <!--
 21_35   -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
 21.0.1  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2023-October/026351.html
@@ -305,10 +318,14 @@ Concretely, in our GitHub projects which depend on Visual Studio (e.g. <a href="
 21.0.3  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032196.html
 21.0.4  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-July/035862.html
 21.0.5  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-October/038866.html
+21.0.6  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-January/040828.html
+21.0.7  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-April/043308.html
+21.0.8  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-July/045617.html
+21.0.9  -> https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049113.html
 -->
 [temurin_openjdk21]: https://adoptium.net/releases.html?variant=openjdk21&jvmVariant=hotspot
-[temurin_openjdk21_bugfixes]: https://www.oracle.com/java/technologies/javase/21-0-3-relnotes.html
-[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2024-April/032196.html
+[temurin_openjdk21_bugfixes]: https://www.oracle.com/java/technologies/javase/21-0-9-relnotes.html
+[temurin_openjdk21_relnotes]: https://mail.openjdk.org/pipermail/jdk-updates-dev/2025-October/049113.html
 [trufflesqueak_examples]: https://github.com/michelou/trufflesqueak-examples#top
 [vscode_downloads]: https://code.visualstudio.com/#alt-downloads
 [vscode_relnotes]: https://code.visualstudio.com/updates/

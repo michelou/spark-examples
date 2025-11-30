@@ -193,7 +193,7 @@ set _CLASS_NAME=%_APP_NAME%
 set _SPARK_NAME=Word Counts
 
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _LANG=%_LANG% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _CLEAN=%_CLEAN% _COMPILE=%_COMPILE% _HELP=%_HELP% _RUN=%_RUN% 1>&2
     echo %_DEBUG_LABEL% Variables  : "HADOOP_HOME=%HADOOP_HOME%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "JAVA_HOME=%JAVA_HOME%" 1>&2
@@ -385,7 +385,7 @@ if exist "META-INF\MANIFEST.MF" rmdir /s /q "META-INF"
 popd
 set __JAR_OPTS=uf "%_ASSEMBLY_FILE%" -C "%__ASSEMBLY_DIR%" .
 
-if %_DEBUG%==1 ( echo "%_JAR_CMD%" %__JAR_OPTS%
+if %_DEBUG%==1 ( echo "%_JAR_CMD%" %__JAR_OPTS% 1>&2
 ) else if %_VERBOSE%==1 ( echo Update assembly file "!_ASSEMBLY_FILE:%_ROOT_DIR%=!" 1>&2
 )
 call "%_JAR_CMD%" %__JAR_OPTS%
@@ -398,7 +398,7 @@ goto :eof
 
 :run
 if not exist "%_ASSEMBLY_FILE%" (
-    echo %_ERROR_LABEL% Assembly file not found ^("%_ASSEMBLY_FILE%"^) 1<&2
+    echo %_ERROR_LABEL% Assembly file not found ^("%_ASSEMBLY_FILE%"^) 1>&2
     set _EXITCODE=1
     goto :eof
 )
@@ -484,7 +484,7 @@ if %__DATE1% gtr %__DATE2% ( set _NEWER=1
 )
 goto :eof
 
-@rem input parameter: %1=flag to add Scala 3 libs
+@rem input parameter: %1=flag to add Scala 3 libraries
 @rem output parameter: _LIBS_CPATH
 :libs_cpath
 set __ADD_SCALA3_LIBS=%~1

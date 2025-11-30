@@ -34,13 +34,13 @@ set __SCALA_BINARY_VERSION=2.13
 
 @rem https://mvnrepository.com/artifact/org.scala-lang/scala-library
 @rem Spark 3.5.1 depends on Scala standard library 2.13.8+
-call :add_jar "org.scala-lang" "scala-library" "2.13.15"
+call :add_jar "org.scala-lang" "scala-library" "2.13.18"
 
-set __SPARK_VERSION=3.5.3
+set __SPARK_VERSION=3.5.7
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst
 @rem Note: contains symbol 'type org.apache.spark.sql.Row'
-@rem call :add_jar "org.apache.spark" "spark-catalyst_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+call :add_jar "org.apache.spark" "spark-catalyst_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-common-utils
 call :add_jar "org.apache.spark" "spark-common-utils_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
@@ -53,6 +53,10 @@ call :add_jar "org.apache.spark" "spark-core_%__SCALA_BINARY_VERSION%" "%__SPARK
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-sql
 call :add_jar "org.apache.spark" "spark-sql_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
+
+@rem https://mvnrepository.com/artifact/org.apache.spark/spark-sql-api
+@rem Required to avoid error: Symbol 'type org.apache.spark.sql.Row' is missing from the classpath.
+call :add_jar "org.apache.spark" "spark-sql-api_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
 
 @rem https://mvnrepository.com/artifact/org.apache.spark/spark-streaming
 @rem call :add_jar "org.apache.spark" "spark-streaming_%__SCALA_BINARY_VERSION%" "%__SPARK_VERSION%"
@@ -78,7 +82,7 @@ call :add_jar "org.typelevel" "frameless-dataset_%__SCALA_BINARY_VERSION%" "%__F
 call :add_jar "org.typelevel" "frameless-refined_%__SCALA_BINARY_VERSION%" "%__FRAMELESS_VERSION%"
 
 @rem https://mvnrepository.com/artifact/com.github.pureconfig/pureconfig
-call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.7"
+call :add_jar "com.github.pureconfig" "pureconfig-core_3" "0.17.9"
 
 goto end
 

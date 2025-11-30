@@ -17,13 +17,20 @@ Spark installation requires two steps on Microsoft Windows :
 > **:mag_right:** [Spark][apache_spark] and [Hadoop][apache_hadoop] are two separate Apache projects : Spark uses Hadoop’s client libraries for [HDFS] and [YARN].<br/>
 > We give below the actual dependencies between [Spark][apache_spark] and [Hadoop][apache_hadoop] <sup id="anchor_03">[3](#footnote_03)</sup> (as of October 2023): 
 >
->   |        |   |    |    |    |    |    |    |    |
->   |:-------|:--|:---|:---|:---|:---|:---|:---|:---|
->   | [Hadoop][apache_hadoop] | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) | [3.3.2](https://hadoop.apache.org/release/3.3.2.html) | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) | [3.3.5](https://hadoop.apache.org/release/3.3.5.html) | [3.3.6](https://hadoop.apache.org/release/3.3.6.html) | [3.4.0](https://hadoop.apache.org/release/3.4.0.html) |
->   | [Spark][apache_spark] | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) |  -  | [3.4.2](https://spark.apache.org/releases/spark-release-3-4-2.html)<br/>[3.5.0](https://spark.apache.org/releases/spark-release-3-5-0.html)<br/>[3.5.1](https://spark.apache.org/releases/spark-release-3-5-1.html) |  -  | -  | - |
+> | Spark | Hadoop |
+> |:-----:|:-------|
+> | [3.3.0](https://spark.apache.org/releases/spark-release-3-3-0.html) | [3.3.0](https://hadoop.apache.org/release/3.3.0.html) |
+> | [3.3.1](https://spark.apache.org/releases/spark-release-3-3-1.html) | [3.3.1](https://hadoop.apache.org/release/3.3.1.html) |
+> | [3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) | [3.3.2](https://hadoop.apache.org/release/3.3.3.html)|
+> |  - | [3.3.3](https://hadoop.apache.org/release/3.3.3.html) |
+> | [3.4.2](https://spark.apache.org/releases/spark-release-3-4-2.html)<br/>[3.5.0](https://spark.apache.org/releases/spark-release-3-5-0.html)<br/>[3.5.1](https://spark.apache.org/releases/spark-release-3-5-1.html) | [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |
+> | -  | [3.3.5](https://hadoop.apache.org/release/3.3.5.html) |
+> | -  | [3.3.6](https://hadoop.apache.org/release/3.3.6.html) |
+> | -  | [3.4.0](https://hadoop.apache.org/release/3.4.0.html) |
+> | [3.5.4](https://spark.apache.org/releases/spark-release-3-5-4.html)| [3.3.4](https://hadoop.apache.org/release/3.3.4.html) |
+<!--=========================================================================-->
 
 ## <span id="footnotes">Footnotes</span> [**&#x25B4;**](#top)
-
 
 <span id="footnote_01">[1]</span> **`spark-shell` *session*** [↩](#anchor_01)
 
@@ -65,15 +72,15 @@ Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 3.5.1
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.4
       /_/
-
+&nbsp;
 Using Python version 3.10.10 (tags/v3.10.10:aad5f6a, Feb  7 2023 17:20:36)
 Spark context Web UI available at http://192.168.0.103:4040
 Spark context available as 'sc' (master = local[*], app id = local-1683399374689).
 SparkSession available as 'spark'.
 >>> print(spark.version)
-3.5.1
+3.5.4
 >>> print(sc._jvm.<a href="https://hadoop.apache.org/docs/stable/api/org/apache/hadoop/util/VersionInfo.html">org.apache.hadoop.util.VersionInfo</a>.getVersion())
 3.3.4
 >>> exit()
@@ -103,7 +110,7 @@ SPARK_HOME=C:\opt\spark-3.5.1-bin-hadoop3-scala2.13
 <pre style="font-size:80%;">
 <b>&gt; %HADOOP_HOME%\bin\run-example org.apache.spark.examples.SparkPi</b>
 Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
-22/01/06 15:23:47 INFO SparkContext: Running Spark version 3.5.1
+22/01/06 15:23:47 INFO SparkContext: Running Spark version 3.5.4
 22/01/06 15:23:47 INFO ResourceUtils: ==============================================================
 22/01/06 15:23:47 INFO ResourceUtils: No custom resources configured for spark.driver.
 22/01/06 15:23:47 INFO ResourceUtils: ==============================================================
@@ -129,7 +136,7 @@ Pi is roughly 3.1410957054785276
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->

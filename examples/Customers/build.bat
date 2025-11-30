@@ -27,7 +27,7 @@ if %_CLEAN%==1 (
     if not !_EXITCODE!==0 goto end
 )
 if %_COMPILE%==1 (
-    call :compile
+    call :compile_%_LANG%
     if not !_EXITCODE!==0 goto end
 )
 if %_RUN%==1 (
@@ -60,6 +60,7 @@ if not exist "%JAVA_HOME%\bin\java.exe" (
 )
 set "_JAR_CMD=%JAVA_HOME%\bin\jar.exe"
 set "_JAVA_CMD=%JAVA_HOME%\bin\java.exe"
+set "_JAVAC_CMD=%JAVA_HOME%\bin\javac.exe"
 
 if not exist "%SCALA_HOME%\bin\scalac.bat" (
     echo %_ERROR_LABEL% Scala 2 installation directory not found 1>&2
@@ -136,6 +137,7 @@ goto :eof
 set _CLEAN=0
 set _COMPILE=0
 set _HELP=0
+set _LANG=scala
 set _RUN=0
 set _TIMER=0
 set _VERBOSE=0
@@ -150,6 +152,8 @@ if "%__ARG:~0,1%"=="-" (
     @rem option
     if "%__ARG%"=="-debug" ( set _DEBUG=1
     ) else if "%__ARG%"=="-help" ( set _HELP=1
+    ) else if "%__ARG%"=="-java" ( set _LANG=java
+    ) else if "%__ARG%"=="-scala" ( set _LANG=scala
     ) else if "%__ARG%"=="-timer" ( set _TIMER=1
     ) else if "%__ARG%"=="-verbose" ( set _VERBOSE=1
     ) else (
@@ -187,7 +191,7 @@ set _CLASS_NAME=%_APP_NAME%
 set _SPARK_NAME=Customers
 
 if %_DEBUG%==1 (
-    echo %_DEBUG_LABEL% Options    : _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
+    echo %_DEBUG_LABEL% Options    : _LANG=%_LANG% _TIMER=%_TIMER% _VERBOSE=%_VERBOSE% 1>&2
     echo %_DEBUG_LABEL% Subcommands: _CLEAN=%_CLEAN% _COMPILE=%_COMPILE% _HELP=%_HELP% _RUN=%_RUN% 1>&2
     echo %_DEBUG_LABEL% Variables  : "_ASSEMBLY_FILE=%_ASSEMBLY_FILE%" 1>&2
     echo %_DEBUG_LABEL% Variables  : "HADOOP_HOME=%HADOOP_HOME%" 1>&2
@@ -243,7 +247,44 @@ if not %ERRORLEVEL%==0 (
 )
 goto :eof
 
-:compile
+:compile_java
+if not exist "%_CLASSES_DIR%" mkdir "%_CLASSES_DIR%"
+
+call :action_required "%_ASSEMBLY_FILE%" "%_SOURCE_DIR%\main\java\*.java"
+if %_ACTION_REQUIRED%==0 goto :eof
+
+set __SOURCE_FILES=
+set __N=0
+for /f "delims=" %%f in ('dir /b /s "%_SOURCE_DIR%\main\java\*.java" 2^>NUL') do (
+    set __SOURCE_FILES=!__SOURCE_FILES! "%%f"
+    set /a __N+=1
+)
+if %__N%==0 (
+    echo %_WARNING_LABEL% No Java source file found 1>&2
+    goto :eof
+) else if %__N%==1 ( set __N_FILES=%__N% Java source file
+) else ( set __N_FILES=%__N% Java source files
+)
+call :libs_cpath
+if not %_EXITCODE%==0 goto :eof
+
+set "__CPATH=%_LIBS_CPATH%%_CLASSES_DIR%"
+set __JAVAC_OPTS=-cp "%__CPATH%" -d "%_CLASSES_DIR%"
+
+if %_DEBUG%==1 ( echo %_DEBUG_LABEL% "%_JAVAC_CMD%" %__JAVAC_OPTS% %__SOURCE_FILES% 1>&2
+) else if %_VERBOSE%==1 ( echo Compile %__N_FILES% into directory "!_CLASSES_DIR:%_ROOT_DIR%=!" 1>&2
+)
+call "%_JAVAC_CMD%" %__JAVAC_OPTS% %__SOURCE_FILES%
+if not %ERRORLEVEL%==0 (
+    echo %_ERROR_LABEL% Failed to compile %__N_FILES% into directory "%_CLASSES_DIR%" 1>&2
+    set _EXITCODE=1
+    goto :eof
+)
+call :create_jar
+if not %_EXITCODE%==0 goto :eof
+goto :eof
+
+:compile_scala
 if not exist "%_CLASSES_DIR%" mkdir "%_CLASSES_DIR%"
 
 call :action_required "%_ASSEMBLY_FILE%" "%_SOURCE_DIR%\main\scala\*.scala"
@@ -309,7 +350,7 @@ call :libs_cpath
 if not %_EXITCODE%==0 goto :eof
 
 set "__CPATH=%_LIBS_CPATH%"
-set __SCALA_JAR_FILE=
+set "__SCALA_JAR_FILE="
 :loop_cpath
 for /f "delims=; tokens=1,*" %%f in ("%__CPATH%") do (
     set "__JAR_FILE=%%f"

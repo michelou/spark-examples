@@ -41,10 +41,10 @@ Command [`build.bat run`](./Customers/build.bat) performs several tasks :
 <b>&gt; <a href="./Customers/build.bat">build</a> -verbose clean run</b>
 Compile 1 Scala source file into directory "target\classes"
 Create assembly file "target\Customers-assembly-0.1.0.jar"
-Extract class files from "C:\Users\michelou\.m2\repository\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar"
+Extract class files from "C:\Users\michelou\.m2\repository\org\scala-lang\scala-library\2.13.18\scala-library-2.13.18.jar"
 Update assembly file "target\Customers-assembly-0.1.0.jar"
 Execute Spark application "Customers"
-24/04/12 20:41:53 INFO SparkContext: Running Spark version 3.5.1
+24/04/12 20:41:53 INFO SparkContext: Running Spark version 3.5.7
 [...]
 24/04/12 20:42:02 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
 24/04/12 20:42:02 INFO FileScanRDD: Reading File path: file:///K:/examples/Customers/customers.json, range: 0-457, partition values: [empty row]
@@ -94,10 +94,10 @@ Command [`build.bat run`](./HelloWorld/build.bat) performs several tasks :
 Delete directory "target"
 Compile 1 Scala source file into directory "target\classes"
 Create assembly file "target\HelloWorld-assembly-0.1.0.jar"
-Extract class files from "%USERPROFILE%\.m2\repository\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar"
+Extract class files from "%USERPROFILE%\.m2\repository\org\scala-lang\scala-library\2.13.18\scala-library-2.13.18.jar"
 Update assembly file "target\HelloWorld-assembly-0.1.0.jar"
 Execute Spark application "Hello World"
-24/04/12 20:38:50 INFO SparkContext: Running Spark version 3.5.1
+24/04/12 20:38:50 INFO SparkContext: Running Spark version 3.5.7
 [...]
 22/05/27 17:20:07 INFO Utils: Successfully started service 'SparkUI' on port 4040.
 22/05/27 17:20:07 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http://192.168.0.100:4040
@@ -121,7 +121,7 @@ n=10
 
 ***
 
-*[mics](https://lampwww.epfl.ch/~michelou/)/January 2025* [**&#9650;**](#top)
+*[mics](https://lampwww.epfl.ch/~michelou/)/December 2025* [**&#9650;**](#top)
 <span id="bottom">&nbsp;</span>
 
 <!-- link refs -->
